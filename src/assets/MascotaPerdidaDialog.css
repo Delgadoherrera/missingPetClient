@@ -1,0 +1,13 @@
+.fotoMascotaDialog {
+    width: 50% !important;
+    height: 50% !important;
+
+}
+
+.p-dialog-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between !important;
+    margin: auto !important;
+    width: 100%;  
+}
