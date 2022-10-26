@@ -39,41 +39,30 @@ export default function ReactFinalFormDemo() {
         { label: 'Ave', value: 'Ave' },
         { label: 'Otro', value: 'Otro' },
     ];
-const pesoAproximado=[
-    { label: '1kg a 51kg ', value: '1kg,5kg' },
-    { label: '5kg a 10kg ', value: '5kg,10kg' },
-    { label: '10kg a 15kg ', value: '10kg,15kg' },
-    { label: '15kg a 20kg ', value: '15kg,20kg' },
-    { label: '20kg a 25kg ', value: '20kg,25kg' },
-    { label: '25kg a 30kg ', value: '25kg,30kg' },
-    { label: '30kg a 40kg ', value: '30kg,40kg' },
-    { label: '40kg a 50kg ', value: '40kg,50kg' },
-    { label: '50kg a 60kg ', value: '50kg,60kg' },
-    { label: '60kg a 70kg ', value: '60kg,70kg' },
-]
-
-
-
-
-    const allData = () => {
-        let newData = {
-            ...formData,
-            id: localStorage.id,
-        }
-        setFormData(newData)
-    }
-
-
-
+    const pesoAproximado = [
+        { label: '1kg a 5kg ', value: '1kg/5kg' },
+        { label: '5kg a 10kg ', value: '5kg/10kg' },
+        { label: '10kg a 15kg ', value: '10kg/15kg' },
+        { label: '15kg a 20kg ', value: '15kg/20kg' },
+        { label: '20kg a 25kg ', value: '20kg/25kg' },
+        { label: '25kg a 30kg ', value: '25kg/30kg' },
+        { label: '30kg a 40kg ', value: '30kg/40kg' },
+        { label: '40kg a 50kg ', value: '40kg/50kg' },
+        { label: '50kg a 60kg ', value: '50kg/60kg' },
+        { label: '60kg a 70kg ', value: '60kg/70kg' },
+    ]
     const sendData = async () => {
         const finalData = new FormData();
         finalData.append('file', file)
-        finalData.append('formData', formData)
+        finalData.append('formDatas', formData)
 
 
-        await axios.post("http://localhost:3001/mascota/register", finalData, {
+
+        await axios.post("http://localhost:3001/mascota/register", finalData,
+        {
             headers: formData
-        }).then((response) => {
+        }
+        ).then((response) => {
             console.log('response Api:', response)
             if (response.status === 200) {
                 console.log('exitoso!')
@@ -136,7 +125,7 @@ const pesoAproximado=[
         <div className="form-demo">
             <div className="flex justify-content-center">
                 <div className="card">
-                    <h5 className="text-center">Registrar mascota</h5>
+    {/*                 <h5 className="text-center">Registrar mascota</h5> */}
                     <Form onSubmit={onSubmit} initialValues={{ nombre: '', colorPrimario: '', colorSecundario: '', descripcionMascota: '', tipoMascota: null, }} validate={validate} render={({ handleSubmit }) => (
                         <form onSubmit={handleSubmit} className="p-fluid">
 
@@ -157,7 +146,7 @@ const pesoAproximado=[
                                     </span>
                                 </div>
                             )} />
-                                   <Field name="pesoAproximado" render={({ input }) => (
+                            <Field name="pesoAproximado" render={({ input }) => (
                                 <div className="field">
                                     <span className="p-float-label">
                                         <Dropdown id="pesoAproximado" {...input} options={pesoAproximado} optionLabel="label" />

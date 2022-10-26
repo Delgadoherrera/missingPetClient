@@ -40,36 +40,45 @@ export default function MascotasPerdidas() {
     }, []);
 
 
-        const dataTemplate = (data) => {
-            return (
+    const dataTemplate = (data) => {
+        return (
 
-                <div className="data-item">
-                    <div className="data-item-content">
-                        <div className="mb-3">
-                            <img src={`${data.fotoMascota}`} onError={(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt={data.name} className="data-image" />
+            <div className="data-item">
+                <div className="data-item-content">
+                    <div className="mb-3">
+                        <img src={`${data.fotoMascota}`} onError={(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt={data.name} className="data-image" />
+                    </div>
+                    <div>
+                        <h4 className="mb-1">{data.nombre}</h4>
+                        <h6 className="mt-0 mb-3">{data.descripcion}</h6>
+
+                        <div>
+                            <span className={`data-badge status-${data.inventoryStatus}`}>Color primario: {data.colorPrimario}</span>
                         </div>
                         <div>
-                            <h4 className="mb-1">{data.nombre}</h4>
-                            <h6 className="mt-0 mb-3">{data.descripcion}</h6>
-                            {/*        <span className={`data-badge status-${data.inventoryStatus}`}>{data.inventoryStatus}</span> */}
-                            <div className="car-buttons mt-5">
-                                <Button icon="pi pi-search" className="p-button p-button-rounded mr-2" />
-                                <Button icon="pi pi-star-fill" className="p-button-success p-button-rounded mr-2" />
-                                <Button icon="pi pi-cog" className="p-button-help p-button-rounded" />
-                            </div>
+                            <span className={`data-badge status-${data.inventoryStatus}`}>Color secundario: {data.colorSecundario}</span>
+                        </div>
+                        <div>
+                            <span className={`data-badge status-${data.inventoryStatus}`}>Peso aproximado: {data.pesoAproximado}</span>
+                        </div>
+                        <div className="car-buttons mt-5">
+                            <Button /* icon="pi pi-search"  */className="p-button p-button-rounded mr-2" label={`Encontre a ${data.nombre}`} />
+                       {/*      <Button icon="pi pi-star-fill" className="p-button-success p-button-rounded mr-2" />
+                            <Button icon="pi pi-cog" className="p-button-help p-button-rounded" /> */}
                         </div>
                     </div>
-                </div>
-            );
-        }
-
-        return (
-            <div className="carousel-demo">
-                <div className="card">
-                    <h3> Se ha perdido en tu zona, si la ves, avisanos!</h3>
-                    <Carousel value={mascotas} numVisible={3} numScroll={1} responsiveOptions={responsiveOptions} className="custom-carousel" circular
-                        autoplayInterval={3500} itemTemplate={dataTemplate} header={<h5></h5>} />
                 </div>
             </div>
         );
     }
+
+    return (
+        <div className="carousel-demo">
+            <div className="card">
+                {/* <p className='tituloMascotasPerdidas'> Mascotas perdidas en tu zona</p> */}
+                <Carousel value={mascotas} numVisible={3} numScroll={1} responsiveOptions={responsiveOptions} className="custom-carousel" circular
+                    autoplayInterval={3500} itemTemplate={dataTemplate} header={<h5></h5>} />
+            </div>
+        </div>
+    );
+}

@@ -1,14 +1,21 @@
 .css-hip9hq-MuiPaper-root-MuiAppBar-root {
-    background-color: rgba(44, 41, 41, 0.105) !important;
+    background-color: rgba(0, 0, 0, 0.829) !important;
     margin-left: 0px !important;
     width: 100vw;
+    /*     position: fixed !important; */
+/*     top: 0% !important; */
+  /*   margin-bottom: 10% !important; */
+
 }
+
 .css-i4bv87-MuiSvgIcon-root {
     color: black;
 }
+
 .css-1q39md6-MuiButtonBase-root-MuiButton-root {
     color: black !important;
 }
+
 .css-1t6c9ts {
 
     display: flex;
@@ -16,13 +23,16 @@
     justify-content: left;
     left: 40px;
 }
-.css-1uwgr7b-MuiTypography-root{
-    font-size: 0.8rem !important; 
+
+.css-1uwgr7b-MuiTypography-root {
+    font-size: 0.8rem !important;
 }
-.css-6hp17o-MuiList-root-MuiMenu-list{
-    background-color: rgba(233, 203, 203, 0.199) !important;
+
+.css-6hp17o-MuiList-root-MuiMenu-list {
+    background-color: rgba(36, 3, 3, 0.199) !important;
 
 }
-.tituloNavBar{
-color: black !important;
+
+.tituloNavBar {
+    color: black !important;
 }

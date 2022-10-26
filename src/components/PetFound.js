@@ -62,16 +62,16 @@ export default function ReactFinalFormDemo() {
         { label: 'Otro', value: 'Otro' },
     ];
     const pesoAproximado = [
-        { label: '1kg a 51kg ', value: '1kg,5kg' },
-        { label: '5kg a 10kg ', value: '5kg,10kg' },
-        { label: '10kg a 15kg ', value: '10kg,15kg' },
-        { label: '15kg a 20kg ', value: '15kg,20kg' },
-        { label: '20kg a 25kg ', value: '20kg,25kg' },
-        { label: '25kg a 30kg ', value: '25kg,30kg' },
-        { label: '30kg a 40kg ', value: '30kg,40kg' },
-        { label: '40kg a 50kg ', value: '40kg,50kg' },
-        { label: '50kg a 60kg ', value: '50kg,60kg' },
-        { label: '60kg a 70kg ', value: '60kg,70kg' },
+        { label: '1kg a 5kg ', value: '1kg/5kg' },
+        { label: '5kg a 10kg ', value: '5kg/10kg' },
+        { label: '10kg a 15kg ', value: '10kg/15kg' },
+        { label: '15kg a 20kg ', value: '15kg/20kg' },
+        { label: '20kg a 25kg ', value: '20kg/25kg' },
+        { label: '25kg a 30kg ', value: '25kg/30kg' },
+        { label: '30kg a 40kg ', value: '30kg/40kg' },
+        { label: '40kg a 50kg ', value: '40kg/50kg' },
+        { label: '50kg a 60kg ', value: '50kg/60kg' },
+        { label: '60kg a 70kg ', value: '60kg/70kg' },
     ]
 
 console.log('geolocation mascotas cercanas',state)
@@ -164,7 +164,7 @@ console.log('geolocation mascotas cercanas',state)
         <div className="form-demo">
             <div className="flex justify-content-center">
                 <div className="card">
-                    <h5 className="text-center">Encontre una mascota</h5>
+                    {/* <h5 className="text-center">Encontre una mascota</h5> */}
                     <Form onSubmit={onSubmit} initialValues={{ nombre: '', colorPrimario: '', colorSecundario: '', pesoAproximado: '', descripcionMascota: '', tipoMascota: null, }} validate={validate} render={({ handleSubmit }) => (
                         <form onSubmit={handleSubmit} className="p-fluid">
                             {/* 

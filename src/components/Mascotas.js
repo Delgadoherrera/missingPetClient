@@ -8,7 +8,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { DataView, DataViewLayoutOptions } from 'primereact/dataview';
 import { MascotasService } from '../services/MascotasService';
 import MascotaPerdida from '../views/MascotaPerdidaDialog'
-
+import MascotaEncontrada from '../views/MascotaEcontradaDialog'
 
 
 export default function DataViewLazyDemo() {
@@ -45,7 +45,7 @@ export default function DataViewLazyDemo() {
         );
     }, []);
 
-    
+
     useEffect(() => {
         if (isMounted.current) {
             setTimeout(() => {
@@ -89,22 +89,24 @@ export default function DataViewLazyDemo() {
             <div className="col-12">
 
                 <div className="product-list-item">
-                    <img src={data.fotoMascota} onError={(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt={data.name} />
+                    <img className='imgMisMascotas' src={data.fotoMascota} onError={(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt={data.name} />
                     <div className="product-list-detail">
                         <div className="product-name">{data.nombre}</div>
                         <div className="product-description">{data.descripcion}</div>
+                        <div className='detalleMascota'>
 
-                        {/*                         <i className="pi pi-tag product-category-icon"></i><span className="product-category">{data.colorPrimario}</span>
- */}                    </div>
+                            <span className="product-category">Color principal: {data.colorPrimario}</span>
+                            <span className="product-category">Color principal: {data.colorSecundario}</span>
+                            <span className="product-category">Peso aproximado: {data.pesoAproximado}</span>
+                        </div>
+
+                    </div>
                     <div className="product-list-action">
                         {/*          <span className="product-price">{data.status}</span> */}
                         {/*  */}
                         {/*        <MapView state={state} /> */}
                         <MascotaPerdida state={state} idMascotaPerdida={data} />
-
-
-
-                        {/*  <span className={`product-badge status-${data.nombre}`}>{data.inventoryStatus}</span> */}
+                        <MascotaEncontrada state={state} idMascotaPerdida={data} />
                     </div>
                 </div>
             </div>
@@ -142,7 +144,7 @@ export default function DataViewLazyDemo() {
             <div className="card">
                 <DataView value={products} layout={layout} header={header}
                     itemTemplate={itemTemplate} /* lazy paginator */ rows={rows.current}
-                    totalRecords={totalRecords} first={first} onPage={onPage}  />
+                    totalRecords={totalRecords} first={first} onPage={onPage} />
             </div>
         </div>
     );
