@@ -5,11 +5,16 @@ import React, { Component } from 'react';
 import { Carousel } from 'primereact/carousel';
 import { Button } from 'primereact/button';
 import '../assets/MascotasPerdidas.css';
+import ContactoMascotaEncontrada from './ContactoMascotaEncontrada'
+
+
 export default function MascotasPerdidas() {
     const [mascotas, setMascotas] = useState([])
-
+    const [dialogFounded, setDialogFounded] = useState(false)
     const missingPets = new MascotasService();
     const areaMissingPets = new MascotasService();
+    const [mascotaperdida, setMascotaPerdida] = useState({})
+    const [petDetail, setpetFoundDetail] = useState({})
 
     const responsiveOptions = [
         {
@@ -29,15 +34,28 @@ export default function MascotasPerdidas() {
         }
     ];
 
+    const contactPetFounded = () => {
+        setDialogFounded(!dialogFounded)
+    }
+
 
     useEffect(() => {
         missingPets.getAllMissingPets().then(data => {
-            console.log('la data', data)
+
             setMascotas(data)
         });
 
 
-    }, []);
+    }, [petDetail]);
+
+    const petFounded = (e) => {
+        console.log('la mascota se encontro', e)
+        setDialogFounded(true)
+        setpetFoundDetail(e)
+        console.log(e)
+    }
+
+
 
 
     const dataTemplate = (data) => {
@@ -62,9 +80,10 @@ export default function MascotasPerdidas() {
                             <span className={`data-badge status-${data.inventoryStatus}`}>Peso aproximado: {data.pesoAproximado}</span>
                         </div>
                         <div className="car-buttons mt-5">
-                            <Button /* icon="pi pi-search"  */className="p-button p-button-rounded mr-2" label={`Encontre a ${data.nombre}`} />
-                       {/*      <Button icon="pi pi-star-fill" className="p-button-success p-button-rounded mr-2" />
-                            <Button icon="pi pi-cog" className="p-button-help p-button-rounded" /> */}
+
+                            {data.status === 3 ? <Button onClick={() => petFounded(data)} className="p-button p-button-rounded mr-2 buttonMyPet" label='Es mi mascota' /> :  <Button onClick={(e) => petFounded(e)} className="p-button p-button-rounded mr-2 buttonMyPet" label={`Encontre a la loca de ${data.nombre}`} />}
+                            {dialogFounded === true ? <ContactoMascotaEncontrada setDialog={contactPetFounded} idMascotaPerdida={petDetail} /> : <p></p>}
+
                         </div>
                     </div>
                 </div>

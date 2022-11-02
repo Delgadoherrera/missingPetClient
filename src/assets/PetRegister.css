@@ -39,7 +39,7 @@
     opacity: 0%;
     width: 10%;
     margin-bottom: 1% !important;
-    background-color: red !important;
+   /*  background-color: red !important; */
 }
 
 
@@ -53,4 +53,7 @@
     margin-top: 0px !important;
     color: rgb(133, 117, 117);
     margin-left: 2% !important;
+}
+.newPetButton{
+    margin-bottom: 100px !important;
 }

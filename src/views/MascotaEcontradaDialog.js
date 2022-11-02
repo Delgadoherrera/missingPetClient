@@ -3,17 +3,14 @@ import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import 'primereact/resources/primereact.css';
 import 'primeflex/primeflex.css';
 import '../assets/MePerdiButton.css'
-import '../assets/MascotaPerdidaDialog.css'
-import Index from '../components/Map'
+import '../assets/MascotaEncontradaDialog.css'
 import React, { useState } from 'react';
 import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
 import axios from 'axios';
-import IconButton from '@mui/material/IconButton';
-import Avatar from '@mui/material/Avatar';
 import { BottomNavigation } from '@mui/material';
 
-export default function MascotaPerdida({ idMascotaPerdida, state }) {
+export default function MascotaPerdida({ idMascotaPerdida, state, update }) {
     const [displayBasic, setDisplayBasic] = useState(false);
     const [displayBasic2, setDisplayBasic2] = useState(false);
     const [displayModal, setDisplayModal] = useState(false);
@@ -48,7 +45,7 @@ export default function MascotaPerdida({ idMascotaPerdida, state }) {
     const enviarCoordenadas = (name, e) => {  
         let id = e.currentTarget.value
         axios.post(`http://localhost:3001/mascotas/mascotaEncontrada/${id}`, state).then((response) => {
-            console.log('response Api:', response)
+           update()
         });
         dialogFuncMap[`${name}`](false); 
     }
@@ -59,7 +56,7 @@ export default function MascotaPerdida({ idMascotaPerdida, state }) {
             <div>
                 <BottomNavigation datos='data'/>
                 <Button label="Cancelar" /* icon="pi pi-times" */ onClick={() => onHide(name)} className="p-button-text" />
-                <Button value={idMascotaPerdida.idMascota} label={`Encontré a ${idMascotaPerdida.nombre}`} /* icon="pi pi-check" */ onClick={(e) => enviarCoordenadas(name, e)} autoFocus />
+                <Button value={idMascotaPerdida.idMascota} label="Mascota encontrada" /* icon="pi pi-check" */ onClick={(e) => enviarCoordenadas(name, e)} autoFocus />
             </div>
         );
     }
@@ -72,7 +69,7 @@ export default function MascotaPerdida({ idMascotaPerdida, state }) {
                 <div className="grid flex-column">
                     <div className="col">
                         
-                        {idMascotaPerdida.status === 1 ? <Button label={`Encontré a ${idMascotaPerdida.nombre}`} /* icon="pi pi-arrow-down" */ onClick={() => onClick('displayPosition', 'top')} className="p-button-warning" /> : <p></p>}
+                        {idMascotaPerdida.status === 1 ? <Button label={`Encontré a ${idMascotaPerdida.nombre}`} /* icon="pi pi-arrow-down" */ onClick={() => onClick('displayPosition', 'top')} className="p-button-warning mascotaEncontrada" /> : <p></p>}
                     </div>
                 </div>
                 <Dialog className='dialogMascotasPerdidas' header={

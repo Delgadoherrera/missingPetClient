@@ -5,16 +5,14 @@ import 'primeflex/primeflex.css';
 import axios from 'axios'
 import { useEffect, useState } from 'react';
 import { Form, Field } from 'react-final-form';
-import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { Dropdown } from 'primereact/dropdown';
-import { Dialog } from 'primereact/dialog';
-import { Divider } from 'primereact/divider';
-import { classNames } from 'primereact/utils';
 import { InputTextarea } from 'primereact/inputtextarea';
 import '../assets/PetRegister.css';
 import AddAPhoto from '@mui/icons-material/AddAPhoto';
 import { BottomNavigation } from '@mui/material';
+import Map from '../components/WrapperMapFindPet'
+import '../assets/PetFound.css'
 
 export default function ReactFinalFormDemo() {
 
@@ -45,6 +43,21 @@ export default function ReactFinalFormDemo() {
         );
     }, []);
 
+    /*     useEffect(() => {
+            if (map) {
+                ["click", "idle"].forEach((eventName) =>
+                    google.maps.event.clearListeners(map, eventName)
+                );
+                if (onClick) {
+                    map.addListener("click", onClick);
+                }
+    
+                if (onIdle) {
+                    map.addListener("idle", () => onIdle(map));
+                }
+            }
+        }, [map, onClick, onIdle]); */
+
     const petColor = [
         { label: 'Negro', value: 'Negro' },
         { label: 'Blanco', value: 'Blanco' },
@@ -74,7 +87,7 @@ export default function ReactFinalFormDemo() {
         { label: '60kg a 70kg ', value: '60kg/70kg' },
     ]
 
-console.log('geolocation mascotas cercanas',state)
+    console.log('geolocation mascotas cercanas', state)
 
 
 
@@ -84,25 +97,26 @@ console.log('geolocation mascotas cercanas',state)
             id: localStorage.id,
         }
         setFormData(newData)
+
     }
 
 
 
     const sendData = async () => {
-        const finalData = new FormData();
-        finalData.append('file', file)
-
-        let newData = {
+        const newData = {
             ...formData,
             id: localStorage.id,
-            file: file,
             lat: state.latitude,
             lng: state.longitude
-        } 
+        }
+        const finalData = new FormData();
+        finalData.append('file', file)
+        finalData.append('formDatas', JSON.stringify(newData))
+
+
         await axios.post("http://localhost:3001/mascotas/nuevaMascotaPerdida", finalData, {
-            headers: newData 
         }).then((response) => {
-            console.log('response Api:', response)
+
             if (response.status === 200) {
                 console.log('exitoso!')
                 setUploaded(true)
@@ -120,6 +134,9 @@ console.log('geolocation mascotas cercanas',state)
         if (!data.descripcionMascota) {
             errors.descripcionMascota = 'Name is required.';
         }
+        else if (!data.descripcionMascota) {
+            errors.descripcionMascota = 'Name is required.';
+        }
 
         return errors;
     };
@@ -135,7 +152,7 @@ console.log('geolocation mascotas cercanas',state)
 
         setDataReady(true)
 
-        /*    form.restart(); */
+        /*  form.restart(); */
     };
     const handleFile = (e) => {
         console.log(e.target.files[0])
@@ -152,7 +169,10 @@ console.log('geolocation mascotas cercanas',state)
 
     }, [formData]);
 
+    const locationUpdate = (e) => {
+        console.log(e)
 
+    }
 
     const isFormFieldValid = (meta) => !!(meta.touched && meta.error);
     const getFormErrorMessage = (meta) => {
@@ -164,19 +184,10 @@ console.log('geolocation mascotas cercanas',state)
         <div className="form-demo">
             <div className="flex justify-content-center">
                 <div className="card">
+
                     {/* <h5 className="text-center">Encontre una mascota</h5> */}
                     <Form onSubmit={onSubmit} initialValues={{ nombre: '', colorPrimario: '', colorSecundario: '', pesoAproximado: '', descripcionMascota: '', tipoMascota: null, }} validate={validate} render={({ handleSubmit }) => (
                         <form onSubmit={handleSubmit} className="p-fluid">
-                            {/* 
-                            <Field name="nombre" render={({ input, meta }) => (
-                                <div className="field">
-                                    <span className="p-float-label">
-                                        <InputText id="nombre" {...input} autoFocus className={classNames({ 'p-invalid': isFormFieldValid(meta) })} />
-                                        <label htmlFor="nombre" className={classNames({ 'p-error': isFormFieldValid(meta) })}>Nombre</label>
-                                    </span>
-                                    {getFormErrorMessage(meta)}
-                                </div>
-                            )} /> */}
                             <Field name="tipoMascota" render={({ input }) => (
                                 <div className="field">
                                     <span className="p-float-label">
@@ -214,31 +225,45 @@ console.log('geolocation mascotas cercanas',state)
                                 <div className="field">
                                     <span className="p-float-label">
                                         <InputTextarea id="descripcionMascota" {...input} />
-                                        <label htmlFor="descripcionMascota">Descripcion de tu mascota</label>
+                                        <label htmlFor="descripcionMascota">Descripcion de la mascota encontrada</label>
                                     </span>
                                 </div>
                             )} />
+                            <p className='adTextPetFound'>
+                                Sube una foto de la mascota encontrada:
+                            </p>
+
 
                             <Field name="fotoMascota" render={({ input }) => (
                                 <div className="field">
-
-                                    <input onChange={handleFile} type='file' id="fotoMascota" name='file'></input>
+                                    <input required onChange={handleFile} type='file' id="fotoMascota" name='file'></input>
                                     <label className='circle' htmlFor="fotoMascota" name='file' >
                                         <AddAPhoto className='iconPhotoUpload' />
                                     </label>
 
-                                    <p className='newPetText'>  Agrega una foto de tu mascota</p>
+                                    {/*   <p className='newPetText'>  Agrega una foto de tu mascota</p> */}
 
                                 </div>
                             )} />
 
+                            <p className='tittleMap'> Indica donde encontraste la mascota</p>
 
 
-                            <Button type="submit" label="Submit" className="mt-2" /* onClick={onSubmit} */ />
+                            <Map newLocation={locationUpdate} />
+
+
+                            <Button type="submit" label="Cargar mascota encontrada" className="mt-2 submitFoundPet" />
                         </form>
+
                     )} />
+
+
+
+
                 </div>
+
             </div>
+
         </div>
     );
 }

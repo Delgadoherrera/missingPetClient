@@ -9,16 +9,13 @@
 .carousel-demo .product-item .product-image {
     /*    width: 50%; */
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
 }
 
 
 .data-image {
-    min-width: 38vw !important;
-    max-width: 40vw !important;
     border-radius: 10%;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-
-
 }
 
 .div-carrousel-demo {
@@ -26,7 +23,9 @@
 }
 
 .p-carousel-container {
-    padding: 2% !important;
+    padding: 1% !important;
+    height: 70vh !important;
+
 }
 
 .card {
@@ -42,12 +41,33 @@
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
-.p-button{
+.buttonMyPet {
     background-color: transparent !important;
     color: rgba(0, 0, 0, 0.685) !important;
     border-color: rgba(0, 0, 0, 0.514) !important;
+    bottom: 10px !important;
+    margin-bottom: 0% !important;
+    margin: auto !important;
+
 }
-.tituloMascotasPerdidas{
+
+.tituloMascotasPerdidas {
     font-size: 1.5rem;
-    
+
+}
+
+.data-image {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+
+}
+
+.data-badge {
+    font-size: 0.8rem !important;
+    margin-bottom: 0 !important;
+}
+
+.mb-3 {
+/*     color: red !important; */
 }

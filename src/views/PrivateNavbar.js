@@ -11,11 +11,8 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import UserLogin from '../components/UserLogin'
-import UserRegister from '../components/UserRegister'
-import BottomNavigation from './BottomNavigation'
 
+import { AuthContext, useAuthContext } from '../contexts/authContext'
 
 
 const pages = ['Mis mascotas', 'Perdi a mi mascota', 'Encontre una mascota', 'Demo'];
@@ -24,6 +21,9 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const [optSelected, setOptSelected] = React.useState(null);
+
+    const { logout } = useAuthContext();
 
 
     const handleOpenNavMenu = (event) => {
@@ -38,14 +38,16 @@ function ResponsiveAppBar() {
         setAnchorElNav(null);
     };
 
-    const handleCloseUserMenu = () => {
+    const handleCloseUserMenu = (e) => {
+        if (e.currentTarget.ariaLabel == "Logout") {
+            return logout()
+        }
         setAnchorElUser(null);
-
     };
 
     return (
         <div>
-            <AppBar position="static"  className='appBarTop'>
+            <AppBar position="static" className='appBarTop'>
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
                         {/*                     <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
@@ -159,8 +161,8 @@ function ResponsiveAppBar() {
                                 onClose={handleCloseUserMenu}
                             >
                                 {settings.map((setting) => (
-                                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                        <Typography textAlign="center">{setting}</Typography>
+                                    <MenuItem aria-label={setting} onClick={(e) => handleCloseUserMenu(e)}>
+                                        <Typography textAlign="center">{setting} </Typography>
                                     </MenuItem>
                                 ))}
                             </Menu>

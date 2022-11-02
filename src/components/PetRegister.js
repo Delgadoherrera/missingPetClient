@@ -54,13 +54,13 @@ export default function ReactFinalFormDemo() {
     const sendData = async () => {
         const finalData = new FormData();
         finalData.append('file', file)
-        finalData.append('formDatas', formData)
+        finalData.append('formDatas', JSON.stringify(formData))
 
 
 
         await axios.post("http://localhost:3001/mascota/register", finalData,
         {
-            headers: formData
+         /*    headers: formData */
         }
         ).then((response) => {
             console.log('response Api:', response)
@@ -95,8 +95,8 @@ export default function ReactFinalFormDemo() {
         setFormData(newData);
 
         setDataReady(true)
-
-        /*    form.restart(); */
+/* 
+           form.restart();  */
     };
     const handleFile = (e) => {
         console.log(e.target.files[0])
@@ -195,7 +195,7 @@ export default function ReactFinalFormDemo() {
 
 
 
-                            <Button type="submit" label="Submit" className="mt-2" /* onClick={onSubmit} */ />
+                            <Button type="submit" label="Submit" className="mt-2 newPetButton" /* onClick={onSubmit} */ />
                         </form>
                     )} />
                 </div>

@@ -32,7 +32,89 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
+
+
+/*/ By Me */
+
+
+.mt-2 {
+  background-color: white !important;
+  color: #495057 !important;
+  margin-top: 8% !important;
+  border-color: rgba(0, 0, 0, 0.344) !important;
+  border-width: 1px !important;
+  border: 1px solid #ced4da !important;
+}
+
+/* .fatherPrivateDiv{
+  background-image: url('./assets/img/mosaico.jpg') !important;
+  width: 1px;
+  object-fit: contain;
+  background-repeat:repeat !important;
+  
+
+  background-position: center;
+  object-fit: contain;
+  background-size: 50px !important;
+} */
+
+
+
+.card {
+  background-color: transparent !important;
+  border-radius: 10px;
+
+}
+
+.p-float-label {
+
+  background-color: transparent;
+}
+
+.p-inputwrapper {
+  background-color: transparent !important;
+}
+
+/* .p-component {
+  background-color: transparent !important;
+
+} */
+
+.product-list-item {
+  background-color: transparent;
+}
+
+.tituloMisMascotas {
+  color: rgb(7, 6, 6);
+  padding: 10px !important;
+  background-color: #f7fffb !important;
+  border-radius: 5px;
+}
+
+body {
+  background-color: #cad4cf27 !important;
+}
+
+.css-1q39md6-MuiButtonBase-root-MuiButton-root {
+  /*   background-color: red !important; */
+  color: white !important;
+}
+
+body{
+  background-color: white !important;
+}
+
+.tituloMisMascotas {
+  margin-top: 3%;
+  font-size: 1.5rem;
+  text-align: center;
+  /*     font-style:oblique; */
+  padding: 5% !important;
+  background-color: rgba(145, 138, 138, 0.178) !important;
+  
+} 

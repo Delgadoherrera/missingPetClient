@@ -6,6 +6,7 @@ import PrivateRoute from './components/router/PrivateRoute'
 import Private from './views/Private'
 import Home from './views/Home'
 import Logout from './components/Logout'
+import './App.css'
 
 
 

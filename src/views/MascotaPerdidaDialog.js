@@ -4,16 +4,18 @@ import 'primereact/resources/primereact.css';
 import 'primeflex/primeflex.css';
 import '../assets/MePerdiButton.css'
 import '../assets/MascotaPerdidaDialog.css'
-import Index from '../components/Map'
-import React, { useState } from 'react';
+import Index from '../components/WrapperMap'
+import MapComponent from '../components/MapComponent'
+import React, { useState, useEffect } from 'react';
 import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
 import axios from 'axios';
-import IconButton from '@mui/material/IconButton';
-import Avatar from '@mui/material/Avatar';
-import '../assets/MascotaEncontradaDialog.css'
 
-export default function MascotaPerdida({ idMascotaPerdida, state }) {
+
+
+
+
+export default function MascotaPerdida({ idMascotaPerdida, state, update }) {
     const [displayBasic, setDisplayBasic] = useState(false);
     const [displayBasic2, setDisplayBasic2] = useState(false);
     const [displayModal, setDisplayModal] = useState(false);
@@ -21,8 +23,24 @@ export default function MascotaPerdida({ idMascotaPerdida, state }) {
     const [displayPosition, setDisplayPosition] = useState(false);
     const [displayResponsive, setDisplayResponsive] = useState(false);
     const [position, setPosition] = useState('center');
+    const [toggle, setToggle] = useState({ update: false })
+    const [location, setLocation] = useState([])
 
 
+
+
+
+    const sendLocation = []
+
+
+    const updateLocation = (f) => {
+
+        let newData = {
+            latitude: f.lat,
+            longitude: f.lng
+        }
+        sendLocation.push(newData)
+    }
     const dialogFuncMap = {
         'displayBasic': setDisplayBasic,
         'displayBasic2': setDisplayBasic2,
@@ -40,26 +58,40 @@ export default function MascotaPerdida({ idMascotaPerdida, state }) {
         }
     }
 
-    const onHide = (name, e) => {
+    const onHide = (name, e,) => {
         dialogFuncMap[`${name}`](false);
+
 
     }
+
     const enviarCoordenadas = (name, e) => {
-        /*   console.log(e.currentTarget.value) */
 
-        let id = e.currentTarget.value
-        axios.post(`http://localhost:3001/mascotas/mascotaPerdida/${id}`, state).then((response) => {
-            console.log('response Api:', response)
-        });
+        if (sendLocation.length > 0) {
+            let id = e.currentTarget.value
+            axios.post(`http://localhost:3001/mascotas/mascotaPerdidaNewLocation/${id}`, sendLocation).then((response) => {
+                update()
+            })
 
+            sendLocation.splice(0, sendLocation.length)
+
+
+        }
+        else {
+            let id = e.currentTarget.value
+            axios.post(`http://localhost:3001/mascotas/mascotaPerdida/${id}`, state).then((response) => {
+                update()
+            });
+        }
         dialogFuncMap[`${name}`](false);
+
     }
 
     const renderFooter = (name) => {
         return (
             <div>
-                <Button label="Cancelar" /* icon="pi pi-times" */ onClick={() => onHide(name)} className="p-button-text" />
-                <Button value={idMascotaPerdida.idMascota} label="Buscar!" /* icon="pi pi-check" */ onClick={(e) => enviarCoordenadas(name, e)} autoFocus />
+                <Button label="Cancelar" /* icon="pi pi-times" */ onClick={() => onHide(name)} className="p-button-text " />
+                <Button value={idMascotaPerdida.idMascota} label="Buscar" /* icon="pi pi-check" */ onClick={(e) => enviarCoordenadas(name, e)} autoFocus />
+
             </div>
         );
     }
@@ -81,10 +113,13 @@ export default function MascotaPerdida({ idMascotaPerdida, state }) {
                             {idMascotaPerdida.nombre}?
                         </div>
                     </div>
-                } visible={displayPosition} position={position} modal style={{ width: '90vw' }} footer={renderFooter('displayPosition')} onHide={() => onHide('displayPosition')}
+                } visible={displayPosition} position={position} modal style={{ width: '70vw' }} footer={renderFooter('displayPosition')} onHide={() => onHide('displayPosition')}
                     draggable={false} resizable={false}>
-                    <Index state={state} />
+                    {/* <MapComponent prueba={updateLocation} /> */}
+                    <Index newLocation={updateLocation} />
+
                 </Dialog>
+
             </div>
         </div>
     )

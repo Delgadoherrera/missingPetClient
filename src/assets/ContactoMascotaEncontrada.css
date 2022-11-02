@@ -1,0 +1,72 @@
+.p-dialog-visible {
+    width: 100% !important;
+    height: 100%;
+    /*   background-color: transparent !important; */
+}
+
+.textArea {
+    margin-top: 3% !important;
+    width: 100% !important;
+    margin: auto !important;
+    margin-left: 5% !important;
+ 
+}
+
+.p-dialog-header {
+    /*  background-color: yellow !important; */
+
+}
+
+.fotoMascota {
+    width: 50% !important;
+    margin-top: 0% !important;
+    margin-left: 30% !important;
+    margin-bottom: 3% !important;
+}
+
+/* .p-dialog-content {
+    visibility: hidden;
+    display: none;
+}
+ */
+.p-c {
+    margin: auto !important;
+    /*     background-color: red !important; */
+
+}
+
+.sendMsg {
+    background-color: transparent !important;
+    color: rgba(0, 0, 0, 0.733) !important;
+    width: 70% !important;
+    margin: auto !important;
+    margin-left: 20% !important;
+    margin-top: 2% !important;
+    border-color: rgba(0, 0, 0, 0.514) !important;
+
+}
+
+.p-dialog-header {
+    border-radius: 1% !important;
+}
+
+.p-dialog-visible {
+    background-color: rgba(0, 0, 0, 0.274) !important;
+
+
+}
+
+.p-dialog-enter-done {
+
+    height: 70% !important;
+    box-shadow: none !important;
+}
+.mascotaNombrePerdida{
+    margin-bottom: 8% !important;
+}
+
+.p-dialog-visible{
+/*     background-color: red !important;
+ */    margin-bottom: 30% !important;
+    height: 91.8vh;
+}

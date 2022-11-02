@@ -25,6 +25,8 @@ function ResponsiveAppBar() {
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const [selected, setSelected] = React.useState(null);
 
+    console.log(selected)
+
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
@@ -136,7 +138,7 @@ function ResponsiveAppBar() {
                             ))}
                         </Box>
 
-                        <Box sx={{ flexGrow: 0 }}>
+                      {/*   <Box sx={{ flexGrow: 0 }}>
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                     <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -164,16 +166,19 @@ function ResponsiveAppBar() {
                                     </MenuItem>
                                 ))}
                             </Menu>
-                        </Box>
+                        </Box> */}
                     </Toolbar>
                 </Container>
 
             </AppBar>
-
+            {selected ==='' ? <UserLogin /> : <p> </p> }
+            {selected ===null ? <UserLogin /> : <p> </p> }
             {selected ==='INICIAR SESION' ? <UserLogin /> : <p> </p> }
             {selected ==='Iniciar Sesion' ? <UserLogin /> : <p> </p> }
             {selected ==='REGISTRATE' ? <UserRegister /> : <p> </p> }
             {selected ==='Registrate' ? <UserRegister /> : <p> </p> }        
+            {selected ==='Demo' ? <UserLogin /> : <p> </p> }  
+            {selected ==='DEMO' ? <UserLogin /> : <p> </p> }  
         </div>
 
         

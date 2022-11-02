@@ -1,0 +1,30 @@
+.BackGroundHome {
+    width: 100vw;
+    position: fixed;
+    top: 5%;
+    z-index: -100;
+
+
+}
+
+.loginForm {
+    /*   background-color: red!important; */
+    height: 250px !important;
+}
+
+.homeBody {
+    /*     background-color: red !important; */
+    width: 100% !important;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .BackGroundHome {
+        display: none;
+
+    }
+
+}
+body{
+    background-color: white !important;
+}

@@ -11,38 +11,35 @@
     flex-direction: row;
     justify-content: space !important;
     margin: auto !important;
-    width: 100%;  
+    width: 100%;
 
-    
 }
 
-.p-button-warning{
-    box-shadow: rgba(226, 238, 156, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px !important; 
+.p-button-warning {
+    box-shadow: rgba(226, 238, 156, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px !important;
     border-color: rgb(196, 183, 183) !important;
-    margin-top: 5% !important;
+    margin-top: 15% !important;
     width: 100% !important;
     font-size: 0.8rem !important;
-
 }
-.dialogMascotasPerdidas{
-/*     background-color: red !important; */
+
+.dialogMascotasPerdidas {
+    /*     background-color: red !important; */
     height: 100% !important;
-    
- 
-    
-}
-.avatarMascota{
-    position: fixed !important;
-    margin-left: 0% !important;
-    top: 8% !important;
+
+
 
 }
-.textoBusqueda{
+
+
+.textoBusqueda {
     font-size: 0.85rem;
     text-align: center;
 }
-.mascotaNombrePerdida{
+
+.mascotaNombrePerdida {
     text-align: center;
     font-size: 1.2em !important;
     opacity: 50%;
 }
+

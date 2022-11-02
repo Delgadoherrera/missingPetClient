@@ -76,7 +76,7 @@ export default function ReactFinalFormDemo() {
                     </p>
                 </div>
             </Dialog>
-            <div className="flex justify-content-center">
+            <div className="flex justify-content-center loginForm">
                 <div className="formLogin">
                     <h5 className="text-center">Iniciar sesion</h5>
                     <Form onSubmit={onSubmit} initialValues={{ email: '', password: '' }} validate={validate} render={({ handleSubmit }) => (

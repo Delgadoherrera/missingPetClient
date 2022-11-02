@@ -11,29 +11,35 @@ import CrisisAlertIcon from '@mui/icons-material/CrisisAlert';
 import CatchingPokemonIcon from '@mui/icons-material/CatchingPokemon';
 import '../assets/BottomNavigation.css'
 
-export default function LabelBottomNavigation({ status,datos }) {
-  const [value, setValue] = React.useState('recents');
+
+export default function LabelBottomNavigation({ status, datos }) {
+  const [value, setValue] = React.useState('misMascotas');
+
+
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+   /*  console.log('evento de entrada:', event) */
 
-  };
+  };  
 
-  React.useEffect(() => {
 
-  })
-console.log('datos de bottom', datos)
+
   return (
 
     <div className='fatherDivPetRegister'>
       {value === 'misMascotas' ? <p className='tituloMisMascotas'> Mis mascotas</p> : <p></p>}
       {value === 'mascotasPerdidas' ? <p className='tituloMisMascotas'> Mascotas perdidas en tu zona</p> : <p></p>}
-      {value === 'mascotaEncontrada' ?<p className='tituloMisMascotas'> Encontré una mascota</p> : <p></p>}
-      {value === 'addNewPet' ?<p className='tituloMisMascotas'> Agregar a mi mascota</p> : <p></p>}
+      {value === 'mascotaEncontrada' ? <p className='tituloMisMascotas'> Encontré una mascota</p> : <p></p>}
+      {value === 'addNewPet' ? <p className='tituloMisMascotas'> Agregar a mi mascota</p> : <p></p>}
       {value === 'addNewPet' ? <PetRegister /> : <p></p>}
       {value === 'mascotaEncontrada' ? <PetFound /> : <p></p>}
       {value === 'misMascotas' ? <Mascotas /> : <p></p>}
-      {value === 'mascotasPerdidas' ? <MascotasPerdidas /> : <p></p>}
+      { value === 'mascotasPerdidas' ? <MascotasPerdidas setChat={handleChange}/> : <p></p> }
+      { value === null ? <MascotasPerdidas setChat={handleChange}/> : <p></p> }
+     
+
+
 
       <BottomNavigation className='bottomNavigation' sx={{ width: 375 }} value={value} onChange={handleChange}>
 

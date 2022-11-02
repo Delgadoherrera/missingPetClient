@@ -2,8 +2,8 @@
     margin-top: 1.5vh;
     position: fixed !important;
     bottom: 0vh !important;
-    background-color: rgba(0, 0, 0, 0.829) !important;
-    z-index: 5 !important;
+    background-color: rgba(0, 0, 0, 0.978) !important;
+    z-index: 15000 !important;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 
 }
@@ -16,11 +16,3 @@
     margin-bottom: 20% !important;
 }
 
-.tituloMisMascotas {
-    margin-top: 1%;
-    font-size: 1.5rem;
-    text-align: center;
-    /*     font-style:oblique; */
-    padding: 5% !important;
-    background-color: rgba(0, 0, 0, 0.068) !important;
-}
