@@ -30,7 +30,7 @@ export default function LabelBottomNavigation({ status, datos }) {
     <div className='fatherDivPetRegister'>
       {value === 'misMascotas' ? <p className='tituloMisMascotas'> Mis mascotas</p> : <p></p>}
       {value === 'mascotasPerdidas' ? <p className='tituloMisMascotas'> Mascotas perdidas en tu zona</p> : <p></p>}
-      {value === 'mascotaEncontrada' ? <p className='tituloMisMascotas'> Encontré una mascota</p> : <p></p>}
+      {value === 'mascotaEncontrada' ? <p className='tituloMisMascotas'>  Mascota encontrada</p> : <p></p>}
       {value === 'addNewPet' ? <p className='tituloMisMascotas'> Agregar a mi mascota</p> : <p></p>}
       {value === 'addNewPet' ? <PetRegister /> : <p></p>}
       {value === 'mascotaEncontrada' ? <PetFound /> : <p></p>}

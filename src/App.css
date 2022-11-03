@@ -105,7 +105,7 @@ body {
   color: white !important;
 }
 
-body{
+body {
   background-color: white !important;
 }
 
@@ -116,5 +116,34 @@ body{
   /*     font-style:oblique; */
   padding: 5% !important;
   background-color: rgba(145, 138, 138, 0.178) !important;
-  
-} 
+
+}
+
+.p-button {
+  background-color: #282c34;
+  border-color: #282c34;
+}
+
+.p-button.p-button-text {
+  color: black;
+
+}
+
+.mt-2 {
+  background-color: #282c34 !important;
+  border-color: #282c34 !important;
+  color: white !important;
+}
+
+.p-c {
+  background-color: #282c34 !important;
+  color: white !important;
+}
+
+.p-button-rounded {
+  background-color: #282c34 !important;
+}
+
+.p-button-warning {
+  background-color: #282c34 !important;
+}

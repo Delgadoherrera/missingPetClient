@@ -43,20 +43,6 @@ export default function ReactFinalFormDemo() {
         );
     }, []);
 
-    /*     useEffect(() => {
-            if (map) {
-                ["click", "idle"].forEach((eventName) =>
-                    google.maps.event.clearListeners(map, eventName)
-                );
-                if (onClick) {
-                    map.addListener("click", onClick);
-                }
-    
-                if (onIdle) {
-                    map.addListener("idle", () => onIdle(map));
-                }
-            }
-        }, [map, onClick, onIdle]); */
 
     const petColor = [
         { label: 'Negro', value: 'Negro' },
@@ -87,27 +73,88 @@ export default function ReactFinalFormDemo() {
         { label: '60kg a 70kg ', value: '60kg/70kg' },
     ]
 
-    console.log('geolocation mascotas cercanas', state)
+    const validate = (data) => {
+        let errors = {};
 
-
-
-    const allData = () => {
-        let newData = {
-            ...formData,
-            id: localStorage.id,
+        if (!data.descripcionMascota) {
+            errors.descripcionMascota = 'Name is required.';
         }
-        setFormData(newData)
+        else if (!data.descripcionMascota) {
+            errors.descripcionMascota = 'Name is required.';
+        }
+
+        return errors;
+    };
+
+    const onSubmit = (data, form) => {
+
+        console.log('data from petRegister', data)
+        if (sendLocation.length > 0) {
+            let newData = {
+                ...data,
+                id: localStorage.id,
+                file: file,
+                newLatitude: sendLocation[sendLocation.length - 1].latitude,
+                newLongitude: sendLocation[sendLocation.length - 1].longitude,
+
+            }
+            setFormData(newData);
+
+            setDataReady(true)
+
+            form.restart();
+        }
+        else {
+            let newData = {
+                ...data,
+                id: localStorage.id,
+                file: file,
+                initialLatitude: state.latitude,
+                initialLongitude: state.longitude,
+
+            }
+            setFormData(newData);
+
+            setDataReady(true)
+
+            form.restart();
+        }
+
+
+    };
+    const handleFile = (e) => {
+        console.log(e.target.files[0])
+        setFile(e.target.files[0])
 
     }
 
+    useEffect(function () {
+        setFormData(formData)
 
+        if (dataReady === true) {
+            sendData()
+            console.log('enviar datos al servidor')
+        }
+
+    }, [formData]);
+
+    const sendLocation = []
+
+    const locationUpdate = (g) => {
+/*         console.log('petFound', e)
+ */        let data = {
+            latitude: g.lat,
+            longitude: g.lng
+        }
+        sendLocation.push(data)
+    }
 
     const sendData = async () => {
         const newData = {
             ...formData,
             id: localStorage.id,
-            lat: state.latitude,
-            lng: state.longitude
+            /*     newLatitude: sendLocation[sendLocation.length - 1].latitude,
+                newLongitude: sendLocation[sendLocation.length - 1].longitude, */
         }
         const finalData = new FormData();
         finalData.append('file', file)
@@ -126,53 +173,12 @@ export default function ReactFinalFormDemo() {
                 console.log('error')
             }
         })
-    }
 
-    const validate = (data) => {
-        let errors = {};
 
-        if (!data.descripcionMascota) {
-            errors.descripcionMascota = 'Name is required.';
-        }
-        else if (!data.descripcionMascota) {
-            errors.descripcionMascota = 'Name is required.';
-        }
-
-        return errors;
-    };
-
-    const onSubmit = (data, form) => {
-        console.log('data from petRegister', data)
-        let newData = {
-            ...data,
-            id: localStorage.id,
-            file: file,
-        }
-        setFormData(newData);
-
-        setDataReady(true)
-
-        /*  form.restart(); */
-    };
-    const handleFile = (e) => {
-        console.log(e.target.files[0])
-        setFile(e.target.files[0])
 
     }
 
-    useEffect(function () {
-        setFormData(formData)
 
-        if (dataReady === true) {
-            sendData()
-        }
-
-    }, [formData]);
-
-    const locationUpdate = (e) => {
-        console.log(e)
-
-    }
 
     const isFormFieldValid = (meta) => !!(meta.touched && meta.error);
     const getFormErrorMessage = (meta) => {
@@ -180,12 +186,12 @@ export default function ReactFinalFormDemo() {
     };
 
 
+
     return (
         <div className="form-demo">
             <div className="flex justify-content-center">
                 <div className="card">
 
-                    {/* <h5 className="text-center">Encontre una mascota</h5> */}
                     <Form onSubmit={onSubmit} initialValues={{ nombre: '', colorPrimario: '', colorSecundario: '', pesoAproximado: '', descripcionMascota: '', tipoMascota: null, }} validate={validate} render={({ handleSubmit }) => (
                         <form onSubmit={handleSubmit} className="p-fluid">
                             <Field name="tipoMascota" render={({ input }) => (
@@ -240,9 +246,6 @@ export default function ReactFinalFormDemo() {
                                     <label className='circle' htmlFor="fotoMascota" name='file' >
                                         <AddAPhoto className='iconPhotoUpload' />
                                     </label>
-
-                                    {/*   <p className='newPetText'>  Agrega una foto de tu mascota</p> */}
-
                                 </div>
                             )} />
 
@@ -254,16 +257,9 @@ export default function ReactFinalFormDemo() {
 
                             <Button type="submit" label="Cargar mascota encontrada" className="mt-2 submitFoundPet" />
                         </form>
-
                     )} />
-
-
-
-
                 </div>
-
             </div>
-
         </div>
     );
 }

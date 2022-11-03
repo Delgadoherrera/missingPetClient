@@ -1,8 +1,12 @@
 .imgEncontradaDialog {
-    width: 79vw !important;
+  width: 150px;
+  object-fit:cover;
+  margin: auto;
+  border-radius: 10% !important;
+  padding: 0;
 }
 
 
 .fotoMascota{
-    border-radius: 10% !important;
+ 
 }

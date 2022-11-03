@@ -8,8 +8,8 @@ const GoogleMapComponent = (props) => {
     latitude: 0,
   });
 
-  console.log('location', state)
-  useEffect(() => {
+/*   console.log('location', state)
+ */  useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       function (position) {
         // console.log(position);
@@ -44,7 +44,11 @@ const GoogleMapComponent = (props) => {
     const lng = latLng.lng();
     markers[index] = { lat, lng };
     setMarkers(markers);
-    console.log('hey', markers)
+    let finalPosition = {
+      lat: lat,
+      lng: lng
+    }
+    props.newLocation(finalPosition)
   }
 
   let myMarkers = markers && Object.entries(markers).map(([key, val]) => (
