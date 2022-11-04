@@ -89,32 +89,20 @@
   background-color: transparent;
 }
 
-.tituloMisMascotas {
-  color: rgb(7, 6, 6);
-  padding: 10px !important;
-  background-color: #f7fffb !important;
-  border-radius: 5px;
-}
-
-body {
-  background-color: #cad4cf27 !important;
-}
 
 .css-1q39md6-MuiButtonBase-root-MuiButton-root {
   /*   background-color: red !important; */
   color: white !important;
 }
 
-body {
-  background-color: white !important;
-}
+
 
 .tituloMisMascotas {
   margin-top: 3%;
   font-size: 1.5rem;
   text-align: center;
   /*     font-style:oblique; */
-  padding: 5% !important;
+  padding: 3% !important;
   background-color: rgba(145, 138, 138, 0.178) !important;
 
 }
@@ -136,8 +124,9 @@ body {
 }
 
 .p-c {
-  background-color: #282c34 !important;
-  color: white !important;
+  /*   background-color: #282c34 !important;
+  color: white !important; */
+  font-size: 1rem;
 }
 
 .p-button-rounded {
@@ -146,4 +135,83 @@ body {
 
 .p-button-warning {
   background-color: #282c34 !important;
+}
+
+.data-badge {
+  font-size: 1rem !important;
+}
+
+#nombre {
+
+  margin-top: 20px !important;
+
+}
+
+
+.p-link {
+  color: white !important;
+  background-color: #282c34 !important;
+}
+
+.p-carousel-indicators {
+  display: none;
+}
+
+.mb-3 {
+
+  display: flex !important;
+  justify-content: center !important;
+}
+
+
+map>div {
+  background-color: red !important;
+}
+
+.p-dialog-header-close {
+  display: none !important;
+}
+
+.p-dialog-header {
+  background-color: rgb(255, 255, 255) !important;
+  border-radius: 10px !important;
+}
+
+.p-dialog-content {
+  border-top: 100% !important;
+  background-color: #0b0e15eb !important;
+
+
+}
+
+@media screen and (min-width: 1599px) {
+  .tituloMisMascotas {
+    font-size: 3rem;
+    padding: 50px !important;
+  }
+
+}
+
+.css-hip9hq-MuiPaper-root-MuiAppBar-root {
+
+  padding: 2px;
+  margin-left: 0 !important;
+}
+
+.css-6hp17o-MuiList-root-MuiMenu-list {
+  width: 130 !important;
+  background-color: rgba(0, 0, 0, 0.9) !important;
+  color: white !important;
+
+}
+
+.MuiTypography-root {
+  font-family: 'Poor Story', cursive !important;
+  font-size: 14px !important;
+
+}
+
+
+.p-float-label{
+margin-top: 10px !important;
 }

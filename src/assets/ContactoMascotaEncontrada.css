@@ -4,24 +4,21 @@
     /*   background-color: transparent !important; */
 }
 
-.textArea {
-    margin-top: 3% !important;
-    width: 100% !important;
-    margin: auto !important;
-    margin-left: 5% !important;
- 
-}
+
 
 .p-dialog-header {
-    /*  background-color: yellow !important; */
+    border-radius: 200% !important;
+
 
 }
 
 .fotoMascota {
-    width: 50% !important;
-    margin-top: 0% !important;
-    margin-left: 30% !important;
-    margin-bottom: 3% !important;
+    width: 200px;
+    object-fit: contain;
+    border-radius: 3%;
+    margin-left: 18%;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23) !important;
 }
 
 /* .p-dialog-content {
@@ -35,16 +32,7 @@
 
 }
 
-.sendMsg {
-    background-color: transparent !important;
-    color: rgba(0, 0, 0, 0.733) !important;
-    width: 70% !important;
-    margin: auto !important;
-    margin-left: 20% !important;
-    margin-top: 2% !important;
-    border-color: rgba(0, 0, 0, 0.514) !important;
 
-}
 
 .p-dialog-header {
     border-radius: 1% !important;
@@ -61,12 +49,67 @@
     height: 70% !important;
     box-shadow: none !important;
 }
-.mascotaNombrePerdida{
-    margin-bottom: 8% !important;
+
+.mascotaNombrePerdida {
+    margin-bottom: 3% !important;
+    font-size: 1.5rem !important;
+    margin-left: 25px;
+    color: rgba(19, 18, 18, 0.886);
 }
 
-.p-dialog-visible{
-/*     background-color: red !important;
- */    margin-bottom: 30% !important;
-    height: 91.8vh;
+.p-dialog-visible {
+    /*     background-color: red !important;
+ */
+    margin-bottom: 30% !important;
+ /*    height: 91.8vh; */
+}
+
+
+
+.p-fluid {
+    /*     background-color: red; */
+    display: flex;
+    flex-direction: column;
+}
+
+.pi-times {
+    font-size: 10px;
+
+
+}
+
+.p-dialog-header-close {
+    padding: 0% !important;
+    border-radius: 10% !important;
+
+}
+
+.dialogMascotasPerdidas {
+    background-color: white !important;
+    opacity: 100%;
+    z-index: 545;
+}
+
+.formContainer {
+ /*    background-color: red !important; */
+    margin: auto;
+    width: 100% !important;
+    margin-top: 0;
+
+}
+
+.sendMsg {
+    background-color: white !important;
+    color: rgba(0, 0, 0, 0.733) !important;
+    width: 40% !important;
+    height: 50px !important;
+    margin: auto !important; 
+    top: 130px !important;
+    border-color: rgba(0, 0, 0, 0.514) !important;
+}
+
+.textArea {
+    margin-top:40px !important;
+    width: 100% !important;
+    height: 200px !important;
 }

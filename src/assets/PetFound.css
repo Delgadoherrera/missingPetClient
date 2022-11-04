@@ -1,19 +1,32 @@
 .adTextPetFound {
-    font-size: 0.7rem !important;
+    font-size: 1rem !important;
 }
 
 .tittleMap {
     margin-bottom: 5px !important;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: rgba(27, 27, 25, 0.827) !important;
 }
 
 .iconPhotoUpload {
     font-size: 50px !important;
-    margin-left: 60%;
+    left: 190%;
 
 }
 
 .submitFoundPet {
     bottom: 100px !important;
+}
+.formPetFound{
+/*     background-color: red !important;
+ */    height: 100vh !important;
+}
+.mapaMascotaEncontrada{
+/*     background-color: red !important; */
+    padding: 10px !important;
+    height: 320px;
+/*     box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px !important;
+ *//*     background-color: rgba(0, 0, 0, 0.379);
+ */    border-radius: 10px;
+
 }

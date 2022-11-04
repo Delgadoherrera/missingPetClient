@@ -1,12 +1,19 @@
 .imgEncontradaDialog {
-  width: 150px;
-  object-fit:cover;
+  margin-top: 8% !important;
+  width: 260px !important;
+  height: 209px !important;
+  object-fit:contain !important;
   margin: auto;
   border-radius: 10% !important;
   padding: 0;
+
+  
+}
+.p-dialog-content{
+  height: 100% !important;
 }
 
-
-.fotoMascota{
- 
+.encontradasDialogFooter{
+  margin-top: 15px ;
+  margin-bottom: 0px !;
 }

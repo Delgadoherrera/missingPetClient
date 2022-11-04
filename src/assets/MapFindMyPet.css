@@ -1,0 +1,13 @@
+div>div.row.d-flex.justify-content-center.text-center>div {
+    width: 437px !important;
+    height: 477px !important;
+    
+    
+ 
+}
+
+div > div.row.d-flex.justify-content-center.text-center > div > div{
+    border-radius: 10px !important;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23) !important;
+
+}

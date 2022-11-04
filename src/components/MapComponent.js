@@ -21,7 +21,7 @@ export default function GoogleMapComponent(props) {
   let [markers, setMarkers] = useState(markersList);
 
   const mapStyles = {
-    width: '80%',
+    width: '50%',
     height: '50%',
     marginTop: '3%',
     marginBotton: '50%'
@@ -55,13 +55,15 @@ export default function GoogleMapComponent(props) {
     const { latLng } = coord;
     const lat = latLng.lat();
     const lng = latLng.lng();
+
     markers[index] = { lat, lng };
     setMarkers(markers);
-
+    console.log(markers)
     let finalPosition = {
       lat: lat,
       lng: lng
     }
+
     props.newLocation(finalPosition)
   }
 

@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Poor+Story&display=swap');
 
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 1.5rem;
+/*   font-size: 1.2rem; */
 }
 
 code {
@@ -12,7 +13,11 @@ code {
 }
 
 *{
-  font-family: 'Poor Story', cursive;
+  font-family: 'Poor Story', cursive; 
+  font-size: 1.2rem;
 
+}
+.MuiTypography-root{
+  font-family: 'Poor Story', cursive !important; 
 
 }

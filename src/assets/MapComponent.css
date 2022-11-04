@@ -4,25 +4,18 @@
 }
 
 
-#root>div>div>div>div.fatherDivPetRegister>div.form-demo>div>div>form>div:nth-child(9)>div:nth-child(1)>div:nth-child(1)>div>div {
-/*     background-color: red !important;
- */    width: 90% !important;
-    height: 50% !important;
-    margin-bottom: 420px !important;
-    margin-right: 10px !important;
-    margin-left: -6px !important;
-  
 
 
-
+#root>div>div>div>div>div>div.form-demo>div>div>form>div:nth-child(9)>div:nth-child(1)>div:nth-child(1)>div>div {
+    width: 120px !important;
+    height: 120px !important;
+    object-fit: contain !important;
+    margin-left: 14% !important;
+    margin-top: 2% !important;
 
 }
 
-#root>div>div>div>div.fatherDivPetRegister>div.form-demo>div>div>form>div:nth-child(9)>div:nth-child(1)>div:nth-child(1)>div>div>div>div>div>div:nth-child(2)>div:nth-child(2) {
-    opacity: 40% !important;
-}
-
-.justify-content-center {
-/*     background-color: rgb(84, 152, 191) !important; */
-    height: 450px !important;
+#root > div > div > div > div > div > div.form-demo.formPetFound > div > div > form > div:nth-child(9) > div:nth-child(1) > div:nth-child(1) > div > div > div{
+    border-radius: 10px !important;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23) !important;
 }

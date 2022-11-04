@@ -181,6 +181,7 @@ export default function ReactFinalFormDemo() {
                             )} />
 
                             <Field name="fotoMascota" render={({ input }) => (
+                                
                                 <div className="field">
 
                                     <input onChange={handleFile} type='file' id="fotoMascota" name='file'></input>
@@ -195,7 +196,7 @@ export default function ReactFinalFormDemo() {
 
 
 
-                            <Button type="submit" label="Submit" className="mt-2 newPetButton" /* onClick={onSubmit} */ />
+                            <Button type="submit" label="Agregar a mi mascota" className="mt-2 newPetButton" /* onClick={onSubmit} */ />
                         </form>
                     )} />
                 </div>

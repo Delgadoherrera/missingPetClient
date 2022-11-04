@@ -46,13 +46,14 @@
 .iconPhotoUpload {
 
     position: relative;
-    right: 106% !important;
+    right: 96% !important;
     margin-bottom: 0px !important;
 }
 .newPetText{
     margin-top: 0px !important;
     color: rgb(133, 117, 117);
     margin-left: 2% !important;
+    margin-bottom: -14px;
 }
 .newPetButton{
     margin-bottom: 100px !important;

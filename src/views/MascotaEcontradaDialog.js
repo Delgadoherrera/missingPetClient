@@ -39,22 +39,22 @@ export default function MascotaPerdida({ idMascotaPerdida, state, update }) {
 
     const onHide = (name, e) => {
         dialogFuncMap[`${name}`](false);
-        console.log('name de hide',name)
+        console.log('name de hide', name)
 
     }
-    const enviarCoordenadas = (name, e) => {  
+    const enviarCoordenadas = (name, e) => {
         let id = e.currentTarget.value
         axios.post(`http://localhost:3001/mascotas/mascotaEncontrada/${id}`, state).then((response) => {
-           update()
+            update()
         });
-        dialogFuncMap[`${name}`](false); 
+        dialogFuncMap[`${name}`](false);
     }
 
-    
+
     const renderFooter = (name) => {
         return (
-            <div>
-                <BottomNavigation datos='data'/>
+            <div className='encontradasDialogFooter'>
+        
                 <Button label="Cancelar" /* icon="pi pi-times" */ onClick={() => onHide(name)} className="p-button-text" />
                 <Button value={idMascotaPerdida.idMascota} label="Mascota encontrada" /* icon="pi pi-check" */ onClick={(e) => enviarCoordenadas(name, e)} autoFocus />
             </div>
@@ -68,21 +68,22 @@ export default function MascotaPerdida({ idMascotaPerdida, state, update }) {
             <div className="card">
                 <div className="grid flex-column">
                     <div className="col">
-                        
-                        {idMascotaPerdida.status === 1 ? <Button label={`Encontré a ${idMascotaPerdida.nombre}`} /* icon="pi pi-arrow-down" */ onClick={() => onClick('displayPosition', 'top')} className="p-button-warning mascotaEncontrada" /> : <p></p>}
+
+                        {idMascotaPerdida.status === 1 ? <Button label={`ENCONTRE A  ${idMascotaPerdida.nombre}`.toUpperCase()} /* icon="pi pi-arrow-down" */ onClick={() => onClick('displayPosition', 'top')} className="p-button-warning mascotaEncontrada" /> : <p></p>}
                     </div>
                 </div>
                 <Dialog className='dialogMascotasPerdidas' header={
                     <div>
                         <p className='textoBusqueda'> {idMascotaPerdida.nombre} se quitará de la lista de mascotas perdidas. Felicidades! </p>
                         <div className='mascotaNombrePerdida'>
-                          {/*   {idMascotaPerdida.nombre} */}
+                            {/*   {idMascotaPerdida.nombre} */}
                         </div>
                     </div>
                 } visible={displayPosition} position={position} modal style={{ width: '90vw' }} footer={renderFooter('displayPosition')} onHide={() => onHide('displayPosition')}
                     draggable={false} resizable={false}>
-               {/*      <Index state={state} /> */}
-               <img className='imgEncontradaDialog'  src={idMascotaPerdida.fotoMascota}/>
+                    {/*      <Index state={state} /> */}
+                    <img className='imgEncontradaDialog' src={idMascotaPerdida.fotoMascota} />
+
                 </Dialog>
             </div>
         </div>

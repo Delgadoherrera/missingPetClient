@@ -88,7 +88,7 @@ export default function MascotaPerdida({ idMascotaPerdida, state, update }) {
 
     const renderFooter = (name) => {
         return (
-            <div>
+            <div className='footerDiv'>
                 <Button label="Cancelar" /* icon="pi pi-times" */ onClick={() => onHide(name)} className="p-button-text " />
                 <Button value={idMascotaPerdida.idMascota} label="Buscar" /* icon="pi pi-check" */ onClick={(e) => enviarCoordenadas(name, e)} autoFocus />
 
@@ -103,15 +103,15 @@ export default function MascotaPerdida({ idMascotaPerdida, state, update }) {
             <div className="card">
                 <div className="grid flex-column">
                     <div className="col">
-                        {idMascotaPerdida.status !== 1 ? <Button label={`Perdí a ${idMascotaPerdida.nombre}`} /* icon="pi pi-arrow-down" */ onClick={() => onClick('displayPosition', 'top')} className="p-button-warning" /> : <p></p>}
+                        {idMascotaPerdida.status !== 1 ? <Button label={`${idMascotaPerdida.nombre} se ha perdido`.toUpperCase()} /* icon="pi pi-arrow-down" */ onClick={() => onClick('displayPosition', 'top')} className="p-button-warning buttonLost" /> : <p></p>}
                     </div>
                 </div>
                 <Dialog className='dialogMascotasPerdidas' header={
                     <div>
-                        <p className='textoBusqueda'> ¿Quieres que busquemos a  </p>
-                        <div className='mascotaNombrePerdida'>
+                        <p className='textoBusqueda'> Indica el punto donde quieres que busquemos a {idMascotaPerdida.nombre}  </p>
+                     {/*    <div className='mascotaNombrePerdida'>
                             {idMascotaPerdida.nombre}?
-                        </div>
+                        </div> */}
                     </div>
                 } visible={displayPosition} position={position} modal style={{ width: '70vw' }} footer={renderFooter('displayPosition')} onHide={() => onHide('displayPosition')}
                     draggable={false} resizable={false}>

@@ -19,9 +19,9 @@ export default function LabelBottomNavigation({ status, datos }) {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-   /*  console.log('evento de entrada:', event) */
+    /*  console.log('evento de entrada:', event) */
 
-  };  
+  };
 
 
 
@@ -35,13 +35,13 @@ export default function LabelBottomNavigation({ status, datos }) {
       {value === 'addNewPet' ? <PetRegister /> : <p></p>}
       {value === 'mascotaEncontrada' ? <PetFound /> : <p></p>}
       {value === 'misMascotas' ? <Mascotas /> : <p></p>}
-      { value === 'mascotasPerdidas' ? <MascotasPerdidas setChat={handleChange}/> : <p></p> }
-      { value === null ? <MascotasPerdidas setChat={handleChange}/> : <p></p> }
-     
+      {value === 'mascotasPerdidas' ? <MascotasPerdidas setChat={handleChange} /> : <p></p>}
+      {value === null ? <MascotasPerdidas setChat={handleChange} /> : <p></p>}
 
 
 
-      <BottomNavigation className='bottomNavigation' sx={{ width: 375 }} value={value} onChange={handleChange}>
+
+      <BottomNavigation className='bottomNavigation' sx={{ width: '100vw' }} value={value} onChange={handleChange}>
 
         <BottomNavigationAction
           label="Mis mascotas"

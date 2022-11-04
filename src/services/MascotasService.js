@@ -8,9 +8,8 @@ export class MascotasService {
     getAllMissingPets() {
         return fetch('http://www.localhost:3001/mascotas/mascotasPerdidas').then(res => res.json()).then(d => d.data);
     }
-    
+
     getPetsByZone() {
         return fetch('http://www.localhost:3001/mascotas/mascotaEncontrada').then(res => res.json()).then(d => d.data);
     }
 }
-    

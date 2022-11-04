@@ -188,7 +188,7 @@ export default function ReactFinalFormDemo() {
 
 
     return (
-        <div className="form-demo">
+        <div className="form-demo formPetFound">
             <div className="flex justify-content-center">
                 <div className="card">
 

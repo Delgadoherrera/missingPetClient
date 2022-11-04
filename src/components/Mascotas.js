@@ -81,8 +81,9 @@ export default function DataViewLazyDemo(props) {
                             <span className="product-category">Peso aproximado: {data.pesoAproximado}</span>
                         </div>
                     </div>
-                    {data.status === 1 ? <MascotaEncontrada state={state} idMascotaPerdida={data} update={updateComponent} /> : <MascotaPerdida update={updateComponent} state={state} idMascotaPerdida={data} />}
                 </div>
+                {data.status === 1 ? <MascotaEncontrada state={state} idMascotaPerdida={data} update={updateComponent} /> : <MascotaPerdida update={updateComponent} state={state} idMascotaPerdida={data} />}
+
             </div>
         );
     }

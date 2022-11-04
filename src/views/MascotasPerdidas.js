@@ -1,31 +1,36 @@
 
 import { MascotasService } from '../services/MascotasService';
 import { useState, useEffect } from 'react'
-import React, { Component } from 'react';
+import React from 'react';
 import { Carousel } from 'primereact/carousel';
 import { Button } from 'primereact/button';
 import '../assets/MascotasPerdidas.css';
 import ContactoMascotaEncontrada from './ContactoMascotaEncontrada'
+import CalcularDistancia from '../components/CalcularDistancia';
 
 
 export default function MascotasPerdidas() {
     const [mascotas, setMascotas] = useState([])
     const [dialogFounded, setDialogFounded] = useState(false)
     const missingPets = new MascotasService();
-    const areaMissingPets = new MascotasService();
-    const [mascotaperdida, setMascotaPerdida] = useState({})
     const [petDetail, setpetFoundDetail] = useState({})
+    const [nearPets, setNearPets] = useState([])
+    const [state, setState] = useState({
+        longitude: 0,
+        latitude: 0,
+    });
+
 
     const responsiveOptions = [
         {
             breakpoint: '1024px',
-            numVisible: 3,
-            numScroll: 3
+            numVisible: 1,
+            numScroll: 1
         },
         {
             breakpoint: '600px',
-            numVisible: 2,
-            numScroll: 2
+            numVisible: 1,
+            numScroll: 1
         },
         {
             breakpoint: '480px',
@@ -33,20 +38,58 @@ export default function MascotasPerdidas() {
             numScroll: 1
         }
     ];
+    // FILTER NEAR PETS
+
+
+
+
+    //GEOLOCATION.
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition(
+            function (position) {
+                // console.log(position);
+                fetch('http://www.localhost:3001/mascotas/mascotasPerdidas', {
+                    headers: {
+                        latitude: position.coords.latitude,
+                        longitude:  position.coords.longitude
+                    }
+                }).then(res => res.json()).then(d => setMascotas(d.data));
+                
+                setState({
+                    longitude: position.coords.longitude,
+                    latitude: position.coords.latitude,
+                });
+            },
+            function (error) {
+                console.error("Error Code = " + error.code + " - " + error.message);
+            },
+            {
+                enableHighAccuracy: true,
+            }
+        );
+
+
+    }, []);
+
+    console.log(mascotas)
+
+    //GET ALL PETS
+
+
+
+    useEffect(() => {
+        setNearPets(nearPets)
+
+
+    }, [mascotas]);
+
+    console.log('nearPets', nearPets)
 
     const contactPetFounded = () => {
         setDialogFounded(!dialogFounded)
     }
 
 
-    useEffect(() => {
-        missingPets.getAllMissingPets().then(data => {
-
-            setMascotas(data)
-        });
-
-
-    }, [petDetail]);
 
     const petFounded = (e) => {
         console.log('la mascota se encontro', e)
@@ -55,7 +98,13 @@ export default function MascotasPerdidas() {
         console.log(e)
     }
 
+    const receiveNearPets = (pet) => {
+        console.log('mascota cercana:', pet)
 
+        setNearPets(pet)
+
+    }
+    console.log('MASCOTAS', mascotas)
 
 
     const dataTemplate = (data) => {
@@ -81,9 +130,9 @@ export default function MascotasPerdidas() {
                         </div>
                         <div className="car-buttons mt-5">
 
-                            {data.status === 3 ? <Button onClick={() => petFounded(data)} className="p-button p-button-rounded mr-2 buttonMyPet" label='Es mi mascota' /> :  <Button onClick={(e) => petFounded(e)} className="p-button p-button-rounded mr-2 buttonMyPet" label={`Encontre a la loca de ${data.nombre}`} />}
+                            {data.status === 3 ? <Button onClick={() => petFounded(data)} className="p-button p-button-rounded mr-2" label='Es mi mascota' /> : <Button onClick={(e) => petFounded(e)} className="p-button p-button-rounded mr-2" label={`He encontrado a ${data.nombre}`} />}
                             {dialogFounded === true ? <ContactoMascotaEncontrada setDialog={contactPetFounded} idMascotaPerdida={petDetail} /> : <p></p>}
-
+                            <CalcularDistancia geoData={state} allPets={mascotas} receiveNearPets={receiveNearPets} />
                         </div>
                     </div>
                 </div>
@@ -94,9 +143,8 @@ export default function MascotasPerdidas() {
     return (
         <div className="carousel-demo">
             <div className="card">
-                {/* <p className='tituloMascotasPerdidas'> Mascotas perdidas en tu zona</p> */}
-                <Carousel value={mascotas} numVisible={3} numScroll={1} responsiveOptions={responsiveOptions} className="custom-carousel" circular
-                    autoplayInterval={3500} itemTemplate={dataTemplate} header={<h5></h5>} />
+                <Carousel value={mascotas} numVisible={2} numScroll={1} responsiveOptions={responsiveOptions} className="custom-carousel" circular
+                     autoplayInterval={3500}  itemTemplate={dataTemplate} header={<h5></h5>} />
             </div>
         </div>
     );

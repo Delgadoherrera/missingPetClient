@@ -11,11 +11,11 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-
+import BottomNavigation from '../views/BottomNavigation';
 import { AuthContext, useAuthContext } from '../contexts/authContext'
 
 
-const pages = ['Mis mascotas', 'Perdi a mi mascota', 'Encontre una mascota', 'Demo'];
+const pages = ['Mascotas', 'Mensajes', 'Demo'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
@@ -27,15 +27,22 @@ function ResponsiveAppBar() {
 
 
     const handleOpenNavMenu = (event) => {
+
         setAnchorElNav(event.currentTarget);
+
     };
+
     const handleOpenUserMenu = (event) => {
+
         setAnchorElUser(event.currentTarget);
 
     };
 
     const handleCloseNavMenu = (event) => {
+        console.log(event.currentTarget.ariaLabel)
+        setOptSelected(event.currentTarget.ariaLabel)
         setAnchorElNav(null);
+        console.log('clic')
     };
 
     const handleCloseUserMenu = (e) => {
@@ -64,6 +71,7 @@ function ResponsiveAppBar() {
                                 letterSpacing: '.3rem',
                                 color: 'inherit',
                                 textDecoration: 'none',
+                               
                             }}
                         >
 
@@ -99,7 +107,7 @@ function ResponsiveAppBar() {
                                 }}
                             >
                                 {pages.map((page) => (
-                                    <MenuItem key={page} onClick={handleCloseNavMenu}>
+                                    <MenuItem key={page} aria-label={page} onClick={handleCloseNavMenu}>
                                         <Typography textAlign="center">{page}</Typography>
                                     </MenuItem>
                                 ))}
@@ -129,6 +137,7 @@ function ResponsiveAppBar() {
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                             {pages.map((page) => (
                                 <Button
+                                    aria-label={page}
                                     key={page}
                                     onClick={handleCloseNavMenu}
                                     sx={{ my: 2, color: 'white', display: 'block' }}
@@ -172,7 +181,10 @@ function ResponsiveAppBar() {
 
             </AppBar>
 
-
+            {optSelected === "Mascotas" ? <BottomNavigation /> : <p> </p>}
+            {optSelected === "Mensajes" ? <p> Mensajes</p> : <p> </p>}
+            {optSelected === "MENSAJES" ? <p> Mensajes</p> : <p> </p>}
+            {optSelected === null ? <BottomNavigation /> : <p> </p>}
         </div>
 
 

@@ -19,7 +19,6 @@ export default function Private() {
             <div className="fatherPrivateDiv">
                 <NavBar />
                
-                <BottomNavigation />
 
             </div>
          {/*    <NewMap />
