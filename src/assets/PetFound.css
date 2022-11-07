@@ -15,18 +15,24 @@
 }
 
 .submitFoundPet {
-    bottom: 100px !important;
+    color: red !important;
+    bottom: 6rem !important;
 }
-.formPetFound{
-/*     background-color: red !important;
- */    height: 100vh !important;
+
+.formPetFound {
+    /*     background-color: red !important;
+ */
+    height: 100vh !important;
 }
-.mapaMascotaEncontrada{
-/*     background-color: red !important; */
+
+.mapaMascotaEncontrada {
+    /*     background-color: red !important; */
     padding: 10px !important;
     height: 320px;
-/*     box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px !important;
- *//*     background-color: rgba(0, 0, 0, 0.379);
- */    border-radius: 10px;
+    /*     box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px !important;
+ */
+    /*     background-color: rgba(0, 0, 0, 0.379);
+ */
+    border-radius: 10px;
 
 }

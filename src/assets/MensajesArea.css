@@ -1,0 +1,20 @@
+.mensajesArea {
+    background-color: rgba(0, 0, 0, 0.818);
+    height: 90%;
+    color: white;
+}
+
+.sendMessage {
+    position: fixed;
+    top: 94%;
+}
+
+.inputMessage {
+    position: fixed;
+    top: 88% !important;
+}
+
+.writeMessage {
+    /*   background-color: red; */
+    height: 500px
+}

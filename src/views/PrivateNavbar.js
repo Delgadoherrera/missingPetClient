@@ -12,7 +12,9 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import BottomNavigation from '../views/BottomNavigation';
-import { AuthContext, useAuthContext } from '../contexts/authContext'
+import {  useAuthContext } from '../contexts/authContext'
+import Mensajes from '../components/Mensajes';
+import MensajesArea from './MensajesArea';
 
 
 const pages = ['Mascotas', 'Mensajes', 'Demo'];
@@ -39,10 +41,10 @@ function ResponsiveAppBar() {
     };
 
     const handleCloseNavMenu = (event) => {
-        console.log(event.currentTarget.ariaLabel)
+       /*  console.log(event.currentTarget.ariaLabel) */
         setOptSelected(event.currentTarget.ariaLabel)
         setAnchorElNav(null);
-        console.log('clic')
+/*         console.log('clic') */
     };
 
     const handleCloseUserMenu = (e) => {
@@ -182,8 +184,8 @@ function ResponsiveAppBar() {
             </AppBar>
 
             {optSelected === "Mascotas" ? <BottomNavigation /> : <p> </p>}
-            {optSelected === "Mensajes" ? <p> Mensajes</p> : <p> </p>}
-            {optSelected === "MENSAJES" ? <p> Mensajes</p> : <p> </p>}
+            {optSelected === "Mensajes" ? <Mensajes /> : <p> </p>}
+            {optSelected === "MENSAJES" ? <Mensajes /> : <p> </p>}
             {optSelected === null ? <BottomNavigation /> : <p> </p>}
         </div>
 

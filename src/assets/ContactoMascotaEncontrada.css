@@ -95,7 +95,12 @@
     margin: auto;
     width: 100% !important;
     margin-top: 0;
+/*     background-color: red; */
+   
 
+}
+.p-dialog-content{
+    background-color: red !important;
 }
 
 .sendMsg {
@@ -104,12 +109,12 @@
     width: 40% !important;
     height: 50px !important;
     margin: auto !important; 
-    top: 130px !important;
+  /*   top: 130px !important; */
     border-color: rgba(0, 0, 0, 0.514) !important;
 }
 
 .textArea {
     margin-top:40px !important;
     width: 100% !important;
-    height: 200px !important;
+    height: 150px !important;
 }

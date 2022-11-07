@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 export default function ({ geoData, allPets, receiveNearPets }) {
 
 
-    console.log(receiveNearPets)
+
     const gradosARadianes = (grados) => {
         return grados * Math.PI / 180;
     };
@@ -30,16 +30,16 @@ export default function ({ geoData, allPets, receiveNearPets }) {
             let distance = distanciaCoords(geoData.latitude, geoData.longitude, j.latPerdida, j.lngPerdida)
 
             if (distance < 1) {
-                console.log('hay mascotas cerca')
+             
                 mascotasCercanas.push()
 /*                 receiveNearPets(j) */
             }
 
             else {
-                console.log('aun no hay mascotas cerca')
+         
             }
 
-            /* console.log('distance', distance) */
+   
         })
     }
     filterPets()

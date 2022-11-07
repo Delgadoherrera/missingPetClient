@@ -21,8 +21,8 @@ export default function GoogleMapComponent(props) {
   let [markers, setMarkers] = useState(markersList);
 
   const mapStyles = {
-    width: '50%',
-    height: '50%',
+    width: '100%',
+    height: '100%',
     marginTop: '3%',
     marginBotton: '50%'
   };

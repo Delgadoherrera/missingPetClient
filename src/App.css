@@ -180,8 +180,7 @@ map>div {
 .p-dialog-content {
   border-top: 100% !important;
   background-color: #0b0e15eb !important;
-
-
+  padding: 2% !important;
 }
 
 @media screen and (min-width: 1599px) {
@@ -214,4 +213,12 @@ map>div {
 
 .p-float-label{
 margin-top: 10px !important;
+}
+
+.css-hip9hq-MuiPaper-root-MuiAppBar-root{
+  top: 0% !important;
+  position: fixed !important;
+  z-index: 5;
+  opacity: 100% !important;
+  
 }

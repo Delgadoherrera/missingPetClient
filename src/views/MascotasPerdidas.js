@@ -20,7 +20,7 @@ export default function MascotasPerdidas() {
         latitude: 0,
     });
 
-
+console.log('pet detail',petDetail)
     const responsiveOptions = [
         {
             breakpoint: '1024px',
@@ -47,7 +47,7 @@ export default function MascotasPerdidas() {
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(
             function (position) {
-                // console.log(position);
+  
                 fetch('http://www.localhost:3001/mascotas/mascotasPerdidas', {
                     headers: {
                         latitude: position.coords.latitude,
@@ -71,7 +71,7 @@ export default function MascotasPerdidas() {
 
     }, []);
 
-    console.log(mascotas)
+  
 
     //GET ALL PETS
 
@@ -83,7 +83,6 @@ export default function MascotasPerdidas() {
 
     }, [mascotas]);
 
-    console.log('nearPets', nearPets)
 
     const contactPetFounded = () => {
         setDialogFounded(!dialogFounded)
@@ -91,20 +90,20 @@ export default function MascotasPerdidas() {
 
 
 
-    const petFounded = (e) => {
-        console.log('la mascota se encontro', e)
+    const petFounded = (data) => {
+    console.log(data.e,'DATA')
         setDialogFounded(true)
-        setpetFoundDetail(e)
-        console.log(e)
+        setpetFoundDetail(data.e)
+     
     }
 
     const receiveNearPets = (pet) => {
-        console.log('mascota cercana:', pet)
+        
 
         setNearPets(pet)
 
     }
-    console.log('MASCOTAS', mascotas)
+    
 
 
     const dataTemplate = (data) => {
@@ -130,7 +129,7 @@ export default function MascotasPerdidas() {
                         </div>
                         <div className="car-buttons mt-5">
 
-                            {data.status === 3 ? <Button onClick={() => petFounded(data)} className="p-button p-button-rounded mr-2" label='Es mi mascota' /> : <Button onClick={(e) => petFounded(e)} className="p-button p-button-rounded mr-2" label={`He encontrado a ${data.nombre}`} />}
+                            {data.status === 3 ? <Button onClick={() => petFounded({e:data})} className="p-button p-button-rounded mr-2" label='Es mi mascota' /> : <Button onClick={() => petFounded({e:data})} className="p-button p-button-rounded mr-2" label={`He encontrado a ${data.nombre}`} />}
                             {dialogFounded === true ? <ContactoMascotaEncontrada setDialog={contactPetFounded} idMascotaPerdida={petDetail} /> : <p></p>}
                             <CalcularDistancia geoData={state} allPets={mascotas} receiveNearPets={receiveNearPets} />
                         </div>
@@ -144,7 +143,7 @@ export default function MascotasPerdidas() {
         <div className="carousel-demo">
             <div className="card">
                 <Carousel value={mascotas} numVisible={2} numScroll={1} responsiveOptions={responsiveOptions} className="custom-carousel" circular
-                     autoplayInterval={3500}  itemTemplate={dataTemplate} header={<h5></h5>} />
+              /*        autoplayInterval={3500} */  itemTemplate={dataTemplate} header={<h5></h5>} />
             </div>
         </div>
     );

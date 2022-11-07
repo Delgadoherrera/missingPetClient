@@ -1,0 +1,65 @@
+.divMsg {
+    background-color: rgba(19, 18, 18, 0.993);
+    margin-top: 60px;
+    padding: 30px;
+    height: 600px;
+    /*     background-color: red; */
+}
+
+.formChat {
+    background-color: black;
+    height: 560px;
+    width: 100%;
+    color: white;
+    /*     background-color: blue; */
+    position: fixed;
+    bottom: 47px;
+    right: 0px !important;
+    z-index: 10;
+
+
+
+}
+
+html {
+    height: 100vh;
+}
+
+.writeAMessage {
+    position: relative;
+    top: 555px;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+
+}
+
+.bg-sky-70 {
+    background-color: blue;
+    border-radius: 20px;
+    color: white;
+    width: fit-content;
+}
+
+.spanName {
+    margin-right: 20px;
+
+}
+
+.volverChat {
+    color: white;
+    font-size: 60px;
+    z-index: 50;
+}
+
+.chatMsgContainer {
+    overflow: auto;
+    margin-right: 20px !important;
+    display: block;
+    height: 47vh;
+/*     width: 350px;
+    height: 200px; */
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+
+}

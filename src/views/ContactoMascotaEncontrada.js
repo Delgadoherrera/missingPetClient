@@ -13,7 +13,7 @@ import axios from 'axios'
 
 
 
-export default function MascotaPerdida({ idMascotaPerdida, setDialog }) {
+export default function MascotaPerdida({state, idMascotaPerdida, setDialog }) {
 
     const [displayPosition, setDisplayPosition] = useState(true);
     const [displayResponsive, setDisplayResponsive] = useState(false);
@@ -22,15 +22,17 @@ export default function MascotaPerdida({ idMascotaPerdida, setDialog }) {
     const [msg, setMsg] = useState(null)
 
 
-    console.log('mensaje a enviar: ', msg)
-    console.log('el ID del usuario receptor del mensaje:', idMascotaPerdida.idHumano)
-    console.log('el ID del emisario: ', localStorage.id)
+/*     console.log('mensaje a enviar: ', msg)
+    console.log('el ID del usuario receptor del mensaje:', idMascotaPerdida)
+    console.log('el ID del emisario: ', localStorage.id) */
     const objetoFecha = Date.now();
     const nowDate = new Date(objetoFecha);
     let fechaMensaje = nowDate.toLocaleDateString('en-ZA');
-    console.log('Horario del mensaje:', fechaMensaje)
+/*     console.log('Horario del mensaje:', fechaMensaje) */
 
 
+
+console.log('idMascotaPerdida', idMascotaPerdida)
 
 
     const sendData = () => {
@@ -40,6 +42,7 @@ export default function MascotaPerdida({ idMascotaPerdida, setDialog }) {
             receptor: idMascotaPerdida.idHumano,
             date: fechaMensaje
         }
+
         axios.post("http://localhost:3001/mensajes/nuevoMensaje", msgData, {
         }).then((response) => {
             console.log(response)
@@ -96,7 +99,7 @@ export default function MascotaPerdida({ idMascotaPerdida, setDialog }) {
                             </div>
 
                         )} />
- {/*                        <img src={petDetail.fotoMascota} className="fotoMascota" />
+                        {/*                        <img src={petDetail.fotoMascota} className="fotoMascota" />
                         <img src={idMascotaPerdida.fotoMascota} className="fotoMascota" /> */}
 
                         <Button type="submit" label="Enviar mensaje" className="sendMsg" /* onClick={onSubmit} */ />

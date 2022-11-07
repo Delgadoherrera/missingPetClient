@@ -174,7 +174,7 @@ export default function ReactFinalFormDemo() {
                             <Field name="descripcionMascota" render={({ input }) => (
                                 <div className="field">
                                     <span className="p-float-label">
-                                        <InputTextarea id="descripcionMascota" {...input} />
+                                        <InputTextarea maxLength={50} id="descripcionMascota" {...input} placeholder={'Descripcion precisa, 50 caracteres maximo'} />
                                         <label htmlFor="descripcionMascota">Descripcion de tu mascota</label>
                                     </span>
                                 </div>

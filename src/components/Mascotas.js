@@ -66,7 +66,6 @@ export default function DataViewLazyDemo(props) {
     }
 
 
-
     const renderListItem = (data) => {
         return (
             <div className="col-12">
@@ -82,7 +81,8 @@ export default function DataViewLazyDemo(props) {
                         </div>
                     </div>
                 </div>
-                {data.status === 1 ? <MascotaEncontrada state={state} idMascotaPerdida={data} update={updateComponent} /> : <MascotaPerdida update={updateComponent} state={state} idMascotaPerdida={data} />}
+           
+                {data.status === 1 ? <MascotaEncontrada idMascotaPerdida={data} update={updateComponent} /> : <MascotaPerdida update={updateComponent} idMascotaPerdida={data} state={state} />}
 
             </div>
         );

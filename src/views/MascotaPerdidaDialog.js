@@ -10,6 +10,7 @@ import React, { useState, useEffect } from 'react';
 import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
 import axios from 'axios';
+import { selectUnstyledClasses } from '@mui/base';
 
 
 
@@ -25,8 +26,6 @@ export default function MascotaPerdida({ idMascotaPerdida, state, update }) {
     const [position, setPosition] = useState('center');
     const [toggle, setToggle] = useState({ update: false })
     const [location, setLocation] = useState([])
-
-
 
 
 
@@ -65,14 +64,13 @@ export default function MascotaPerdida({ idMascotaPerdida, state, update }) {
     }
 
     const enviarCoordenadas = (name, e) => {
+   
 
         if (sendLocation.length > 0) {
             let id = e.currentTarget.value
             axios.post(`http://localhost:3001/mascotas/mascotaPerdidaNewLocation/${id}`, sendLocation).then((response) => {
                 update()
             })
-
-            sendLocation.splice(0, sendLocation.length)
 
 
         }
@@ -109,7 +107,7 @@ export default function MascotaPerdida({ idMascotaPerdida, state, update }) {
                 <Dialog className='dialogMascotasPerdidas' header={
                     <div>
                         <p className='textoBusqueda'> Indica el punto donde quieres que busquemos a {idMascotaPerdida.nombre}  </p>
-                     {/*    <div className='mascotaNombrePerdida'>
+                        {/*    <div className='mascotaNombrePerdida'>
                             {idMascotaPerdida.nombre}?
                         </div> */}
                     </div>
