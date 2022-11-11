@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import io from "socket.io-client";
 import { MensajesService } from '../services/MensajesService'
-import { Button } from 'primereact/button';
-
+import IconButton from '@mui/material/IconButton';
 const socket = io('http://localhost:4000')
 
-export default function App({ idReceptor, updateComponent }) {
+export default function App({ idReceptor, updateComponent, nombreEmisario }) {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
   const [allMsg, setAllMsg] = useState([])
@@ -44,9 +43,10 @@ export default function App({ idReceptor, updateComponent }) {
     socket.emit("message", newMessage.body, localStorage.id, idReceptor);
   };
 
-  const backToMessages= () =>{
+  const backToMessages = () => {
     updateComponent()
   }
+  console.log('message', message)
 
   return (
     <div className="divAllMesages">
@@ -61,18 +61,20 @@ export default function App({ idReceptor, updateComponent }) {
           value={message}
           autoFocus
         />
-        <p onClick={(e) => updateComponent()}> Volver</p>
 
-        <ul  className="chatMsgContainer">
+        <p className="backToMessages" onClick={(e) => updateComponent()}> Volver a mensajes  </p>
+
+
+        <ul className="chatMsgContainer">
           {allMsg.map((message, index) => (
             <li
               key={index}
               className={`my-2 p-2 table text-sm rounded-md ${message.idEmisor === parseInt(localStorage.id) ? "bg-sky-70 ml-auto" : "bg-black"
                 }`}
             >
-               
-              {message.idEmisor === parseInt(localStorage.id) ? <p> <span className="spanName"> Yo:</span> {message.mensaje}</p> : <p> </p>}
-              {message.idEmisor !== parseInt(localStorage.id) ? <p><span className="spanName">  </span> {message.mensaje} </p> : <p> </p>}
+
+              {message.idEmisor === parseInt(localStorage.id) ? <p> <span className="spanName"> {localStorage.name}:</span> {message.mensaje}</p> : <p> </p>}
+              {message.idEmisor !== parseInt(localStorage.id) ? <p className="chattingWith"><span className="spanName"> {nombreEmisario}: </span> {message.mensaje} </p> : <p> </p>}
 
             </li>
           ))}

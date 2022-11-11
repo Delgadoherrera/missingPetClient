@@ -3,6 +3,7 @@
     position: fixed;
     top: 5%;
     z-index: -100;
+    opacity: 60%;
 
 
 }
@@ -27,4 +28,10 @@
 }
 body{
     background-color: white !important;
+}
+.iconPhotoUpload {
+
+    position: relative;
+    right: 96% !important;
+    margin-bottom: 0px !important;
 }

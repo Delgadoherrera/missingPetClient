@@ -71,3 +71,8 @@
 .p-inputtext{
     font-family: 'Poor Story', cursive !important; 
   }
+
+
+.p-button-rounded{
+    border-radius: 8px !important;
+}

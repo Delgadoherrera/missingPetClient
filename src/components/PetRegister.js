@@ -22,6 +22,8 @@ export default function ReactFinalFormDemo() {
     const [formData, setFormData] = useState(null);
     const [file, setFile] = useState(null)
     const [dataReady, setDataReady] = useState(false)
+    const [state, setState] = useState({ base64Data: null })
+  
 
     const petColor = [
         { label: 'Negro', value: 'Negro' },
@@ -52,20 +54,22 @@ export default function ReactFinalFormDemo() {
         { label: '60kg a 70kg ', value: '60kg/70kg' },
     ]
     const sendData = async () => {
-        const finalData = new FormData();
-        finalData.append('file', file)
-        finalData.append('formDatas', JSON.stringify(formData))
 
 
 
-        await axios.post("http://localhost:3001/mascota/register", finalData,
-        {
-         /*    headers: formData */
-        }
+
+        await axios.post("http://localhost:3001/mascota/register", {
+            file: state,
+            formdata: formData
+        },
+            {
+                /*    headers: formData */
+            }
         ).then((response) => {
-            console.log('response Api:', response)
+     
             if (response.status === 200) {
-                console.log('exitoso!')
+               
+                
                 setUploaded(true)
                 return <BottomNavigation status={uploaded} />
             }
@@ -74,6 +78,32 @@ export default function ReactFinalFormDemo() {
             }
         })
     }
+    const handleReaderLoaded = e => {
+  
+        let binaryString = e.target.result;
+
+        setState({
+            base64Data:  btoa(binaryString)
+        });
+    
+    };
+
+    const handleFile = (e) => {
+
+        let file = e.target.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = handleReaderLoaded.bind(this);
+            reader.readAsBinaryString(file);
+        }
+
+
+        setFile(state)
+
+    }
+
+
 
     const validate = (data) => {
         let errors = {};
@@ -86,7 +116,7 @@ export default function ReactFinalFormDemo() {
     };
 
     const onSubmit = (data, form) => {
-        console.log('data from petRegister', data)
+       
         let newData = {
             ...data,
             id: localStorage.id,
@@ -95,14 +125,10 @@ export default function ReactFinalFormDemo() {
         setFormData(newData);
 
         setDataReady(true)
-/* 
-           form.restart();  */
-    };
-    const handleFile = (e) => {
-        console.log(e.target.files[0])
-        setFile(e.target.files[0])
 
-    }
+        form.restart();
+    };
+
 
     useEffect(function () {
         setFormData(formData)
@@ -125,9 +151,9 @@ export default function ReactFinalFormDemo() {
         <div className="form-demo">
             <div className="flex justify-content-center">
                 <div className="card">
-    {/*                 <h5 className="text-center">Registrar mascota</h5> */}
+                    {/*                 <h5 className="text-center">Registrar mascota</h5> */}
                     <Form onSubmit={onSubmit} initialValues={{ nombre: '', colorPrimario: '', colorSecundario: '', descripcionMascota: '', tipoMascota: null, }} validate={validate} render={({ handleSubmit }) => (
-                        <form onSubmit={handleSubmit} className="p-fluid">
+                        <form onSubmit={handleSubmit} className="p-fluid addNewPetForm">
 
                             <Field name="nombre" render={({ input, meta }) => (
                                 <div className="field">
@@ -174,26 +200,22 @@ export default function ReactFinalFormDemo() {
                             <Field name="descripcionMascota" render={({ input }) => (
                                 <div className="field">
                                     <span className="p-float-label">
-                                        <InputTextarea maxLength={50} id="descripcionMascota" {...input} placeholder={'Descripcion precisa, 50 caracteres maximo'} />
+                                        <InputTextarea maxLength={200} id="descripcionMascota" {...input} placeholder={'Descripcion precisa, 50 caracteres maximo'} />
                                         <label htmlFor="descripcionMascota">Descripcion de tu mascota</label>
                                     </span>
                                 </div>
                             )} />
-
                             <Field name="fotoMascota" render={({ input }) => (
-                                
                                 <div className="field">
-
-                                    <input onChange={handleFile} type='file' id="fotoMascota" name='file'></input>
+                                    <input onChange={(e) => {
+                                        handleFile(e)
+                                    }} type='file' id="fotoMascota" name='file'></input>
                                     <label className='circle' htmlFor="fotoMascota" name='file' >
                                         <AddAPhoto className='iconPhotoUpload' />
                                     </label>
-
                                     <p className='newPetText'>  Agrega una foto de tu mascota</p>
-
                                 </div>
                             )} />
-
 
 
                             <Button type="submit" label="Agregar a mi mascota" className="mt-2 newPetButton" /* onClick={onSubmit} */ />

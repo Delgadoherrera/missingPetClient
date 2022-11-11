@@ -24,6 +24,7 @@ export default function ReactFinalFormDemo() {
         longitude: 0,
         latitude: 0,
     });
+    const [base64, setBase64]= useState({ base64Data: null })
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(
@@ -102,7 +103,7 @@ export default function ReactFinalFormDemo() {
 
             setDataReady(true)
 
-            form.restart();
+          /*   form.restart(); */
         }
         else {
             let newData = {
@@ -117,23 +118,45 @@ export default function ReactFinalFormDemo() {
 
             setDataReady(true)
 
-            form.restart();
+/*             form.restart(); */
         }
 
 
     };
+    const handleReaderLoaded = e => {
+      
+        let binaryString = e.target.result;
+     
+        setBase64({
+            base64Data:  btoa(binaryString)
+        });
+        /*     console.log('binary', binaryString)
+            console.log('bota', btoa(binaryString)) */
+    };
+
     const handleFile = (e) => {
-        console.log(e.target.files[0])
-        setFile(e.target.files[0])
+
+        let file = e.target.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = handleReaderLoaded.bind(this);
+            reader.readAsBinaryString(file);
+        }
+
+
+        setBase64(state)
 
     }
+
+
 
     useEffect(function () {
         setFormData(formData)
 
         if (dataReady === true) {
             sendData()
-            console.log('enviar datos al servidor')
+
         }
 
     }, [formData]);
@@ -161,11 +184,15 @@ export default function ReactFinalFormDemo() {
         finalData.append('formDatas', JSON.stringify(newData))
 
 
-        await axios.post("http://localhost:3001/mascotas/nuevaMascotaPerdida", finalData, {
+        await axios.post("http://localhost:3001/mascotas/nuevaMascotaPerdida", {
+            file: base64,
+            formDatas: newData
+
+        }, {
         }).then((response) => {
 
             if (response.status === 200) {
-                console.log('exitoso!')
+     
                 setUploaded(true)
                 return <BottomNavigation status={uploaded} />
             }
@@ -189,11 +216,13 @@ export default function ReactFinalFormDemo() {
 
     return (
         <div className="form-demo formPetFound">
-            <div className="flex justify-content-center">
-                <div className="card">
-
+            <div className="flex justify-content-center bodyPetFound">
+                <div className="card formPetRegister">
+               
+                <Map newLocation={locationUpdate} />
+                <p className='tittleMap'> Indica donde encontraste la mascota</p>
                     <Form onSubmit={onSubmit} initialValues={{ nombre: '', colorPrimario: '', colorSecundario: '', pesoAproximado: '', descripcionMascota: '', tipoMascota: null, }} validate={validate} render={({ handleSubmit }) => (
-                        <form onSubmit={handleSubmit} className="p-fluid">
+                        <form onSubmit={handleSubmit} className="p-fluid formPetFound">
                             <Field name="tipoMascota" render={({ input }) => (
                                 <div className="field">
                                     <span className="p-float-label">
@@ -227,11 +256,11 @@ export default function ReactFinalFormDemo() {
                                     </span>
                                 </div>
                             )} />
-                            <Field name="descripcionMascota" render={({ input }) => (
+                            <Field name="descripcionMascota" className='descripcionMascota' render={({ input }) => (
                                 <div className="field">
                                     <span className="p-float-label">
-                                        <InputTextarea id="descripcionMascota" maxLength={50} {...input} placeholder={'Descripcion precisa, 50 caracteres maximo'}/>
-                                        <label htmlFor="descripcionMascota">Descripcion de la mascota encontrada</label>
+                                        <InputTextarea className='descripcionMascota' id="descripcionMascota" maxLength={200} {...input} placeholder={'Descripcion precisa, 50 caracteres maximo'}/>
+                                        <label className='descripcionMascota' htmlFor="descripcionMascota">Descripcion de la mascota encontrada</label>
                                     </span>
                                 </div>
                             )} />
@@ -242,17 +271,20 @@ export default function ReactFinalFormDemo() {
 
                             <Field name="fotoMascota" render={({ input }) => (
                                 <div className="field">
-                                    <input required onChange={handleFile} type='file' id="fotoMascota" name='file'></input>
+                                    <input onChange={(e) => {
+                                        handleFile(e)
+                                    }} type='file' id="fotoMascota" name='file'></input>
                                     <label className='circle' htmlFor="fotoMascota" name='file' >
                                         <AddAPhoto className='iconPhotoUpload' />
                                     </label>
+                               
                                 </div>
                             )} />
 
-                            <p className='tittleMap'> Indica donde encontraste la mascota</p>
+                       
 
 
-                            <Map newLocation={locationUpdate} />
+                      
 
 
                             <Button type="submit" label="Cargar mascota encontrada" className="mt-2 submitFoundPet" />

@@ -15,6 +15,7 @@ import BottomNavigation from '../views/BottomNavigation';
 import {  useAuthContext } from '../contexts/authContext'
 import Mensajes from '../components/Mensajes';
 import MensajesArea from './MensajesArea';
+import UploadBase64 from '../views/UploadBase64';
 
 
 const pages = ['Mascotas', 'Mensajes', 'Demo'];
@@ -152,7 +153,7 @@ function ResponsiveAppBar() {
                         <Box sx={{ flexGrow: 0 }}>
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                    <Avatar alt="Remy Sharp" src={`data:image/jpeg;base64,${localStorage.avatar}`}  />
                                 </IconButton>
                             </Tooltip>
                             <Menu
@@ -186,6 +187,8 @@ function ResponsiveAppBar() {
             {optSelected === "Mascotas" ? <BottomNavigation /> : <p> </p>}
             {optSelected === "Mensajes" ? <Mensajes /> : <p> </p>}
             {optSelected === "MENSAJES" ? <Mensajes /> : <p> </p>}
+            {optSelected === "Demo" ? <UploadBase64 /> : <p> </p>}
+            {optSelected === "DEMO" ? <UploadBase64 /> : <p> </p>}
             {optSelected === null ? <BottomNavigation /> : <p> </p>}
         </div>
 

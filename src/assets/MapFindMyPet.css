@@ -1,28 +1,18 @@
-div>div.row.d-flex.justify-content-center.text-center>div>div {
-    border-radius: 10px !important;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23) !important;
+
+
+/* content mapa*/
+div.form-demo.formPetFound > div > div > div > div:nth-child(1) > div:nth-child(1) > div > div{
+
+    height: fit-content !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    border-radius: 40px !important;
 
 }
 
+/* Estilos del mapa*/
+#root > div > div > div > div > div > div.form-demo.formPetFound > div > div > div > div:nth-child(1) > div:nth-child(1) > div > div > div{
+    border-radius: 40px !important;
 
-@media screen and (min-width: 375px) {
-    div>div.row.d-flex.justify-content-center.text-center>div {
-        width: 118vw !important;
-        margin-left: 1% !important;
-
-
-    }
-
-}
-
-div>div.row.d-flex.justify-content-center.text-center>div {
-    /*     background-color: red !important; */
-    width: 90% !important;
-    height: 50% !important;
-    margin: auto !important;
-    margin-left: 3% !important; 
-    
- 
-
-
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }

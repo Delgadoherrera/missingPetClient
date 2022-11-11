@@ -8,6 +8,7 @@ import { DataView } from 'primereact/dataview';
 import { MascotasService } from '../services/MascotasService';
 import MascotaPerdida from '../views/MascotaPerdidaDialog'
 import MascotaEncontrada from '../views/MascotaEcontradaDialog'
+import UploadBase64 from '../views/UploadBase64'
 
 export default function DataViewLazyDemo(props) {
     const [products, setProducts] = useState(null);
@@ -22,6 +23,8 @@ export default function DataViewLazyDemo(props) {
     const datasource = useRef(null);
     const isMounted = useRef(false);
     const getAllPets = new MascotasService();
+
+
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(
@@ -68,21 +71,32 @@ export default function DataViewLazyDemo(props) {
 
     const renderListItem = (data) => {
         return (
-            <div className="col-12">
+            <div className="col-12 cardDataMyPets">
                 <div className="product-list-item">
-                    <img className='imgMisMascotas' src={data.fotoMascota} onError={(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt={data.name} />
+                    {/*     <img className='imgMisMascotas' src={data.fotoMascota} onError={(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt={data.name} /> */}
+                    <div>
+                       
+                        <img className='imgMisMascotas' src={`data:image/jpeg;base64,${data.fotoMascota}`} />
+
+                    </div>
+
+
+
                     <div className="product-list-detail">
-                        <div className="product-name">{data.nombre}</div>
-                        <div className="product-description">{data.descripcion}</div>
+
+
                         <div className='detalleMascota'>
+                        <div className="product-name">{data.nombre}</div>
+                            <div className="product-description">{data.descripcion}</div>
                             <span className="product-category">Color principal: {data.colorPrimario}</span>
                             <span className="product-category">Color principal: {data.colorSecundario}</span>
                             <span className="product-category">Peso aproximado: {data.pesoAproximado}</span>
                         </div>
                     </div>
+                    {data.status === 1 ? <MascotaEncontrada idMascotaPerdida={data} update={updateComponent} /> : <MascotaPerdida update={updateComponent} idMascotaPerdida={data} state={state} />}
                 </div>
-           
-                {data.status === 1 ? <MascotaEncontrada idMascotaPerdida={data} update={updateComponent} /> : <MascotaPerdida update={updateComponent} idMascotaPerdida={data} state={state} />}
+
+
 
             </div>
         );
@@ -110,6 +124,7 @@ export default function DataViewLazyDemo(props) {
 
     return (
         <div className="dataview-demo">
+            <UploadBase64 dataInput={products}></UploadBase64>
             <div className="card">
                 <DataView value={products} layout={layout} header={header}
                     itemTemplate={itemTemplate} /* lazy paginator */ rows={rows.current}

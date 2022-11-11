@@ -177,8 +177,7 @@ function ResponsiveAppBar() {
             {selected ==='Iniciar Sesion' ? <UserLogin /> : <p> </p> }
             {selected ==='REGISTRATE' ? <UserRegister /> : <p> </p> }
             {selected ==='Registrate' ? <UserRegister /> : <p> </p> }        
-            {selected ==='Demo' ? <UserLogin /> : <p> </p> }  
-            {selected ==='DEMO' ? <UserLogin /> : <p> </p> }  
+
         </div>
 
         

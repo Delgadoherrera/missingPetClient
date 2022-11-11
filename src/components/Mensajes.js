@@ -12,6 +12,7 @@ export default function Mensajes() {
     const [displayMessage, setDisplayMessage] = useState(false)
     const [emisario, setEmisario] = useState(0)
     const [inbox, setInbox] = useState({})
+    const [nombreEmisario, setNombreEmisario]= useState('')
 
 
 
@@ -32,16 +33,16 @@ export default function Mensajes() {
 
 
     let letrasUnicas = [];
-    let idUnicos=[]
+    let idUnicos = []
 
-    allMsg.forEach((elemento) => {      
+    allMsg.forEach((elemento) => {
         if (!letrasUnicas.includes(elemento.nombre)) {
             letrasUnicas.push(elemento.nombre);
         }
     });
 
     allMsg.forEach((elemento) => {
-        console.log('ELEMENTOS', elemento)
+       
         if (!idUnicos.includes(elemento.idHumano)) {
             idUnicos.push(elemento.idHumano);
         }
@@ -58,9 +59,10 @@ export default function Mensajes() {
     });
 
     const clicOnMessages = (e) => {
-        console.log('id Emisario', e.currentTarget.value)
+      
         setDisplayMessage(!displayMessage)
         setEmisario(e.currentTarget.value)
+        setNombreEmisario(e.currentTarget.ariaLabel)
     }
     const updateComponent = () => {
         setDisplayMessage(!displayMessage)
@@ -68,25 +70,26 @@ export default function Mensajes() {
     }
 
 
-    console.log(filteredMessages)
-    console.log(idUnicos)
     return (
         <div className='divMsg'>
 
             {
                 displayMessage === true ?
-                    <MensajesArea updateComponent={updateComponent} idReceptor={emisario} />
+                    <MensajesArea updateComponent={updateComponent} idReceptor={emisario} nombreEmisario={nombreEmisario}/>
                     : <p></p>
             }
             {filteredMessages.map((one, index) => {
-               
+              
 
-                return <Button type="button" label={` Mensaje de: ${one}`}
+                return (
+                
+                <Button type="button" label={` Mensaje de: ${one}`}
                     icon="pi pi-users"
                     className="p-button-warning mensajesButton" /* badge="1" */
                     badgeClassName="p-badge-danger"
+                    aria-label={one}
                     value={idUnicos[index]}
-                    onClick={(e) => { clicOnMessages(e) }} />
+                    onClick={(e) => { clicOnMessages(e) }} />)
 
             })}
 

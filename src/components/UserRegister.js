@@ -2,6 +2,7 @@ import 'primeicons/primeicons.css';
 import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import 'primereact/resources/primereact.css';
 import 'primeflex/primeflex.css';
+import '../assets/UserRegister.css'
 import React, { useState, useEffect } from 'react';
 import { Form, Field } from 'react-final-form';
 import { InputText } from 'primereact/inputtext';
@@ -14,20 +15,42 @@ import { Dialog } from 'primereact/dialog';
 import { Divider } from 'primereact/divider';
 import { classNames } from 'primereact/utils';
 import { useAuthContext } from "../contexts/authContext"
-
+import AddAPhoto from '@mui/icons-material/AddAPhoto';
 
 export default function ReactFinalFormDemo() {
   const { login } = useAuthContext();
   const [showMessage, setShowMessage] = useState(false);
   const [formData, setFormData] = useState('');
+  const [file, setFile] = useState('');
+  const [state, setState] = useState({ base64Data: null })
 
 
+  const handleReaderLoaded = e => {
+    console.log("file uploaded 2: ", e);
+    let binaryString = e.target.result;
+    setState({
+      base64Data: btoa(binaryString)
+    });
+    /*     console.log('binary', binaryString)
+        console.log('bota', btoa(binaryString)) */
+  };
+
+  const handleFile = (e) => {
+    /*     console.log(e.target.files[0]) */
+    console.log("file uploaded: ", e.target.files[0]);
+    let file = e.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = handleReaderLoaded.bind(this);
+      reader.readAsBinaryString(file);
+    }
 
 
+    setFile(state)
 
-
-  console.log(formData)
-
+  }
+  console.log('state', state)
 
   const validate = (data) => {
     let errors = {};
@@ -35,7 +58,7 @@ export default function ReactFinalFormDemo() {
     if (!data.name) {
       errors.name = 'Name is required.';
     }
-    
+
     if (!data.telefono) {
       errors.name = 'Phone is required.';
     }
@@ -64,10 +87,9 @@ export default function ReactFinalFormDemo() {
   const onSubmit = (data, form) => {
     setFormData(data);
     setShowMessage(true);
-    console.log(formData)
 
-    /* 
-        form.restart(); */
+
+    form.restart();
   };
 
   useEffect(function (onSubmit) {
@@ -78,38 +100,42 @@ export default function ReactFinalFormDemo() {
   }, [onSubmit]);
 
   function firstLogin() {
-    console.log('envio de datos')
     const sendData = async () => {
 
       if (formData === undefined) {
         console.log('es undefined')
-        console.log('formData aqui: ', formData)
+
       }
 
       else if (formData !== '') {
-        let res = await axios.post("http://localhost:3001/user/register", formData).then((response) => {
-          console.log('response Api:', response)
-          if (response.status === 200) {
-            localStorage.setItem('usuario', response.data.nombre)
-            localStorage.setItem('email', response.data.email)
-            localStorage.setItem('apellido', response.data.apellido)
-            localStorage.setItem('id', response.data.id)
-          
-
-            if (localStorage.email === response.data.email)
-              login();
-          }
-          else if (res.status !== 200) {
-            console.log('error')
-          }
-
+        let res = axios.post("http://localhost:3001/user/register", {
+          /*        headers: 'Access-Control-Allow-Origin: http://localhost:3000', */
+          formData: formData,
+          file: state
         })
+          .then((response) => {
+            console.log('response Api:', response)
+            if (response.status === 200) {
+              localStorage.setItem('usuario', response.data.nombre)
+              localStorage.setItem('email', response.data.email)
+              localStorage.setItem('apellido', response.data.apellido)
+              localStorage.setItem('id', response.data.id)
+
+
+              if (localStorage.email === response.data.email)
+                login();
+            }
+            else if (res.status !== 200) {
+              console.log('error')
+            }
+
+          })
       }
     }
     sendData()
     setShowMessage(false)
   }
-  console.log(formData)
+
 
   const isFormFieldValid = (meta) => !!(meta.touched && meta.error);
   const getFormErrorMessage = (meta) => {
@@ -146,7 +172,7 @@ export default function ReactFinalFormDemo() {
       <div className="flex justify-content-center">
         <div className="formRegister">
           <h5 className="text-center">Registrate</h5>
-          <Form onSubmit={onSubmit} initialValues={{ name: '', email: '', password: '', date: null, apellido:'', telefono:'', country: null, accept: false }} validate={validate} render={({ handleSubmit }) => (
+          <Form onSubmit={onSubmit} initialValues={{ name: '', email: '', password: '', date: null, apellido: '', telefono: '', country: null, accept: false }} validate={validate} render={({ handleSubmit }) => (
             <form onSubmit={handleSubmit} className="p-fluid">
 
               <Field on name="name" render={({ input, meta }) => (
@@ -190,20 +216,25 @@ export default function ReactFinalFormDemo() {
               <Field name="password" render={({ input, meta }) => (
                 <div className="field">
                   <span className="p-float-label">
-                    <Password id="password" {...input} toggleMask className={classNames({ 'p-invalid': isFormFieldValid(meta) })} header={passwordHeader} footer={passwordFooter} />
+                    <Password autoComplete="on" id="password" {...input} toggleMask className={classNames({ 'p-invalid': isFormFieldValid(meta) })} header={passwordHeader} footer={passwordFooter} />
                     <label htmlFor="password" className={classNames({ 'p-error': isFormFieldValid(meta) })}>Contraseña*</label>
                   </span>
                   {getFormErrorMessage(meta)}
                 </div>
               )} />
-{/*               <Field name="date" render={({ input }) => (
+              <Field name="fotoMascota" render={({ input }) => (
                 <div className="field">
-                  <span className="p-float-label">
-                    <Calendar id="date" {...input} dateFormat="dd/mm/yy" showIcon />
-                    <label htmlFor="date">Fecha de nacimiento</label>
-                  </span>
+                  <input onChange={(e) => {
+                    handleFile(e)
+                  }} type='file' id="fotoMascota" name='file'></input>
+                  <label className='circle' htmlFor="fotoMascota" name='file' >
+                    <AddAPhoto className='iconPhotoUpload' />
+                  </label>
+                  <p className='newPetText'>  Agrega una foto de tu mascota</p>
                 </div>
-              )} /> */}
+              )} />
+
+
               <Field name="accept" type="checkbox" render={({ input, meta }) => (
                 <div className="field-checkbox">
                   <Checkbox inputId="accept" {...input} className={classNames({ 'p-invalid': isFormFieldValid(meta) })} />

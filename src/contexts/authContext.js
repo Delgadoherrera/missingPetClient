@@ -36,7 +36,8 @@ export function AuthContextProvider({ children }) {
                     window.localStorage.setItem('id', res.data.dataUser.id);
                     window.localStorage.setItem('name', res.data.dataUser.nombre);
                     window.localStorage.setItem('lastName', res.data.dataUser.apellido);
-                    window.localStorage.setItem('email', res.data.dataUser.email);
+                    window.localStorage.setItem('email', res.data.dataUser.email);          
+                    window.localStorage.setItem('avatar', res.data.dataUser.fotoPerfil); 
                     window.localStorage.setItem(MY_AUTH_APP, true);
                     setIsAuthenticated(true);
                 }) : <p> </p>

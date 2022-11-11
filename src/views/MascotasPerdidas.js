@@ -19,8 +19,10 @@ export default function MascotasPerdidas() {
         longitude: 0,
         latitude: 0,
     });
+    const [files, setFiles] = useState([]);
+    const reader = new FileReader();
+  
 
-console.log('pet detail',petDetail)
     const responsiveOptions = [
         {
             breakpoint: '1024px',
@@ -91,7 +93,7 @@ console.log('pet detail',petDetail)
 
 
     const petFounded = (data) => {
-    console.log(data.e,'DATA')
+
         setDialogFounded(true)
         setpetFoundDetail(data.e)
      
@@ -112,7 +114,7 @@ console.log('pet detail',petDetail)
             <div className="data-item">
                 <div className="data-item-content">
                     <div className="mb-3">
-                        <img src={`${data.fotoMascota}`} onError={(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt={data.name} className="data-image" />
+                        <img src={`data:image/jpeg;base64,${data.fotoMascota}`} onError={(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt={data.name} className="data-image" />
                     </div>
                     <div>
                         <h4 className="mb-1">{data.nombre}</h4>

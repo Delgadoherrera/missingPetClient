@@ -9,7 +9,7 @@ body {
     color: #495057;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-   /*  padding: .5em; */
+    /*  padding: .5em; */
     margin-bottom: 50px;
 }
 
@@ -227,17 +227,19 @@ img.flag {
 .dataview-demo .p-dropdown {
     width: 14rem;
     font-weight: normal;
+
 }
 
 .dataview-demo .product-name {
     font-size: 1.3rem;
     font-weight: 700;
-    margin-bottom: 3% !important;
+
 }
 
 .dataview-demo .product-description {
     margin: 0 0 1rem 0;
     font-size: 1.2rem;
+
 }
 
 .dataview-demo .product-category-icon {
@@ -248,6 +250,7 @@ img.flag {
 .dataview-demo .product-category {
     font-weight: 600;
     vertical-align: middle;
+
 }
 
 .dataview-demo .product-list-item {
@@ -255,6 +258,7 @@ img.flag {
     align-items: center;
     padding: 1rem;
     width: 100%;
+
 }
 
 .dataview-demo .product-list-item img {
@@ -265,6 +269,7 @@ img.flag {
 
 .dataview-demo .product-list-item .product-list-detail {
     flex: 1 1 0;
+
 }
 
 .dataview-demo .product-list-item .p-rating {
@@ -352,7 +357,8 @@ img.flag {
 }
 
 .product-name {
-    margin-top: 1px !important;
+    /*     text-align: center !important;
+ */
 }
 
 .col-12 {
@@ -362,29 +368,37 @@ img.flag {
 }
 
 .imgMisMascotas {
-    margin-top: 1% !important;
     width: 200px !important;
     height: 200px !important;
     object-fit: cover !important;
     padding: 1% !important;
     border-radius: 60px !important;
-    margin-bottom: 2% !important;
+    margin-bottom: 20px !important;
     margin: auto !important;
+    top: 40px !important;
+
+}
+
+.product-list-detail {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-around !important;
 
 }
 
 .product-list-item {
     margin-top: 1% !important;
+    margin-bottom: 100px !important;
     /* background-color: blue!important; */
 }
 
-@media screen and (min-width: 576px)
+@media screen and (min-width: 1056)
 
 /*  and (min-width: 500px) */
     {
     .dataview-demo .product-list-item {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column !important;
+
     }
 
     .dataview-demo .product-list-item img {
@@ -394,7 +408,10 @@ img.flag {
 
     .dataview-demo .product-list-item .product-list-detail {
         text-align: center;
+
+
     }
+
 
     .dataview-demo .product-list-item .product-price {
         align-self: center;
@@ -403,10 +420,11 @@ img.flag {
     .dataview-demo .product-list-item .product-list-action {
         display: flex;
         flex-direction: column;
+        justify-content: space-around !important;
     }
 
     .dataview-demo .product-list-item .product-list-action {
-        margin-top: 2rem;
+
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
@@ -414,7 +432,7 @@ img.flag {
     }
 
     .imgMisMascotas {
-        margin-top: 1% !important;
+        margin-top: 10% !important;
         border-radius: 20px !important;
         width: 300px !important;
         height: 300 px !important;
@@ -428,6 +446,7 @@ img.flag {
 
     .product-name {
         font-size: 2.5rem !important;
+
     }
 
     .product-category {
@@ -441,17 +460,19 @@ img.flag {
 
     .product-list-item {
         flex-direction: row !important;
+
     }
 
 }
 
 @media screen and (min-width: 1600px) {
     .imgMisMascotas {
-        margin-top: 1% !important;
+        background-color: rgba(0, 0, 0, 0.781) !important;
         border-radius: 60px !important;
-        width: 250px !important;
+        width: 350px !important;
         height: 300px !important;
         object-fit: cover !important;
+        margin-top: 70px !important;
 
     }
 
@@ -471,46 +492,64 @@ img.flag {
         flex-direction: row !important;
     }
 
+
+
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 800px) {
     .imgMisMascotas {
-        margin-top: 1% !important;
         border-radius: 60px !important;
         width: 200px !important;
         height: 200px !important;
         object-fit: cover !important;
+        bottom: 400px !important;
+        background-color: rgba(200, 193, 193, 0.116) !important;
+        margin-top: 40px !important;
 
+    }
+
+    .cardDataMyPets {
+
+        width: 100% !important;
+        height: 89vh !important;
     }
 
     .product-list-item {
         flex-direction: column !important;
+
+
+
     }
 
     .product-name {
         font-size: 2.5rem !important;
         text-align: center !important;
+
     }
 
     .product-category {
         font-size: 1.0rem !important;
         text-align: center !important;
+        margin-bottom: 5px !important;
     }
 
     .product-description {
         font-size: 1.4rem !important;
         text-align: center !important;
+        margin-bottom: 25px !important;
     }
 }
 
 .buttonLost {
     margin-top: 0 !important;
+    margin-left: 30px !important;
 }
 
 @media screen and (min-width: 300px) and (max-width: 760px) {
     .p-button-warning {
         width: 100% !important;
     }
+
 }
 
 @media screen and (min-width: 760px) {
@@ -519,4 +558,9 @@ img.flag {
         right: 3.5% !important;
         bottom: 15px !important;
     }
+}
+
+.p-fluid{
+
+    height: 100% !important;
 }

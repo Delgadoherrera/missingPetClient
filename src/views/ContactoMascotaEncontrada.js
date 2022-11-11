@@ -22,17 +22,12 @@ export default function MascotaPerdida({state, idMascotaPerdida, setDialog }) {
     const [msg, setMsg] = useState(null)
 
 
-/*     console.log('mensaje a enviar: ', msg)
-    console.log('el ID del usuario receptor del mensaje:', idMascotaPerdida)
-    console.log('el ID del emisario: ', localStorage.id) */
     const objetoFecha = Date.now();
     const nowDate = new Date(objetoFecha);
     let fechaMensaje = nowDate.toLocaleDateString('en-ZA');
-/*     console.log('Horario del mensaje:', fechaMensaje) */
 
 
 
-console.log('idMascotaPerdida', idMascotaPerdida)
 
 
     const sendData = () => {
@@ -45,12 +40,12 @@ console.log('idMascotaPerdida', idMascotaPerdida)
 
         axios.post("http://localhost:3001/mensajes/nuevoMensaje", msgData, {
         }).then((response) => {
-            console.log(response)
+        /*     console.log(response) */
         })
         setDialog(false)
     }
     const sendMessage = (data) => {
-        console.log(data)
+
         setMsg(data)
 
     }

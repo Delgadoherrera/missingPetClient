@@ -13,7 +13,7 @@ import '../assets/BottomNavigation.css'
 
 
 export default function LabelBottomNavigation({ status, datos }) {
-  const [value, setValue] = React.useState('misMascotas');
+  const [value, setValue] = React.useState('mascotasPerdidas');
 
 
 

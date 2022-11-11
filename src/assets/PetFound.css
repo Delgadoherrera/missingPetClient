@@ -1,38 +1,96 @@
 .adTextPetFound {
     font-size: 1rem !important;
+    text-align: center;
 }
 
 .tittleMap {
     margin-bottom: 5px !important;
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: rgba(27, 27, 25, 0.827) !important;
+    text-align: center;
 }
 
 .iconPhotoUpload {
-    font-size: 50px !important;
-    left: 190%;
-
+    /*     font-size: 50px !important; */
+    font-size: 5rem !important;
+    left: -1rem;
 }
 
 .submitFoundPet {
-    color: red !important;
+    width: auto !important;
     bottom: 6rem !important;
+
+
 }
 
 .formPetFound {
     /*     background-color: red !important;
  */
     height: 100vh !important;
+    background-color: transparent !important
+    
 }
 
 .mapaMascotaEncontrada {
-    /*     background-color: red !important; */
     padding: 10px !important;
-    height: 320px;
-    /*     box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px !important;
- */
-    /*     background-color: rgba(0, 0, 0, 0.379);
- */
+    height: 210px;
     border-radius: 10px;
 
+}
+
+
+
+.formPetRegister {
+    background-color: red !important;
+    margin-bottom: 40px !important;
+}
+
+
+
+
+
+
+#root>div>div>div>div>div>div.form-demo.formPetFound>div>div>div {
+    height: 490px !important;
+    margin-bottom: 100px !important;
+    /*       background-color: red !important; */
+}
+
+.field {
+    width: 60%;
+    margin: auto;
+   
+
+
+}
+
+.submitFoundPet {
+    padding: 2%;
+    width: 400px !important;
+    margin: auto;
+
+
+}
+
+.iconPhotoUpload {
+    /*     font-size: 50px !important; */
+    font-size: 5rem !important;
+    left: -3rem;
+}
+
+
+.fatherDivPetRegister {
+    /*     background-color: red !important; */
+    margin-top: 65px !important;
+}
+
+#descripcionMascota {
+    height: 120px;
+  
+ 
+
+    
+}
+.descripcionMascota{
+    text-align: left !important;
 }

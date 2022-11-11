@@ -127,6 +127,8 @@
   /*   background-color: #282c34 !important;
   color: white !important; */
   font-size: 1rem;
+
+
 }
 
 .p-button-rounded {
@@ -180,7 +182,12 @@ map>div {
 .p-dialog-content {
   border-top: 100% !important;
   background-color: #0b0e15eb !important;
-  padding: 2% !important;
+  padding: 20px !important;
+  margin-bottom: 10px !important;
+
+
+
+  
 }
 
 @media screen and (min-width: 1599px) {
@@ -211,14 +218,47 @@ map>div {
 }
 
 
-.p-float-label{
-margin-top: 10px !important;
+.p-float-label {
+  margin-top: 10px !important;
 }
 
-.css-hip9hq-MuiPaper-root-MuiAppBar-root{
+.css-hip9hq-MuiPaper-root-MuiAppBar-root {
   top: 0% !important;
   position: fixed !important;
   z-index: 5;
   opacity: 100% !important;
-  
+
 }
+
+.iconPhotoUpload {
+
+  position: relative;
+  right: 96% !important;
+  margin-bottom: 0px !important;
+}
+
+.MuiBottomNavigationAction-label {
+  color: white !important;
+
+}
+
+@media screen and (min-width: 1024px) {
+  .p-dialog-content:last-of-type {
+    /* backgroun  height: 40px !important;d-color: red !important; */
+
+  }
+
+  .dialogMascotasPerdidas {
+    width: 30% !important;
+  }
+
+}
+
+.submitFoundPet {
+
+  margin-top: 70px !important;
+
+
+
+}
+
