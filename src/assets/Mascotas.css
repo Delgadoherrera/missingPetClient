@@ -373,9 +373,10 @@ img.flag {
     object-fit: cover !important;
     padding: 1% !important;
     border-radius: 60px !important;
-    margin-bottom: 20px !important;
+    margin-top: 0 !important;
     margin: auto !important;
-    top: 40px !important;
+
+
 
 }
 
@@ -467,12 +468,16 @@ img.flag {
 
 @media screen and (min-width: 1600px) {
     .imgMisMascotas {
-        background-color: rgba(0, 0, 0, 0.781) !important;
+        box-shadow: rgba(8, 0, 0, 0.548) 0px 2px 8px;
+        background-color: transparent !important;
         border-radius: 60px !important;
         width: 350px !important;
-        height: 300px !important;
+        height: 250px !important;
         object-fit: cover !important;
-        margin-top: 70px !important;
+        border-width: 0px !important;
+        /*    margin-top: 70px !important; */
+        padding: 3px !important;
+
 
     }
 
@@ -497,7 +502,7 @@ img.flag {
 }
 
 @media screen and (max-width: 800px) {
-    .imgMisMascotas {
+    /*     .imgMisMascotas {
         border-radius: 60px !important;
         width: 200px !important;
         height: 200px !important;
@@ -506,12 +511,13 @@ img.flag {
         background-color: rgba(200, 193, 193, 0.116) !important;
         margin-top: 40px !important;
 
-    }
+    } */
 
     .cardDataMyPets {
 
         width: 100% !important;
-        height: 89vh !important;
+        height: 500px !important;
+        margin-bottom: auto !important;
     }
 
     .product-list-item {
@@ -543,6 +549,7 @@ img.flag {
 .buttonLost {
     margin-top: 0 !important;
     margin-left: 30px !important;
+
 }
 
 @media screen and (min-width: 300px) and (max-width: 760px) {
@@ -560,7 +567,26 @@ img.flag {
     }
 }
 
-.p-fluid{
+.p-fluid {
 
     height: 100% !important;
+
+}
+
+.cardsPet {
+    background-color: rgba(21, 20, 20, 0.065) !important;
+    box-shadow: rgba(22, 22, 22, 0.056)  0px 1px 1px, rgba(155, 155, 169, 0.916) 0px 1px 2px !important;
+    border-radius: 20px !important;
+    padding: 20px !important;
+
+}
+
+.MuiBottomNavigation {
+    margin-bottom: 40px !important;
+    /*     background-color: yellow !important; */
+}
+
+
+.tituloMisMascotas {
+    margin-bottom: -14px !important;
 }

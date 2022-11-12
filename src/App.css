@@ -99,11 +99,13 @@
 
 .tituloMisMascotas {
   margin-top: 3%;
-  font-size: 1.5rem;
+  font-size: 1.9rem;
   text-align: center;
   /*     font-style:oblique; */
-  padding: 3% !important;
-  background-color: rgba(145, 138, 138, 0.178) !important;
+  padding: 30px !important;
+  background-color: rgba(145, 138, 138, 0.229) !important;
+  border-radius: 0px !important;
+
 
 }
 
@@ -187,7 +189,7 @@ map>div {
 
 
 
-  
+
 }
 
 @media screen and (min-width: 1599px) {

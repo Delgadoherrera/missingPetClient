@@ -32,7 +32,7 @@ const GoogleMapComponent = (props) => {
   ]
   let [markers, setMarkers] = useState(markersList);
   const mapStyles = {
-    width: '82vw',
+    width: '80vw',
     height: '30vh',
     margin: 'auto',
     position:'relative',

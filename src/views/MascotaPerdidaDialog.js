@@ -101,7 +101,7 @@ export default function MascotaPerdida({ idMascotaPerdida, state, update }) {
             <div className="card">
                 <div className="grid flex-column">
                     <div className="col">
-                        {idMascotaPerdida.status !== 1 ? <Button label={`${idMascotaPerdida.nombre} se ha perdido`.toUpperCase()} /* icon="pi pi-arrow-down" */ onClick={() => onClick('displayPosition', 'top')} className="p-button-warning buttonLost" /> : <p></p>}
+                        {idMascotaPerdida.status !== 1 ? <Button className='buttonLost' label={`${idMascotaPerdida.nombre} se ha perdido`.toUpperCase()} /* icon="pi pi-arrow-down" */ onClick={() => onClick('displayPosition', 'top')} className="p-button-warning buttonLost" /> : <p></p>}
                     </div>
                 </div>
                 <Dialog className='dialogMascotasPerdidas' header={

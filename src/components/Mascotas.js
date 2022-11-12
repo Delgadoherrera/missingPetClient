@@ -72,13 +72,13 @@ export default function DataViewLazyDemo(props) {
     const renderListItem = (data) => {
         return (
             <div className="col-12 cardDataMyPets">
-                <div className="product-list-item">
+                <div className="product-list-item cardsPet">
                     {/*     <img className='imgMisMascotas' src={data.fotoMascota} onError={(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt={data.name} /> */}
-                    <div>
+                
                        
                         <img className='imgMisMascotas' src={`data:image/jpeg;base64,${data.fotoMascota}`} />
 
-                    </div>
+                    
 
 
 

@@ -211,7 +211,7 @@ export default function ReactFinalFormDemo() {
                                         handleFile(e)
                                     }} type='file' id="fotoMascota" name='file'></input>
                                     <label className='circle' htmlFor="fotoMascota" name='file' >
-                                        <AddAPhoto className='iconPhotoUpload' />
+                                        <AddAPhoto className='iconPhotoUpload'  />
                                     </label>
                                     <p className='newPetText'>  Agrega una foto de tu mascota</p>
                                 </div>

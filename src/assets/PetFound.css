@@ -4,10 +4,12 @@
 }
 
 .tittleMap {
-    margin-bottom: 5px !important;
+    margin-bottom: 0px !important;
     font-size: 1.2rem;
-    color: rgba(27, 27, 25, 0.827) !important;
+    color: black !important;
     text-align: center;
+    position: relative !important;
+    bottom: 0px !important;
 }
 
 .iconPhotoUpload {
@@ -17,18 +19,14 @@
 }
 
 .submitFoundPet {
-    width: auto !important;
     bottom: 6rem !important;
-
-
 }
 
 .formPetFound {
     /*     background-color: red !important;
  */
     height: 100vh !important;
-    background-color: transparent !important
-    
+    background-color: s !important
 }
 
 .mapaMascotaEncontrada {
@@ -41,7 +39,7 @@
 
 
 .formPetRegister {
-    background-color: red !important;
+
     margin-bottom: 40px !important;
 }
 
@@ -50,23 +48,16 @@
 
 
 
-#root>div>div>div>div>div>div.form-demo.formPetFound>div>div>div {
-    height: 490px !important;
-    margin-bottom: 100px !important;
-    /*       background-color: red !important; */
-}
+
 
 .field {
-    width: 60%;
+    width: 90%;
     margin: auto;
-   
-
-
 }
 
 .submitFoundPet {
     padding: 2%;
-    width: 400px !important;
+    width: 270px !important;
     margin: auto;
 
 
@@ -75,7 +66,7 @@
 .iconPhotoUpload {
     /*     font-size: 50px !important; */
     font-size: 5rem !important;
-    left: -3rem;
+    left: -1rem;
 }
 
 
@@ -86,11 +77,39 @@
 
 #descripcionMascota {
     height: 120px;
-  
- 
+}
 
+.descripcionMascota {
+    text-align: left !important;
+}
+
+@media screen and (min-width: 1024px) {
+
+    .iconPhotoUpload {
+        /*     font-size: 50px !important; */
+        font-size: 5rem !important;
+        left: -5.5rem;
+    }
+    #root>div>div>div>div>div>div.form-demo.formPetFound>div>div>div {
+        height: 490px !important;
+        margin-bottom: 100px !important;
+        /*       background-color: red !important; */
+    }
+    .submitFoundPet{
+        width: 800px !important;
+    }
+    
     
 }
-.descripcionMascota{
-    text-align: left !important;
+
+@media screen and (max-width: 1024px) {
+.tittleMap {
+    margin-bottom: 0px !important;
+    font-size: 1.2rem;
+    color: black !important;
+    text-align: center;
+    position: relative !important;
+    top: 20px !important;
+}
+
 }
