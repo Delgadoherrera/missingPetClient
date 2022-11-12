@@ -14,7 +14,6 @@ import MenuItem from '@mui/material/MenuItem';
 import BottomNavigation from '../views/BottomNavigation';
 import {  useAuthContext } from '../contexts/authContext'
 import Mensajes from '../components/Mensajes';
-import MensajesArea from './MensajesArea';
 import UploadBase64 from '../views/UploadBase64';
 
 

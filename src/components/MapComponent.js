@@ -1,6 +1,6 @@
 import '../assets/MapComponent.css'
 import React, { useState, useEffect } from "react";
-import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+import { Map, Marker } from 'google-maps-react';
 export default function GoogleMapComponent(props) {
 
   const [state, setState] = useState({

@@ -5,15 +5,10 @@ import 'primeflex/primeflex.css';
 import '../assets/MePerdiButton.css'
 import '../assets/MascotaPerdidaDialog.css'
 import Index from '../components/WrapperMap'
-import MapComponent from '../components/MapComponent'
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
 import axios from 'axios';
-import { selectUnstyledClasses } from '@mui/base';
-
-
-
 
 
 export default function MascotaPerdida({ idMascotaPerdida, state, update }) {

@@ -1,4 +1,4 @@
-import { useAuthContext, AuthContextProvider, AuthContext } from "../contexts/authContext"
+import { useAuthContext } from "../contexts/authContext"
 import NavBar from './PublicNavbar'
 import Dog from '../assets/img/cachorros.jpg'
 import '../assets/Home.css'

@@ -11,7 +11,7 @@ import { Password } from 'primereact/password';
 import { Dialog } from 'primereact/dialog';
 import { Divider } from 'primereact/divider';
 import { classNames } from 'primereact/utils';
-import { AuthContext, useAuthContext } from '../contexts/authContext'
+import {  useAuthContext } from '../contexts/authContext'
 
 
 

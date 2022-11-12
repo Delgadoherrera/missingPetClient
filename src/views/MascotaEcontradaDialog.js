@@ -8,7 +8,6 @@ import React, { useState } from 'react';
 import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
 import axios from 'axios';
-import { BottomNavigation } from '@mui/material';
 
 export default function MascotaPerdida({ idMascotaPerdida, state, update }) {
     const [displayBasic, setDisplayBasic] = useState(false);
