@@ -108,7 +108,7 @@ export default function ReactFinalFormDemo() {
       }
 
       else if (formData !== '') {
-        let res = axios.post("http://localhost:3001/user/register", {
+        let res = axios.post("https://missing-pet-server.herokuapp.com/user/register", {
           /*        headers: 'Access-Control-Allow-Origin: http://localhost:3000', */
           formData: formData,
           file: state

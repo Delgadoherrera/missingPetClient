@@ -184,7 +184,7 @@ export default function ReactFinalFormDemo() {
         finalData.append('formDatas', JSON.stringify(newData))
 
 
-        await axios.post("http://localhost:3001/mascotas/nuevaMascotaPerdida", {
+        await axios.post("https://missing-pet-server.herokuapp.com/mascotas/nuevaMascotaPerdida", {
             file: base64,
             formDatas: newData
 

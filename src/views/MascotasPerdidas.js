@@ -6,8 +6,6 @@ import { Carousel } from 'primereact/carousel';
 import { Button } from 'primereact/button';
 import '../assets/MascotasPerdidas.css';
 import ContactoMascotaEncontrada from './ContactoMascotaEncontrada'
-import CalcularDistancia from '../components/CalcularDistancia';
-
 
 export default function MascotasPerdidas() {
     const [mascotas, setMascotas] = useState([])
@@ -133,7 +131,6 @@ export default function MascotasPerdidas() {
 
                             {data.status === 3 ? <Button onClick={() => petFounded({e:data})} className="p-button p-button-rounded mr-2" label='Es mi mascota' /> : <Button onClick={() => petFounded({e:data})} className="p-button p-button-rounded mr-2" label={`He encontrado a ${data.nombre}`} />}
                             {dialogFounded === true ? <ContactoMascotaEncontrada setDialog={contactPetFounded} idMascotaPerdida={petDetail} /> : <p></p>}
-                            <CalcularDistancia geoData={state} allPets={mascotas} receiveNearPets={receiveNearPets} />
                         </div>
                     </div>
                 </div>

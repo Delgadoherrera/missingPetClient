@@ -8,8 +8,6 @@ import { Form, Field } from 'react-final-form';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { Dropdown } from 'primereact/dropdown';
-import { Dialog } from 'primereact/dialog';
-import { Divider } from 'primereact/divider';
 import { classNames } from 'primereact/utils';
 import { InputTextarea } from 'primereact/inputtextarea';
 import '../assets/PetRegister.css';
@@ -58,7 +56,7 @@ export default function ReactFinalFormDemo() {
 
 
 
-        await axios.post("http://localhost:3001/mascota/register", {
+        await axios.post("http://https://missing-pet-server.herokuapp.com/mascota/register", {
             file: state,
             formdata: formData
         },

@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { LOGIN, LOGOUT, PRIVATE, REGISTER, MAP } from './config/routes/paths'
+import {  LOGOUT, PRIVATE,  } from './config/routes/paths'
 import { AuthContextProvider } from './contexts/authContext'
 import PublicRoute from './components/router/PublicRoute'
 import PrivateRoute from './components/router/PrivateRoute'
