@@ -1,4 +1,4 @@
-import { createContext, useCallback, useState, useMemo, useContext, useEffect } from "react";
+import { createContext, useCallback, useState, useMemo, useContext } from "react";
 import axios from 'axios'
 import PropTypes from 'prop-types'
 /* import bcrypt from 'bcryptjs' */
@@ -24,26 +24,26 @@ export function AuthContextProvider({ children }) {
 
     const sendData = async () => {
         if (userData !== null) {
-            {
-                userData.email !== '' ? axios.post("https://missing-pet-server.herokuapp.com/user/login", userData, {
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ user: userData })
-                }).then((res) => {
-                    console.log('res api', res)
-                    document.cookie = `token=${res.data.token}; max-age=${3600}; path=/; samesite-strict `
-                    window.localStorage.setItem('id', res.data.dataUser.id);
-                    window.localStorage.setItem('name', res.data.dataUser.nombre);
-                    window.localStorage.setItem('lastName', res.data.dataUser.apellido);
-                    window.localStorage.setItem('email', res.data.dataUser.email);          
-                    window.localStorage.setItem('avatar', res.data.dataUser.fotoPerfil); 
-                    window.localStorage.setItem(MY_AUTH_APP, true);
-                    setIsAuthenticated(true);
-                }) : <p> </p>
-            }
+
+            userData.email !== '' ? axios.post("https://missing-pet-server.herokuapp.com/user/login", userData, {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ user: userData })
+            }).then((res) => {
+                console.log('res api', res)
+                document.cookie = `token=${res.data.token}; max-age=${3600}; path=/; samesite-strict `
+                window.localStorage.setItem('id', res.data.dataUser.id);
+                window.localStorage.setItem('name', res.data.dataUser.nombre);
+                window.localStorage.setItem('lastName', res.data.dataUser.apellido);
+                window.localStorage.setItem('email', res.data.dataUser.email);
+                window.localStorage.setItem('avatar', res.data.dataUser.fotoPerfil);
+                window.localStorage.setItem(MY_AUTH_APP, true);
+                setIsAuthenticated(true);
+            }) : <p> </p>
         }
     }
+
 
     const logout = useCallback(function () {
         setIsAuthenticated(0);
