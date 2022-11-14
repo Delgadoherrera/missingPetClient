@@ -59,11 +59,16 @@ export default function MascotaPerdida({ idMascotaPerdida, state, update }) {
     }
 
     const enviarCoordenadas = (name, e) => {
-   
+
 
         if (sendLocation.length > 0) {
             let id = e.currentTarget.value
-            axios.post(`https://backend.missing-pet-server.herokuapp.com/mascotas/mascotaPerdidaNewLocation/${id}`, sendLocation).then((response) => {
+            axios.post(`https://backend.missing-pet-server.herokuapp.com/mascotas/mascotaPerdidaNewLocation/${id}`, sendLocation, {
+                headers: {
+                    'content-type': 'Access-Control-Allow-Origin: *'
+                }
+
+            }).then((response) => {
                 update()
             })
 
@@ -71,7 +76,11 @@ export default function MascotaPerdida({ idMascotaPerdida, state, update }) {
         }
         else {
             let id = e.currentTarget.value
-            axios.post(`https://backend.missing-pet-server.herokuapp.com/mascotas/mascotaPerdida/${id}`, state).then((response) => {
+            axios.post(`https://backend.missing-pet-server.herokuapp.com/mascotas/mascotaPerdida/${id}`, state,{
+                headers: {
+                    'content-type': 'Access-Control-Allow-Origin: *'
+                }
+            }).then((response) => {
                 update()
             });
         }
