@@ -76,10 +76,7 @@ export default function MascotaPerdida({ idMascotaPerdida, state, update }) {
         }
         else {
             let id = e.currentTarget.value
-            axios.post(`https://backend.missing-pet-server.herokuapp.com/mascotas/mascotaPerdida/${id}`, state,{
-                headers: {
-                    'content-type': 'Access-Control-Allow-Origin: *'
-                }
+            axios.post(`https://backend.missing-pet-server.herokuapp.com/mascotas/mascotaPerdida/${id}`, state, {
             }).then((response) => {
                 update()
             });
