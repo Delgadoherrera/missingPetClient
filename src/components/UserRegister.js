@@ -45,7 +45,7 @@ export default function ReactFinalFormDemo() {
       return null;
     }
 
-    if (file.se < 50000) {
+    if (file.size < 50000) {
       const reader = new FileReader();
       reader.onload = handleReaderLoaded.bind(this);
       reader.readAsBinaryString(file);
@@ -229,7 +229,7 @@ export default function ReactFinalFormDemo() {
               )} />
               <Field name="fotoMascota" render={({ input }) => (
                 <div className="field">
-                  <input max={ } onChange={(e) => {
+                  <input onChange={(e) => {
                     handleFile(e)
                   }} type='file' id="fotoMascota" name='file'></input>
                   <label className='circle' htmlFor="fotoMascota" name='file' >
