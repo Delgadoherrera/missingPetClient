@@ -43,7 +43,7 @@ export default function MascotaPerdida({ idMascotaPerdida, state, update }) {
     }
     const enviarCoordenadas = (name, e) => {
         let id = e.currentTarget.value
-        axios.post(`https://missing-pet-server.herokuapp.com/mascotas/mascotaEncontrada/${id}`, state).then((response) => {
+        axios.post(`https://backend.missingpets.art/mascotas/mascotaEncontrada/${id}`, state).then((response) => {
             update()
         });
         dialogFuncMap[`${name}`](false);

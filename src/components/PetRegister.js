@@ -56,7 +56,7 @@ export default function ReactFinalFormDemo() {
 
 
 
-        await axios.post("https://missing-pet-server.herokuapp.com/mascota/register", {
+        await axios.post("https://backend.missingpets.art/mascota/register", {
             file: state,
             formdata: formData
         },

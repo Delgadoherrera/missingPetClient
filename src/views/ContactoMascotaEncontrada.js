@@ -38,7 +38,7 @@ export default function MascotaPerdida({state, idMascotaPerdida, setDialog }) {
             date: fechaMensaje
         }
 
-        axios.post("http://https://missing-pet-server.herokuapp.com/mensajes/nuevoMensaje", msgData, {
+        axios.post("https://backend.missingpets.art/mensajes/nuevoMensaje", msgData, {
         }).then((response) => {
         /*     console.log(response) */
         })

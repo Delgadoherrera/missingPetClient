@@ -8,7 +8,7 @@ export default function App({ dataInput }) {
   const reader = new FileReader();
 
   useEffect(() => {
-    axios.get("http://https://missing-pet-server.herokuapp.com/blob", {
+    axios.get("https://backend.missingpets.art/blob", {
     })
       .then((response) => {
        
