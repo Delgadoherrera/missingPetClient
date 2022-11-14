@@ -3,7 +3,7 @@ import io from "socket.io-client";
 import { MensajesService } from '../services/MensajesService'
 
 
-const socket = io('http://localhost:4000')
+const socket = io('http://localhost:3002')
 
 export default function App({ idReceptor, updateComponent, nombreEmisario }) {
   const [messages, setMessages] = useState([]);
