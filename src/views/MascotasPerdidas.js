@@ -47,7 +47,7 @@ export default function MascotasPerdidas() {
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(
             function (position) {
-
+                    console.log(position)
                 fetch('https://backend.missingpets.art/mascotas/mascotasPerdidas', {       
 
                     latitude: position.coords.latitude,
