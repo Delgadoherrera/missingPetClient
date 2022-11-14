@@ -49,7 +49,7 @@ export default function MascotasPerdidas() {
         navigator.geolocation.getCurrentPosition(
             function (position) {
                     console.log(position)
-                axios.post('https://backend.missingpets.art/mascotas/mascotasPerdidas', {       
+                axios.get('https://backend.missingpets.art/mascotas/mascotasPerdidas', {       
 
                     latitude: position.coords.latitude,
                     longitude: position.coords.longitude
