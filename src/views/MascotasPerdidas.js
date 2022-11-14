@@ -49,9 +49,6 @@ export default function MascotasPerdidas() {
             function (position) {
 
                 fetch('https://backend.missing-pet-server.herokuapp.com/mascotas/mascotasPerdidas', {
-                    headers: {
-                        'content-type': 'Access-Control-Allow-Origin: *'
-                    },
 
                     latitude: position.coords.latitude,
                     longitude: position.coords.longitude
