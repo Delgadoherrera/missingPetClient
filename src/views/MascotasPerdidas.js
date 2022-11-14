@@ -48,7 +48,7 @@ export default function MascotasPerdidas() {
         navigator.geolocation.getCurrentPosition(
             function (position) {
   
-                fetch('https://missing-pet-server.herokuapp.com/mascotas/mascotasPerdidas', {
+                fetch('https://backend.missing-pet-server.herokuapp.com/mascotas/mascotasPerdidas', {
                     headers: {
                         latitude: position.coords.latitude,
                         longitude:  position.coords.longitude
