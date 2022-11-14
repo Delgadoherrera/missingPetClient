@@ -56,7 +56,7 @@ export default function MascotasPerdidas() {
                     }
                 }).then(res => {
                     console.log('res api',res)
-                    res.json()
+                   /*  res.json() */
                 
                 }).then(d => setMascotas(d.data.data));
 
