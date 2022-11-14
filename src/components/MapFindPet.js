@@ -28,7 +28,7 @@ const GoogleMapComponent = (props) => {
   }, []);
   let markersList = [
     { lat: state.latitude, lng: state.longitude },
-    /*   { lat: state.latitude, lng: state.longitude} */
+    /*   { lat: state.latitude, lng: state.asdasdlongitude} */
   ]
   let [markers, setMarkers] = useState(markersList);
   const mapStyles = {
