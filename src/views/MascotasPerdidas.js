@@ -6,6 +6,7 @@ import { Carousel } from 'primereact/carousel';
 import { Button } from 'primereact/button';
 import '../assets/MascotasPerdidas.css';
 import ContactoMascotaEncontrada from './ContactoMascotaEncontrada'
+import axios from 'axios'
 
 export default function MascotasPerdidas() {
     const [mascotas, setMascotas] = useState([])
@@ -48,7 +49,7 @@ export default function MascotasPerdidas() {
         navigator.geolocation.getCurrentPosition(
             function (position) {
                     console.log(position)
-                fetch('https://backend.missingpets.art/mascotas/mascotasPerdidas', {       
+                axios.post('https://backend.missingpets.art/mascotas/mascotasPerdidas', {       
 
                     latitude: position.coords.latitude,
                     longitude: position.coords.longitude
