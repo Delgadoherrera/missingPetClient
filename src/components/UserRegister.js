@@ -40,7 +40,12 @@ export default function ReactFinalFormDemo() {
     console.log("file uploaded: ", e.target.files[0]);
     let file = e.target.files[0];
 
-    if (file) {
+    if (file.size > 50000) {
+      alert(`File too big max 50ko`);
+      return null;
+    }
+
+    if (file.se < 50000) {
       const reader = new FileReader();
       reader.onload = handleReaderLoaded.bind(this);
       reader.readAsBinaryString(file);
@@ -224,13 +229,13 @@ export default function ReactFinalFormDemo() {
               )} />
               <Field name="fotoMascota" render={({ input }) => (
                 <div className="field">
-                  <input onChange={(e) => {
+                  <input max={ } onChange={(e) => {
                     handleFile(e)
                   }} type='file' id="fotoMascota" name='file'></input>
                   <label className='circle' htmlFor="fotoMascota" name='file' >
                     <AddAPhoto className='iconPhotoUpload' />
                   </label>
-                  <p className='newPetText'>  Agrega una foto de tu mascota</p>
+                  <p className='newPetText'>  Sube una foto para tu avatar</p>
                 </div>
               )} />
 
