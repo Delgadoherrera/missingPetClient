@@ -48,12 +48,12 @@ export default function MascotasPerdidas() {
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(
             function (position) {
-                    console.log(position)
-                axios.get('https://backend.missingpets.art/mascotas/mascotasPerdidas', {       
-
-                    latitude: position.coords.latitude,
-                    longitude: position.coords.longitude
-
+                console.log(position)
+                axios.get('https://backend.missingpets.art/mascotas/mascotasPerdidas', {
+                    headers: {
+                        latitude: position.coords.latitude,
+                        longitude: position.coords.longitude
+                    }
                 }).then(res => res.json()).then(d => setMascotas(d.data));
 
                 setState({
