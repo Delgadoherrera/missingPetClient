@@ -58,7 +58,7 @@ export default function MascotasPerdidas() {
                     console.log('res api',res)
                    /*  res.json() */
                 
-                }).then(d => setMascotas(d.data.data));
+                }).then(d => setMascotas(d.data));
 
                 setState({
                     longitude: position.coords.longitude,
