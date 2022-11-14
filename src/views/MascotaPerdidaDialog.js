@@ -64,10 +64,6 @@ export default function MascotaPerdida({ idMascotaPerdida, state, update }) {
         if (sendLocation.length > 0) {
             let id = e.currentTarget.value
             axios.post(`https://backend.missing-pet-server.herokuapp.com/mascotas/mascotaPerdidaNewLocation/${id}`, sendLocation, {
-                headers: {
-                    'content-type': 'Access-Control-Allow-Origin: *'
-                }
-
             }).then((response) => {
                 update()
             })
