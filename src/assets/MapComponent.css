@@ -17,7 +17,7 @@
 
     #root>div>div>div>div>div>div.form-demo.formPetFound>div>div>form>div:nth-child(9)>div:nth-child(1)>div:nth-child(1)>div>div>div {
         border-radius: 10px !important;
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23) !important;
+        box-shadow: 0 3px 6px rgba(82, 41, 41, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23) !important;
         margin-left: 10% !important;
 
 
