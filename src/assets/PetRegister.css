@@ -13,9 +13,13 @@
 
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (min-width: 960px) {
     .form-demo .card {
-        width: 80%;
+        width: 100%;
+    }
+
+    .newPetButton {
+        bottom: 60px !important;
     }
 }
 
@@ -23,8 +27,16 @@
     .form-demo .card {
         width: 100%;
         min-width: 0;
+       
+    }
+
+    .newPetButton {
+        margin-bottom: 40px !important;
+        bottom: 1.5rem !important;
+
     }
 }
+
 
 .fotoMascotaLabel {
     transition: none !important;
@@ -64,22 +76,25 @@
 }
 
 .newPetButton {
-    margin-bottom: 100px !important;
+    margin-bottom: 00px !important;
+
 }
 
 @media screen and (min-width: 1024px) {
 
     .newPetButton {
-        bottom: 90px;
+        bottom: 67px !important;
         width: fit-content !important;
         margin: auto;
         padding: 20px !important;
-        bottom: 50px !important;
+
+
     }
 
     .addNewPetForm {
-        width: 50% !important;
+        width: 100% !important;
         margin: auto;
+        /*      bottom: 40px !important; */
     }
 
     .iconPhotoUpload {
@@ -100,5 +115,14 @@
 
     margin-top: 0 !important;
     margin-bottom: 40px !important;
+
+}
+
+@media screen and (min-width: 1600px) {
+    .newPetButton {
+        bottom: 130px !important;
+      left: 40px !important;
+    }
+
 
 }
