@@ -35,3 +35,21 @@ body{
     right: 96% !important;
     margin-bottom: 0px !important;
 }
+
+.loginButton{
+    background-color: red !important;
+    width: 150px !important;
+    margin: auto;
+}
+
+.userRegisterPhoto{
+    left: 150% !important;
+}
+
+.divUserRegister{
+/*     background-color: red !important;
+ */    margin-top: 90px !important;
+}
+.loginForm{
+    margin-top: 90px;
+}

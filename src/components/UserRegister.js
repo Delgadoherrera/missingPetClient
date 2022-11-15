@@ -174,7 +174,7 @@ export default function ReactFinalFormDemo() {
         </div>
       </Dialog>
 
-      <div className="flex justify-content-center">
+      <div className="flex justify-content-center divUserRegister">
         <div className="formRegister">
           <h5 className="text-center">Registrate</h5>
           <Form onSubmit={onSubmit} initialValues={{ name: '', email: '', password: '', date: null, apellido: '', telefono: '', country: null, accept: false }} validate={validate} render={({ handleSubmit }) => (
@@ -233,19 +233,19 @@ export default function ReactFinalFormDemo() {
                     handleFile(e)
                   }} type='file' id="fotoMascota" name='file'></input>
                   <label className='circle' htmlFor="fotoMascota" name='file' >
-                    <AddAPhoto className='iconPhotoUpload' />
+                    <AddAPhoto className='iconPhotoUpload userRegisterPhoto' />
                   </label>
                   <p className='newPetText'>  Sube una foto para tu avatar</p>
                 </div>
               )} />
 
-
+{/* 
               <Field name="accept" type="checkbox" render={({ input, meta }) => (
                 <div className="field-checkbox">
                   <Checkbox inputId="accept" {...input} className={classNames({ 'p-invalid': isFormFieldValid(meta) })} />
                   <label htmlFor="accept" className={classNames({ 'p-error': isFormFieldValid(meta) })}>I agree to the terms and conditions*</label>
                 </div>
-              )} />
+              )} /> */}
 
               <Button type="submit" label="Submit" className="mt-2" />
             </form>

@@ -50,19 +50,7 @@ export default function ReactFinalFormDemo() {
     };
 
     const dialogFooter = <div className="flex justify-content-center"><Button label="OK" className="p-button-text" autoFocus /></div>;
-    const passwordHeader = <h6>Pick a password</h6>;
-    const passwordFooter = (
-        <React.Fragment>
-            <Divider />
-            <p className="mt-2">Suggestions</p>
-            <ul className="pl-2 ml-2 mt-0" style={{ lineHeight: '1.5' }}>
-                <li>At least one lowercase</li>
-                <li>At least one uppercase</li>
-                <li>At least one numeric</li>
-                <li>Minimum 8 characters</li>
-            </ul>
-        </React.Fragment>
-    );
+
 
     return (
         <div className="form-demo">
@@ -86,7 +74,7 @@ export default function ReactFinalFormDemo() {
                                     <span className="p-float-label p-input-icon-right">
                                         <i className="pi pi-envelope" />
                                         <InputText onChange={(e) => setFormData(e.target.value)} id="email" {...input} className={classNames({ 'p-invalid': isFormFieldValid(meta) })} />
-                                        <label htmlFor="email" className={classNames({ 'p-error': isFormFieldValid(meta) })}>Email*</label>
+                                        <label htmlFor="email" className={classNames({ 'p-error': isFormFieldValid(meta) })}>Correo electrónico</label>
                                     </span>
                                     {getFormErrorMessage(meta)}
                                 </div>
@@ -95,12 +83,12 @@ export default function ReactFinalFormDemo() {
                                 <div className="field">
                                     <span className="p-float-label">
                                         <Password autoComplete="on" onChange={(e) => setFormData(e.target.value)} id="password" {...input} toggleMask className={classNames({ 'p-invalid': isFormFieldValid(meta) })}  />
-                                        <label htmlFor="password" className={classNames({ 'p-error': isFormFieldValid(meta) })}>Password*</label>
+                                        <label htmlFor="password" className={classNames({ 'p-error': isFormFieldValid(meta) })}>Contraseña</label>
                                     </span>
                                     {getFormErrorMessage(meta)}
                                 </div>
                             )} />
-                            <Button type="submit" label="Submit" className="mt-2" />
+                            <Button type="submit" label="Ingresar" className="mt-2 loginButton" />
                         </form>
                     )} />
                 </div>
