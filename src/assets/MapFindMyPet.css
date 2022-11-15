@@ -20,7 +20,7 @@ div.form-demo.formPetFound>div>div>div>div:nth-child(1)>div:nth-child(1)>div>div
 
     #root>div>div>div>div>div>div.form-demo.formPetFound>div>div>div>div:nth-child(1)>div:nth-child(1)>div>div>div {
         border-radius: 40px !important;
-        width: 200px !important;
+        width: 320px !important;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     }
 
