@@ -35,3 +35,12 @@ div.form-demo.formPetFound>div>div>div>div:nth-child(1)>div:nth-child(1)>div>div
     }
 
 }
+
+#pr_id_4_content > div > div.row.d-flex.justify-content-center.text-center > div > div{
+    width: 100% !important;
+    height: 50% !important;
+}
+
+div > div.row.d-flex.justify-content-center.text-center > div{
+    height: 40% !important;
+}

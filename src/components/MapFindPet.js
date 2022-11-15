@@ -67,7 +67,7 @@ const GoogleMapComponent = (props) => {
   return (
     <>
       <div>
-        <div className="row d-flex justify-content-center text-center mapaMascotaEncontrada">
+        <div className="row d-flex justifyyy-content-center text-center mapaMascotaEncontrada">
 
           <Map
             google={props.google}

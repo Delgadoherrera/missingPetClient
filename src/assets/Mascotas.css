@@ -353,6 +353,7 @@ img.flag {
     flex-direction: column;
     justify-content: space-around;
     margin-bottom: 1% !important;
+    border-radius: 20px ;
 
 }
 

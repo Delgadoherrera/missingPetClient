@@ -21,8 +21,10 @@ export default function GoogleMapComponent(props) {
   let [markers, setMarkers] = useState(markersList);
 
   const mapStyles = {
-    width: '225px',
-    height: '260px',
+    width: '100%',
+    height: '100%',
+    margin: 'auto',
+    position:'relative',
   };
 
 
@@ -85,7 +87,7 @@ export default function GoogleMapComponent(props) {
   return (
     <>
 
-      <div className="row d-flex justify-content-center text-center">
+      <div className="row d-flex justify-content-center text-center ">
 
         <Map
           google={window.google}
