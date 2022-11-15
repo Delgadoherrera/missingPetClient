@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import io from "socket.io-client";
 import { MensajesService } from '../services/MensajesService'
 
-const socket = io('https://216.238.67.25:4000')
+const socket = io('https://backend.missingpets.art:4000')
 
 export default function App({ idReceptor, updateComponent, nombreEmisario }) {
   const [messages, setMessages] = useState([]);
