@@ -375,7 +375,9 @@ img.flag {
     border-radius: 60px !important;
     margin-top: 0 !important;
     margin: auto !important;
-    margin-bottom: 10px !important;
+
+
+
 }
 
 .product-list-detail {
@@ -590,38 +592,6 @@ img.flag {
 }
 
 * {
-    border-radius: 40px !important;
+  border-radius: 40px !important;
 
-}
-
-.buttonLost {
-    margin: auto !important;
-    position: relative;
-    width: 320px;
-    height: 80px;
-}
-
-.detalleMascota {
-    background-color: rgba(18, 3, 3, 0.198);
-    padding: 50px !important;
-    width: 300px !important;
-}
-
-@media screen and (min-width: 1024px) {
-    .detalleMascota {
-        background-color: rgba(18, 3, 3, 0.198);
-        padding: 50px !important;
-        width: 800px !important;
-    }
-
-    .imgMisMascotas {
-        height: 530px !important;
-        width: 530px !important;
-    }
-
-    .buttonLost {
-        width: 500px;
-        margin: auto;
-        left: 1%;
-    }
 }

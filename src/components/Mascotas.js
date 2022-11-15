@@ -73,7 +73,10 @@ export default function DataViewLazyDemo(props) {
         return (
             <div className="col-12 cardDataMyPets">
                 <div className="product-list-item cardsPet">
-                    <img className='imgMisMascotas' src={`data:image/jpeg;base64,${data.fotoMascota}`} />
+                    <div className='divFotoMascota'>
+                        <img className='imgMisMascotas' src={`data:image/jpeg;base64,${data.fotoMascota}`} />
+
+                    </div>
                     <div className="product-list-detail">
                         <div className='detalleMascota'>
                             <div className="product-name">{data.nombre}</div>
@@ -81,12 +84,14 @@ export default function DataViewLazyDemo(props) {
                             <span className="product-category">Color principal: {data.colorPrimario}</span>
                             <span className="product-category">Color principal: {data.colorSecundario}</span>
                             <span className="product-category">Peso aproximado: {data.pesoAproximado}</span>
-                            {data.status === 1 ? <MascotaEncontrada idMascotaPerdida={data} update={updateComponent} /> : <MascotaPerdida update={updateComponent} idMascotaPerdida={data} state={state} />}
 
                         </div>
+
                     </div>
+
                 </div>
 
+                {data.status === 1 ? <MascotaEncontrada idMascotaPerdida={data} update={updateComponent} /> : <MascotaPerdida update={updateComponent} idMascotaPerdida={data} state={state} />}
 
 
             </div>
@@ -116,7 +121,7 @@ export default function DataViewLazyDemo(props) {
     return (
         <div className="dataview-demo">
             <UploadBase64 dataInput={products}></UploadBase64>
-            <div className="card">
+            <div className="card viewCardMyPets">
                 <DataView value={products} layout={layout} header={header}
                     itemTemplate={itemTemplate} /* lazy paginator */ rows={rows.current}
                     first={first} onPage={onPage} />
