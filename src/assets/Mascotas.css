@@ -389,7 +389,7 @@ img.flag {
 
 .product-list-item {
     margin-top: 1% !important;
-    margin-bottom: 100px !important;
+    margin-bottom: 10px !important;
     /* background-color: blue!important; */
 }
 
@@ -571,13 +571,26 @@ img.flag {
 
     height: 100% !important;
 
+
+}
+.cardDataMyPets{
+    margin-bottom: 50px !important;
+/*     width: fit-content !important; */
+    height: fit-content !important;
+/*     margin-top: 20px !important; */
 }
 
 .cardsPet {
     background-color: rgba(21, 20, 20, 0.065) !important;
-    box-shadow: rgba(22, 22, 22, 0.056)  0px 1px 1px, rgba(155, 155, 169, 0.916) 0px 1px 2px !important;
+    box-shadow: rgba(22, 22, 22, 0.056) 0px 1px 1px, rgba(155, 155, 169, 0.916) 0px 1px 2px !important;
     border-radius: 20px !important;
     padding: 20px !important;
+/*     margin: auto !important;
+ */
+
+
+
+
 
 }
 
