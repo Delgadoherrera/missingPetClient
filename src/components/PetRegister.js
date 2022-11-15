@@ -90,12 +90,12 @@ export default function ReactFinalFormDemo() {
 
         let file = e.target.files[0];
 
-        if (file.size > 5000000) {
-          alert(`File too big max 5000kb`);
+        if (file.size > 50000000) {
+          alert(`File too big max 50000kb`);
           return null;
         }
     
-        if (file.size < 5000000) {
+        if (file.size < 50000000) {
             const reader = new FileReader();
             reader.onload = handleReaderLoaded.bind(this);
             reader.readAsBinaryString(file);
