@@ -579,20 +579,13 @@ img.flag {
 
 
 
-.MuiBottomNavigation {
-    margin-bottom: 40px !important;
-    /*     background-color: yellow !important; */
-}
 
 
 .tituloMisMascotas {
     margin-bottom: -14px !important;
 }
 
-* {
-    border-radius: 40px !important;
 
-}
 
 .buttonLost {
     margin: auto !important;
