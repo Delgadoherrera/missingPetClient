@@ -94,7 +94,7 @@ export default function ReactFinalFormDemo() {
                             <Field name="password" render={({ input, meta }) => (
                                 <div className="field">
                                     <span className="p-float-label">
-                                        <Password autoComplete="on" onChange={(e) => setFormData(e.target.value)} id="password" {...input} toggleMask className={classNames({ 'p-invalid': isFormFieldValid(meta) })} header={passwordHeader} footer={passwordFooter} />
+                                        <Password autoComplete="on" onChange={(e) => setFormData(e.target.value)} id="password" {...input} toggleMask className={classNames({ 'p-invalid': isFormFieldValid(meta) })}  />
                                         <label htmlFor="password" className={classNames({ 'p-error': isFormFieldValid(meta) })}>Password*</label>
                                     </span>
                                     {getFormErrorMessage(meta)}
