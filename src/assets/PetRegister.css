@@ -69,12 +69,24 @@
 
 @media screen and (min-width: 1024px) {
 
-    .newPetButton{
+    .newPetButton {
         bottom: 90px;
-        width: 1200px !important;
+        width: fit-content !important;
         margin: auto;
-        padding: 50px !important;
+        padding: 20px !important;
+        bottom: 50px !important;
     }
+
+    .addNewPetForm {
+        width: 50% !important;
+        margin: auto;
+    }
+
+    .iconPhotoUpload {
+        left: -50px !important;
+    }
+
+
 }
 
 .formPetRegister {
@@ -90,6 +102,3 @@
     margin-bottom: 40px !important;
 
 }
-
-
-
