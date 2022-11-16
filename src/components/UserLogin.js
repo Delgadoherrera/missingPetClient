@@ -77,7 +77,6 @@ export default function ReactFinalFormDemo() {
                     return setLogError(!logError)
                 }
                 if (res.data.token) {
-
                     login()
                     document.cookie = `token=${res.data.token}; max-age=${3600}; path=/; samesite-strict `
                     window.localStorage.setItem('id', res.data.dataUser.id);
@@ -85,11 +84,9 @@ export default function ReactFinalFormDemo() {
                     window.localStorage.setItem('lastName', res.data.dataUser.apellido);
                     window.localStorage.setItem('email', res.data.dataUser.email);
                     window.localStorage.setItem('avatar', res.data.dataUser.fotoPerfil);
-
                 }
 
 
-                /*          */
 
             }) : <p> </p>
         }

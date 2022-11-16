@@ -12,16 +12,12 @@ export const AuthContext = createContext();
 export function AuthContextProvider({ children }) {
 
     const [isAuthenticated, setIsAuthenticated] = useState(window.localStorage.getItem(MY_AUTH_APP) ?? false);
-    const [userData, setUserData] = useState(null)
 
 
     const login = useCallback(function (datos) {
-        setUserData(datos)
         setIsAuthenticated(true);
         window.localStorage.setItem(MY_AUTH_APP, true);
-    }, [userData]);
-
-
+    }, []);
 
 
     const logout = useCallback(function () {
@@ -34,9 +30,8 @@ export function AuthContextProvider({ children }) {
         login,
         logout,
         isAuthenticated,
-        userData,
     }),
-        [login, logout, isAuthenticated, userData]
+        [login, logout, isAuthenticated]
     );
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }

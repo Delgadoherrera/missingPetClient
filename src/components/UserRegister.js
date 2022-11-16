@@ -8,9 +8,7 @@ import { Form, Field } from 'react-final-form';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import axios from 'axios'
-import { Calendar } from 'primereact/calendar';
 import { Password } from 'primereact/password';
-import { Checkbox } from 'primereact/checkbox';
 import { Dialog } from 'primereact/dialog';
 import { Divider } from 'primereact/divider';
 import { classNames } from 'primereact/utils';
@@ -100,7 +98,7 @@ export default function ReactFinalFormDemo() {
   useEffect(function (onSubmit) {
     /*  setFormData(formData) */
 
-    /*     sendData() */
+        firstLogin() 
 
   }, [onSubmit]);
 
@@ -239,7 +237,7 @@ export default function ReactFinalFormDemo() {
                 </div>
               )} />
 
-{/* 
+              {/* 
               <Field name="accept" type="checkbox" render={({ input, meta }) => (
                 <div className="field-checkbox">
                   <Checkbox inputId="accept" {...input} className={classNames({ 'p-invalid': isFormFieldValid(meta) })} />
@@ -247,7 +245,7 @@ export default function ReactFinalFormDemo() {
                 </div>
               )} /> */}
 
-              <Button type="submit" label="Submit" className="mt-2" />
+              <Button type="submit" label="Registrarme" className="mt-2" />
             </form>
           )} />
         </div>
