@@ -8,7 +8,9 @@ import { Form, Field } from 'react-final-form';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import axios from 'axios'
+import { Calendar } from 'primereact/calendar';
 import { Password } from 'primereact/password';
+import { Checkbox } from 'primereact/checkbox';
 import { Dialog } from 'primereact/dialog';
 import { Divider } from 'primereact/divider';
 import { classNames } from 'primereact/utils';
@@ -38,12 +40,7 @@ export default function ReactFinalFormDemo() {
     console.log("file uploaded: ", e.target.files[0]);
     let file = e.target.files[0];
 
-    if (file.size > 50000000) {
-      alert(`File too big max 50000kb`);
-      return null;
-    }
-
-    if (file.size < 50000000) {
+    if (file) {
       const reader = new FileReader();
       reader.onload = handleReaderLoaded.bind(this);
       reader.readAsBinaryString(file);
@@ -90,38 +87,52 @@ export default function ReactFinalFormDemo() {
   const onSubmit = (data, form) => {
     setFormData(data);
     setShowMessage(true);
-    sendData()
 
-    /*    form.restart(); */
+
+    form.restart();
   };
 
+  useEffect(function (onSubmit) {
+    /*  setFormData(formData) */
 
-  function sendData() {
+    /*     sendData() */
 
-    let res = axios.post("https://backend.missingpets.art/user/register", {
-      /*        headers: 'Access-Control-Allow-Origin: http://localhost:3000', */
-      formData: formData,
-      file: state
-    })
-      .then((response) => {
-        console.log('response Api:', response)
-        if (response.status === 200) {
-          localStorage.setItem('usuario', response.data.nombre)
-          localStorage.setItem('email', response.data.email)
-          localStorage.setItem('apellido', response.data.apellido)
-          localStorage.setItem('id', response.data.id)
+  }, [onSubmit]);
+
+  function firstLogin() {
+    const sendData = async () => {
+
+      if (formData === undefined) {
+        console.log('es undefined')
+
+      }
+
+      else if (formData !== '') {
+        let res = axios.post("https://backend.missingpets.art/user/register", {
+          /*        headers: 'Access-Control-Allow-Origin: http://localhost:3000', */
+          formData: formData,
+          file: state
+        })
+          .then((response) => {
+            console.log('response Api:', response)
+            if (response.status === 200) {
+              localStorage.setItem('usuario', response.data.nombre)
+              localStorage.setItem('email', response.data.email)
+              localStorage.setItem('apellido', response.data.apellido)
+              localStorage.setItem('id', response.data.id)
 
 
-          if (localStorage.email === response.data.email)
-            login();
-        }
-        else if (res.status !== 200) {
-          console.log('error')
-        }
+              if (localStorage.email === response.data.email)
+                login();
+            }
+            else if (res.status !== 200) {
+              console.log('error')
+            }
 
-      })
-
-
+          })
+      }
+    }
+    sendData()
     setShowMessage(false)
   }
 
@@ -131,7 +142,7 @@ export default function ReactFinalFormDemo() {
     return isFormFieldValid(meta) && <small className="p-error">{meta.error}</small>;
   };
 
-  const dialogFooter = <div className="flex justify-content-center"><Button label="OK" className="p-button-text" autoFocus /* onClick={firstLogin} */ /></div>;
+  const dialogFooter = <div className="flex justify-content-center"><Button label="OK" className="p-button-text" autoFocus onClick={firstLogin} /></div>;
   const passwordHeader = <h6>Pick a password</h6>;
   const passwordFooter = (
     <React.Fragment>
@@ -158,7 +169,7 @@ export default function ReactFinalFormDemo() {
         </div>
       </Dialog>
 
-      <div className="flex justify-content-center divUserRegister">
+      <div className="flex justify-content-center">
         <div className="formRegister">
           <h5 className="text-center">Registrate</h5>
           <Form onSubmit={onSubmit} initialValues={{ name: '', email: '', password: '', date: null, apellido: '', telefono: '', country: null, accept: false }} validate={validate} render={({ handleSubmit }) => (
@@ -217,21 +228,21 @@ export default function ReactFinalFormDemo() {
                     handleFile(e)
                   }} type='file' id="fotoMascota" name='file'></input>
                   <label className='circle' htmlFor="fotoMascota" name='file' >
-                    <AddAPhoto className='iconPhotoUpload userRegisterPhoto' />
+                    <AddAPhoto className='iconPhotoUpload' />
                   </label>
-                  <p className='newPetText'>  Sube una foto para tu avatar</p>
+                  <p className='newPetText'>  Agrega una foto de tu mascota</p>
                 </div>
               )} />
 
-              {/* 
+
               <Field name="accept" type="checkbox" render={({ input, meta }) => (
                 <div className="field-checkbox">
                   <Checkbox inputId="accept" {...input} className={classNames({ 'p-invalid': isFormFieldValid(meta) })} />
                   <label htmlFor="accept" className={classNames({ 'p-error': isFormFieldValid(meta) })}>I agree to the terms and conditions*</label>
                 </div>
-              )} /> */}
+              )} />
 
-              <Button type="submit" label="Registrarme" className="mt-2" />
+              <Button type="submit" label="Submit" className="mt-2" />
             </form>
           )} />
         </div>
