@@ -17,32 +17,11 @@ export function AuthContextProvider({ children }) {
 
     const login = useCallback(function (datos) {
         setUserData(datos)
-        sendData()
+        setIsAuthenticated(true);
+        window.localStorage.setItem(MY_AUTH_APP, true);
     }, [userData]);
 
 
-
-    const sendData = async () => {
-        if (userData !== null) {
-
-            userData.email !== '' ? axios.post("https://backend.missingpets.art/user/login", userData, {
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ user: userData })
-            }).then((res) => {
-                console.log('res api', res)
-                document.cookie = `token=${res.data.token}; max-age=${3600}; path=/; samesite-strict `
-                window.localStorage.setItem('id', res.data.dataUser.id);
-                window.localStorage.setItem('name', res.data.dataUser.nombre);
-                window.localStorage.setItem('lastName', res.data.dataUser.apellido);
-                window.localStorage.setItem('email', res.data.dataUser.email);
-                window.localStorage.setItem('avatar', res.data.dataUser.fotoPerfil);
-                window.localStorage.setItem(MY_AUTH_APP, true);
-                setIsAuthenticated(true);
-            }) : <p> </p>
-        }
-    }
 
 
     const logout = useCallback(function () {

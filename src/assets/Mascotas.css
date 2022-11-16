@@ -354,12 +354,8 @@ img.flag {
     justify-content: space-around;
     margin-bottom: 1% !important;
     border-radius: 20px ;
+    text-align: center !important;
 
-}
-
-.product-name {
-    /*     text-align: center !important;
- */
 }
 
 .col-12 {
@@ -618,4 +614,24 @@ img.flag {
         margin: auto;
         left: 1%;
     }
+}
+
+.cardsPet{
+height: fit-content !important;
+}
+
+@media screen and (min-width: 1400px) {
+    
+    .buttonLost {
+        width: 500px;
+        margin: auto;
+        left: 50%;  
+    }
+    .detalleMascota{
+        height: 500px !important;
+        margin-bottom: 0 !important;
+        margin-top: 0 !important;
+        text-align: center !important;
+    }
+
 }

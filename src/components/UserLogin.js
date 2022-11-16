@@ -11,6 +11,7 @@ import { Dialog } from 'primereact/dialog';
 import { Divider } from 'primereact/divider';
 import { classNames } from 'primereact/utils';
 import { useAuthContext } from '../contexts/authContext'
+import axios from 'axios'
 
 
 
@@ -38,10 +39,33 @@ export default function ReactFinalFormDemo() {
     };
     const onSubmit = (data, form) => {
         setFormData(data);
-
+        sendData();
     };
+
+    const sendData = async () => {
+
+        if (formData !== null) {
+
+            formData.email !== '' ? axios.post("https://backend.missingpets.art/user/login", formData, {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ user: formData })
+            }).then((res) => {
+                console.log('res api', res)
+                document.cookie = `token=${res.data.token}; max-age=${3600}; path=/; samesite-strict `
+                window.localStorage.setItem('id', res.data.dataUser.id);
+                window.localStorage.setItem('name', res.data.dataUser.nombre);
+                window.localStorage.setItem('lastName', res.data.dataUser.apellido);
+                window.localStorage.setItem('email', res.data.dataUser.email);
+                window.localStorage.setItem('avatar', res.data.dataUser.fotoPerfil);
+
+            }) : <p> </p>
+        }
+    }
+
     useEffect(function () {
-        login(formData)
+        /*    login(formData) */
     }, [onSubmit]);
 
     const isFormFieldValid = (meta) => !!(meta.touched && meta.error);
@@ -82,7 +106,7 @@ export default function ReactFinalFormDemo() {
                             <Field name="password" render={({ input, meta }) => (
                                 <div className="field">
                                     <span className="p-float-label">
-                                        <Password autoComplete="on" onChange={(e) => setFormData(e.target.value)} id="password" {...input} toggleMask className={classNames({ 'p-invalid': isFormFieldValid(meta) })}  />
+                                        <Password autoComplete="on" onChange={(e) => setFormData(e.target.value)} id="password" {...input} toggleMask className={classNames({ 'p-invalid': isFormFieldValid(meta) })} />
                                         <label htmlFor="password" className={classNames({ 'p-error': isFormFieldValid(meta) })}>Contraseña</label>
                                     </span>
                                     {getFormErrorMessage(meta)}
