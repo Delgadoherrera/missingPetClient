@@ -50,7 +50,7 @@ export default function ReactFinalFormDemo() {
 
     useEffect(() => {
 
-       
+
         const timer = setTimeout(() => {
             setLogError(false)
         }, 4000);
@@ -71,18 +71,25 @@ export default function ReactFinalFormDemo() {
                 },
                 body: JSON.stringify({ user: formData })
             }).then((res) => {
-                console.log('res', res)
+                console.log(res)
                 if (res.data === 'invalid password' || res.data === 'No se encuentra el email') {
-                   
+
                     return setLogError(!logError)
                 }
+                if (res.data.token) {
 
-                /*         document.cookie = `token=${res.data.token}; max-age=${3600}; path=/; samesite-strict `
-                             window.localStorage.setItem('id', res.data.dataUser.id);
-                             window.localStorage.setItem('name', res.data.dataUser.nombre);
-                             window.localStorage.setItem('lastName', res.data.dataUser.apellido);
-                             window.localStorage.setItem('email', res.data.dataUser.email);
-                             window.localStorage.setItem('avatar', res.data.dataUser.fotoPerfil); */
+                    login()
+                    document.cookie = `token=${res.data.token}; max-age=${3600}; path=/; samesite-strict `
+                    window.localStorage.setItem('id', res.data.dataUser.id);
+                    window.localStorage.setItem('name', res.data.dataUser.nombre);
+                    window.localStorage.setItem('lastName', res.data.dataUser.apellido);
+                    window.localStorage.setItem('email', res.data.dataUser.email);
+                    window.localStorage.setItem('avatar', res.data.dataUser.fotoPerfil);
+
+                }
+
+
+                /*          */
 
             }) : <p> </p>
         }
