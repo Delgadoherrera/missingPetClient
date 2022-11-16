@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Poor+Story&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Roboto:wght@100&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
 
 body {
   margin: 0;
@@ -22,3 +21,6 @@ body {
 
 }
 
+.css-1uwgr7b-MuiTypography-root {
+  font-family: 'Dosis', sans-serif !important;
+}
