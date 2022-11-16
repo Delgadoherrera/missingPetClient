@@ -52,7 +52,9 @@ export default function ReactFinalFormDemo() {
                 },
                 body: JSON.stringify({ user: formData })
             }).then((res) => {
-                console.log(res,'res')
+                if (res.status === 200){
+                    console.log('credenciales invalidas')
+                }
                 document.cookie = `token=${res.data.token}; max-age=${3600}; path=/; samesite-strict `
                 window.localStorage.setItem('id', res.data.dataUser.id);
                 window.localStorage.setItem('name', res.data.dataUser.nombre);
