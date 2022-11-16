@@ -89,7 +89,7 @@ export default function ReactFinalFormDemo() {
     setShowMessage(true);
 
 
-    form.restart();
+    /*     form.restart(); */
   };
 
   useEffect(function (onSubmit) {
@@ -108,25 +108,18 @@ export default function ReactFinalFormDemo() {
       }
 
       else if (formData !== '') {
-        let res = axios.post("https://backend.missingpets.art/user/register", {
+        axios.post("https://backend.missingpets.art/user/register", {
           /*        headers: 'Access-Control-Allow-Origin: http://localhost:3000', */
           formData: formData,
           file: state
         })
           .then((response) => {
-            console.log('response Api:', response)
             if (response.status === 200) {
-              localStorage.setItem('usuario', response.data.nombre)
-              localStorage.setItem('email', response.data.email)
-              localStorage.setItem('apellido', response.data.apellido)
-              localStorage.setItem('id', response.data.id)
+              axios.post("https://backend.missingpets.art/user/login", formData
+              ).then(response => {
+                console.log('response', response)
+              })
 
-
-              if (localStorage.email === response.data.email)
-                login();
-            }
-            else if (res.status !== 200) {
-              console.log('error')
             }
 
           })
