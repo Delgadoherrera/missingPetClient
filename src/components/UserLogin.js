@@ -39,12 +39,10 @@ export default function ReactFinalFormDemo() {
     };
     const onSubmit = (data, form) => {
         setFormData(data);
+      
     };
 
-
-    useEffect(function () {
-
-
+    const sendData = async () => {
 
         if (formData !== null) {
 
@@ -54,7 +52,7 @@ export default function ReactFinalFormDemo() {
                 },
                 body: JSON.stringify({ user: formData })
             }).then((res) => {
-                console.log('res api', res)
+                console.log(res,'res')
                 document.cookie = `token=${res.data.token}; max-age=${3600}; path=/; samesite-strict `
                 window.localStorage.setItem('id', res.data.dataUser.id);
                 window.localStorage.setItem('name', res.data.dataUser.nombre);
@@ -64,7 +62,10 @@ export default function ReactFinalFormDemo() {
 
             }) : <p> </p>
         }
+    }
 
+    useEffect(function () {
+        sendData();
     }, [onSubmit]);
 
     const isFormFieldValid = (meta) => !!(meta.touched && meta.error);
