@@ -117,15 +117,20 @@ export default function DataViewLazyDemo(props) {
     }
 
     const header = renderHeader();
+    console.log('products', products)
 
     return (
-        <div className="dataview-demo">
-            <UploadBase64 dataInput={products}></UploadBase64>
-            <div className="card viewCardMyPets">
-                <DataView value={products} layout={layout} header={header}
-                    itemTemplate={itemTemplate} /* lazy paginator */ rows={rows.current}
-                    first={first} onPage={onPage} />
-            </div>
-        </div>
+        products ?
+            <div>
+                {products.length > 0 ? <div className="dataview-demo">
+                    <UploadBase64 dataInput={products}></UploadBase64>
+                    <div className="card viewCardMyPets">
+                        <DataView value={products} layout={layout} header={header}
+                            itemTemplate={itemTemplate} /* lazy paginator */ rows={rows.current}
+                            first={first} onPage={onPage} />
+                    </div>
+                </div> : <p> Aun no haz cargado ninguna mascota, En la barra de navegacion inferior podras encontrar la seccion para cargar el perfil de tus mascotas.</p>}
+            </div> : <p> </p>
+
     );
 }

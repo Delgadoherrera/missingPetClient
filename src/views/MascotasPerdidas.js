@@ -146,11 +146,18 @@ export default function MascotasPerdidas() {
     }
 
     return (
-        <div className="carousel-demo">
-            <div className="card">
-                <Carousel value={mascotas} numVisible={2} numScroll={1} responsiveOptions={responsiveOptions} className="custom-carousel" circular
-              /*        autoplayInterval={3500} */ itemTemplate={dataTemplate} header={<h5></h5>} />
+
+        mascotas ?
+            <div>
+                {mascotas.length > 0 ? <div className="carousel-demo">
+                    <div className="card">
+                        <Carousel value={mascotas} numVisible={2} numScroll={1} responsiveOptions={responsiveOptions} className="custom-carousel" circular
+          /*        autoplayInterval={3500} */ itemTemplate={dataTemplate} header={<h5></h5>} />
+                    </div>
+                </div> : <p> No registramos ninguna mascota en tu zona, puedes comenzar cargando las mascotas que encuentres ;) </p>}
+
             </div>
-        </div>
+            : <p> </p>
+
     );
 }
