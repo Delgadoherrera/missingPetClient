@@ -114,12 +114,13 @@ export default function ReactFinalFormDemo() {
           file: state
         })
           .then((response) => {
+            console.log(response)
             if (response.status === 200) {
-              axios.post("https://backend.missingpets.art/user/login", formData
-              ).then(response => {
-                console.log('response', response)
-              })
 
+              console.log('usuario creado')
+            }
+            else if (response.status !== 200) {
+              console.log('la cuenta no pudo creare ')
             }
 
           })
