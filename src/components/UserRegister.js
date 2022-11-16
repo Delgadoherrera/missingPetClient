@@ -108,7 +108,7 @@ export default function ReactFinalFormDemo() {
       }
 
       else if (formData !== '') {
-        axios.post("https://backend.missingpets.art/user/register", {
+        await axios.post("https://backend.missingpets.art/user/register", {
           /*        headers: 'Access-Control-Allow-Origin: http://localhost:3000', */
           formData: formData,
           file: state
