@@ -353,7 +353,7 @@ img.flag {
     flex-direction: column;
     justify-content: space-around;
     margin-bottom: 1% !important;
-    border-radius: 20px ;
+    border-radius: 20px;
     text-align: center !important;
 
 }
@@ -461,52 +461,10 @@ img.flag {
 
 }
 
-@media screen and (min-width: 1600px) {
-    .imgMisMascotas {
-        box-shadow: rgba(8, 0, 0, 0.548) 0px 2px 8px;
-        background-color: transparent !important;
-        border-radius: 60px !important;
-        width: 350px !important;
-        height: 250px !important;
-        object-fit: cover !important;
-        border-width: 0px !important;
-        /*    margin-top: 70px !important; */
-        padding: 3px !important;
 
-
-    }
-
-    .product-name {
-        font-size: 2.5rem !important;
-    }
-
-    .product-category {
-        font-size: 1.2rem !important;
-    }
-
-    .product-description {
-        font-size: 1.7rem !important;
-    }
-
-    .product-list-item {
-        flex-direction: row !important;
-    }
-
-
-
-}
 
 @media screen and (max-width: 800px) {
-    /*     .imgMisMascotas {
-        border-radius: 60px !important;
-        width: 200px !important;
-        height: 200px !important;
-        object-fit: cover !important;
-        bottom: 400px !important;
-        background-color: rgba(200, 193, 193, 0.116) !important;
-        margin-top: 40px !important;
 
-    } */
 
     .cardDataMyPets {
 
@@ -539,26 +497,10 @@ img.flag {
     }
 }
 
-.buttonLost {
-    margin-top: 0 !important;
-    margin-left: 30px !important;
 
+.p-button-warning {
+    width: 100% !important;
 }
-
-@media screen and (min-width: 300px) and (max-width: 760px) {
-    .p-button-warning {
-        width: 100% !important;
-    }
-
-}
-
-/* @media screen and (min-width: 760px) {
-    .p-button-warning {
-        width: 220px !important;
-        right: 3.5% !important;
-        bottom: 15px !important;
-    }
-} */
 
 .p-fluid {
 
@@ -574,21 +516,8 @@ img.flag {
     /*     margin-top: 20px !important; */
 }
 
-
-
-
-
 .tituloMisMascotas {
     margin-bottom: -14px !important;
-}
-
-
-
-.buttonLost {
-    margin: auto !important;
-    position: relative;
-    width: 320px;
-    height: 80px;
 }
 
 .detalleMascota {
@@ -609,29 +538,32 @@ img.flag {
         width: 530px !important;
     }
 
-    .buttonLost {
-        width: 500px;
-        margin: auto;
-        left: 1%;
-    }
 }
 
-.cardsPet{
-height: fit-content !important;
+.cardsPet {
+    height: fit-content !important;
 }
 
 @media screen and (min-width: 1400px) {
-    
-    .buttonLost {
-        width: 500px;
-        margin: auto;
-        left: 50%;  
-    }
-    .detalleMascota{
-        height: 500px !important;
+
+
+
+    .detalleMascota {
+        height: 200px !important;
         margin-bottom: 0 !important;
         margin-top: 0 !important;
         text-align: center !important;
     }
 
+    .imgMisMascotas {
+        width: 300px !important;
+        height: 300px !important;
+    }
+
+    .buttonLost {
+        padding: 20px !important;
+        color: white !important;
+        border-radius: 10px !important;
+      
+    }
 }
