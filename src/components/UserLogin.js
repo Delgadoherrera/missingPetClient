@@ -8,22 +8,22 @@ import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { Password } from 'primereact/password';
 import { Dialog } from 'primereact/dialog';
-import { Divider } from 'primereact/divider';
 import { classNames } from 'primereact/utils';
 import { useAuthContext } from '../contexts/authContext'
 import axios from 'axios'
+import '../assets/UserLogin.css'
 
 
 
 export default function ReactFinalFormDemo() {
-    const { login } = useAuthContext();
+
     const [showMessage, setShowMessage] = useState(false);
     const [formData, setFormData] = useState({
         email: '',
         password: ''
     })
-    const [user, setUser] = useState(null);
-
+    const [logError, setLogError] = useState(false)
+    const { login } = useAuthContext();
     const validate = (data) => {
         let errors = {};
         if (!data.email) {
@@ -39,8 +39,27 @@ export default function ReactFinalFormDemo() {
     };
     const onSubmit = (data, form) => {
         setFormData(data);
-      
+
+
     };
+    useEffect(function () {
+        sendData();
+
+    }, [formData]);
+
+
+    useEffect(() => {
+
+       
+        const timer = setTimeout(() => {
+            setLogError(false)
+        }, 4000);
+        return () => clearTimeout(timer);
+
+
+    }, [logError]);
+
+
 
     const sendData = async () => {
 
@@ -52,23 +71,25 @@ export default function ReactFinalFormDemo() {
                 },
                 body: JSON.stringify({ user: formData })
             }).then((res) => {
-                if (res.status === 200){
-                    console.log('credenciales invalidas')
+                console.log('res', res)
+                if (res.data === 'invalid password' || res.data === 'No se encuentra el email') {
+                   
+                    return setLogError(!logError)
                 }
-                document.cookie = `token=${res.data.token}; max-age=${3600}; path=/; samesite-strict `
-                window.localStorage.setItem('id', res.data.dataUser.id);
-                window.localStorage.setItem('name', res.data.dataUser.nombre);
-                window.localStorage.setItem('lastName', res.data.dataUser.apellido);
-                window.localStorage.setItem('email', res.data.dataUser.email);
-                window.localStorage.setItem('avatar', res.data.dataUser.fotoPerfil);
+
+                /*         document.cookie = `token=${res.data.token}; max-age=${3600}; path=/; samesite-strict `
+                             window.localStorage.setItem('id', res.data.dataUser.id);
+                             window.localStorage.setItem('name', res.data.dataUser.nombre);
+                             window.localStorage.setItem('lastName', res.data.dataUser.apellido);
+                             window.localStorage.setItem('email', res.data.dataUser.email);
+                             window.localStorage.setItem('avatar', res.data.dataUser.fotoPerfil); */
 
             }) : <p> </p>
         }
+
     }
 
-    useEffect(function () {
-        sendData();
-    }, [onSubmit]);
+
 
     const isFormFieldValid = (meta) => !!(meta.touched && meta.error);
     const getFormErrorMessage = (meta) => {
@@ -102,7 +123,8 @@ export default function ReactFinalFormDemo() {
                                         <InputText onChange={(e) => setFormData(e.target.value)} id="email" {...input} className={classNames({ 'p-invalid': isFormFieldValid(meta) })} />
                                         <label htmlFor="email" className={classNames({ 'p-error': isFormFieldValid(meta) })}>Correo electrónico</label>
                                     </span>
-                                    {getFormErrorMessage(meta)}
+                                    {logError === true ? <p className='wrongCredentials'> Credenciales inválidas</p> : <p></p>}
+
                                 </div>
                             )} />
                             <Field name="password" render={({ input, meta }) => (
