@@ -115,7 +115,27 @@ export default function ReactFinalFormDemo() {
         })
           .then((response) => {
             console.log(response)
-            if (response.status === 200) {
+            if (response.data === 'success') {
+              axios.post("https://backend.missingpets.art/user/login", formData, {
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ user: formData })
+              }).then((res) => {
+                console.log(res)               
+                if (res.data.token) {
+                  login()
+                  document.cookie = `token=${res.data.token}; max-age=${3600}; path=/; samesite-strict `
+                  window.localStorage.setItem('id', res.data.dataUser.id);
+                  window.localStorage.setItem('name', res.data.dataUser.nombre);
+                  window.localStorage.setItem('lastName', res.data.dataUser.apellido);
+                  window.localStorage.setItem('email', res.data.dataUser.email);
+                  window.localStorage.setItem('avatar', res.data.dataUser.fotoPerfil);
+                }
+
+
+
+              })
 
               console.log('usuario creado')
             }
