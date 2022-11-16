@@ -39,6 +39,11 @@ export default function ReactFinalFormDemo() {
     };
     const onSubmit = (data, form) => {
         setFormData(data);
+    };
+
+
+    useEffect(function () {
+
 
 
         if (formData !== null) {
@@ -59,14 +64,7 @@ export default function ReactFinalFormDemo() {
 
             }) : <p> </p>
         }
-    }
 
-
-
-
-
-    useEffect(function () {
-        /*    login(formData) */
     }, [onSubmit]);
 
     const isFormFieldValid = (meta) => !!(meta.touched && meta.error);
