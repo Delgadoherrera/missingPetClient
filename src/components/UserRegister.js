@@ -90,52 +90,46 @@ export default function ReactFinalFormDemo() {
   const onSubmit = (data, form) => {
     setFormData(data);
     setShowMessage(true);
+    sendData()
 
-
-    form.restart();
+ /*    form.restart(); */
   };
 
   useEffect(function (onSubmit) {
     /*  setFormData(formData) */
 
-        firstLogin() 
-
+    sendData()
   }, [onSubmit]);
 
-  function firstLogin() {
-    const sendData = async () => {
-
-      if (formData === undefined) {
-        console.log('es undefined')
-
-      }
-
-      else if (formData !== '') {
-        let res = axios.post("https://backend.missingpets.art/user/register", {
-          /*        headers: 'Access-Control-Allow-Origin: http://localhost:3000', */
-          formData: formData,
-          file: state
-        })
-          .then((response) => {
-            console.log('response Api:', response)
-            if (response.status === 200) {
-              localStorage.setItem('usuario', response.data.nombre)
-              localStorage.setItem('email', response.data.email)
-              localStorage.setItem('apellido', response.data.apellido)
-              localStorage.setItem('id', response.data.id)
-
-
-              if (localStorage.email === response.data.email)
-                login();
-            }
-            else if (res.status !== 200) {
-              console.log('error')
-            }
-
-          })
-      }
+  function sendData() {
+    if (formData === undefined) {
+      console.log('es undefined')
     }
-    sendData()
+    else if (formData !== '') {
+      let res = axios.post("https://backend.missingpets.art/user/register", {
+        /*        headers: 'Access-Control-Allow-Origin: http://localhost:3000', */
+        formData: formData,
+        file: state
+      })
+        .then((response) => {
+          console.log('response Api:', response)
+          if (response.status === 200) {
+            localStorage.setItem('usuario', response.data.nombre)
+            localStorage.setItem('email', response.data.email)
+            localStorage.setItem('apellido', response.data.apellido)
+            localStorage.setItem('id', response.data.id)
+
+
+            if (localStorage.email === response.data.email)
+              login();
+          }
+          else if (res.status !== 200) {
+            console.log('error')
+          }
+
+        })
+    }
+
     setShowMessage(false)
   }
 
@@ -145,7 +139,7 @@ export default function ReactFinalFormDemo() {
     return isFormFieldValid(meta) && <small className="p-error">{meta.error}</small>;
   };
 
-  const dialogFooter = <div className="flex justify-content-center"><Button label="OK" className="p-button-text" autoFocus onClick={firstLogin} /></div>;
+  const dialogFooter = <div className="flex justify-content-center"><Button label="OK" className="p-button-text" autoFocus /* onClick={firstLogin} */ /></div>;
   const passwordHeader = <h6>Pick a password</h6>;
   const passwordFooter = (
     <React.Fragment>
