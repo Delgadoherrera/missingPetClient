@@ -252,11 +252,11 @@ export default function ReactFinalFormDemo() {
               <Field name="accept" type="checkbox" render={({ input, meta }) => (
                 <div className="field-checkbox">
                   <Checkbox inputId="accept" {...input} className={classNames({ 'p-invalid': isFormFieldValid(meta) })} />
-                  <label htmlFor="accept" className={classNames({ 'p-error': isFormFieldValid(meta) })}>I agree to the terms and conditions*</label>
+                  <label htmlFor="accept" className={classNames({ 'p-error': isFormFieldValid(meta) })}>Acepto los terminos y condiciones*</label>
                 </div>
               )} />
 
-              <Button type="submit" label="Submit" className="mt-2" />
+              <Button type="submit" label="Registrarme" className="mt-2" />
             </form>
           )} />
         </div>

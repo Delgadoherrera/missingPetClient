@@ -1,3 +1,11 @@
-.wrongCredentials{
+.wrongCredentials {
     color: red;
+}
+
+.field-checkbox {
+    margin-top: 40px !important;
+}
+.iconPhotoUpload {
+    left: 100px!important;
+
 }
