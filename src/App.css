@@ -259,3 +259,11 @@ map>div {
 
 }
 
+.bottomNavigation {
+  padding: 35px !important;
+
+}
+
+.iconPhotoUpload {
+  color: rgba(0, 0, 0, 0.392) !important;
+}

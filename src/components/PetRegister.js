@@ -90,12 +90,12 @@ export default function ReactFinalFormDemo() {
 
         let file = e.target.files[0];
 
-        if (file.size > 50000000) {
-          alert(`File too big max 50000kb`);
+        if (file.size > 70000000) {
+          alert(`El archivo no puede ser mayor a 7mb`);
           return null;
         }
     
-        if (file.size < 50000000) {
+        if (file.size < 70000000) {
             const reader = new FileReader();
             reader.onload = handleReaderLoaded.bind(this);
             reader.readAsBinaryString(file);
@@ -208,15 +208,16 @@ export default function ReactFinalFormDemo() {
                                     </span>
                                 </div>
                             )} />
+                              <p className='newPetText'>  Agrega una foto de tu mascota</p>
                             <Field name="fotoMascota" render={({ input }) => (
                                 <div className="field">
                                     <input onChange={(e) => {
                                         handleFile(e)
                                     }} type='file' id="fotoMascota" name='file'></input>
                                     <label className='circle' htmlFor="fotoMascota" name='file' >
-                                        <AddAPhoto className='iconPhotoUpload'  />
+                                        <AddAPhoto className='iconPhotoUpload photoIconNewPet'  />
                                     </label>
-                                    <p className='newPetText'>  Agrega una foto de tu mascota</p>
+                                  
                                 </div>
                             )} />
 
