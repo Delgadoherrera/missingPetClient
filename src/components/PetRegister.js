@@ -21,7 +21,7 @@ export default function ReactFinalFormDemo() {
     const [file, setFile] = useState(null)
     const [dataReady, setDataReady] = useState(false)
     const [state, setState] = useState({ base64Data: null })
-  
+
 
     const petColor = [
         { label: 'Negro', value: 'Negro' },
@@ -64,10 +64,10 @@ export default function ReactFinalFormDemo() {
                 /*    headers: formData */
             }
         ).then((response) => {
-     
+
             if (response.status === 200) {
-               
-                
+
+
                 setUploaded(true)
                 return <BottomNavigation status={uploaded} />
             }
@@ -77,13 +77,13 @@ export default function ReactFinalFormDemo() {
         })
     }
     const handleReaderLoaded = e => {
-  
+
         let binaryString = e.target.result;
 
         setState({
-            base64Data:  btoa(binaryString)
+            base64Data: btoa(binaryString)
         });
-    
+
     };
 
     const handleFile = (e) => {
@@ -91,10 +91,10 @@ export default function ReactFinalFormDemo() {
         let file = e.target.files[0];
 
         if (file.size > 70000000) {
-          alert(`El archivo no puede ser mayor a 7mb`);
-          return null;
+            alert(`El archivo no puede ser mayor a 7mb`);
+            return null;
         }
-    
+
         if (file.size < 70000000) {
             const reader = new FileReader();
             reader.onload = handleReaderLoaded.bind(this);
@@ -119,7 +119,7 @@ export default function ReactFinalFormDemo() {
     };
 
     const onSubmit = (data, form) => {
-       
+
         let newData = {
             ...data,
             id: localStorage.id,
@@ -208,16 +208,18 @@ export default function ReactFinalFormDemo() {
                                     </span>
                                 </div>
                             )} />
-                              <p className='newPetText'>  Agrega una foto de tu mascota</p>
+                            <p className='newPetText'>  Agrega una foto de tu mascota</p>
                             <Field name="fotoMascota" render={({ input }) => (
                                 <div className="field">
                                     <input onChange={(e) => {
                                         handleFile(e)
                                     }} type='file' id="fotoMascota" name='file'></input>
                                     <label className='circle' htmlFor="fotoMascota" name='file' >
-                                        <AddAPhoto className='iconPhotoUpload photoIconNewPet'  />
+                                        <div className='divicon'>
+                                            <AddAPhoto className='iconPhotoUpload photoIconNewPet' />
+                                        </div>
                                     </label>
-                                  
+
                                 </div>
                             )} />
 

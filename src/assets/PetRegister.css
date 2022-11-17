@@ -62,10 +62,7 @@
 }
 
 
-.iconPhotoUpload {
 
-    margin-bottom: 0px !important;
-}
 
 .newPetText {
     margin-top: 0px !important;
@@ -80,15 +77,10 @@
     background-color: red !important;
     padding: 10px;
     margin-bottom: 50px !important;
-/*     top: 7px !important;
+    /*     top: 7px !important;
  */
 }
 
-.photoIconNewPet {
-    font-size: 400px !important;
-    margin-top: 30px !important;
-    margin-bottom: 5px !important;
-}
 
 @media screen and (min-width: 1024px) {
 
@@ -107,9 +99,6 @@
         /*      bottom: 40px !important; */
     }
 
-    .iconPhotoUpload {
-        left: -50px !important;
-    }
 
 
 }
@@ -130,9 +119,11 @@
 
 @media screen and (min-width: 1600px) {
     .newPetButton {
-        bottom: 130px !important;
+        bottom: 180px !important;
         left: 40px !important;
+        width: 1200px !important;
+        padding: 50px !important;
     }
 
-
+ 
 }

@@ -227,12 +227,6 @@ map>div {
 
 }
 
-.iconPhotoUpload {
-
-  position: relative;
-  right: 96% !important;
-  margin-bottom: 0px !important;
-}
 
 .MuiBottomNavigationAction-label {
   color: white !important;
@@ -264,6 +258,3 @@ map>div {
 
 }
 
-.iconPhotoUpload {
-  color: rgba(0, 0, 0, 0.392) !important;
-}

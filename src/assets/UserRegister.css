@@ -4,3 +4,15 @@
     margin-bottom: 1% !important;
 
 }
+.photoUploadUserRegister{
+    font-size: 100px !important;
+    margin-left:  140px !important;
+    color: rgba(0, 0, 0, 0.588) !important;
+}
+.buttonRegister{
+    width: 500px !important;
+    margin: auto !important;
+}
+.acceptTerms{
+    margin-left: 120px!important;
+}

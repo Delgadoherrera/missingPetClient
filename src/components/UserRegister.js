@@ -242,7 +242,7 @@ export default function ReactFinalFormDemo() {
                     handleFile(e)
                   }} type='file' id="fotoMascota" name='file'></input>
                   <label className='circle' htmlFor="fotoMascota" name='file' >
-                    <AddAPhoto className='iconPhotoUpload' />
+                    <AddAPhoto className='iconPhotoUpload photoUploadUserRegister' />
                   </label>
                   <p className='newPetText'>  Agrega una foto de tu mascota</p>
                 </div>
@@ -251,12 +251,12 @@ export default function ReactFinalFormDemo() {
 
               <Field name="accept" type="checkbox" render={({ input, meta }) => (
                 <div className="field-checkbox">
-                  <Checkbox inputId="accept" {...input} className={classNames({ 'p-invalid': isFormFieldValid(meta) })} />
+                  <Checkbox inputId="accept" {...input} className='acceptTerms' />
                   <label htmlFor="accept" className='checkBoxx'>Acepto los terminos y condiciones*</label>
                 </div>
               )} />
 
-              <Button type="submit" label="Registrarme" className="mt-2" />
+              <Button type="submit" label="Registrarme" className="mt-2 buttonRegister" />
             </form>
           )} />
         </div>

@@ -29,12 +29,7 @@
 body{
     background-color: white !important;
 }
-.iconPhotoUpload {
 
-    position: relative;
-    right: 96% !important;
-    margin-bottom: 0px !important;
-}
 
 .loginButton{
     background-color: red !important;
