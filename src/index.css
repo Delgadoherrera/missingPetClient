@@ -21,3 +21,11 @@ margin: 3px !important;
 .css-1uwgr7b-MuiTypography-root {
   font-family: 'Dosis', sans-serif;
 }
+
+div{
+  border-radius: 20px !important;
+  padding: -15px !important;
+}
+header{
+  border-radius: 40px !important;
+}
