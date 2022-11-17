@@ -129,7 +129,7 @@ export default function DataViewLazyDemo(props) {
                             itemTemplate={itemTemplate} /* lazy paginator */ rows={rows.current}
                             first={first} onPage={onPage} />
                     </div>
-                </div> : <div className='emptyPets'> <p className='textEmptyPets'> Aun no haz cargado ninguna mascota, En la barra de navegacion inferior podras encontrar la seccion para cargar el perfil de tus mascotas.</p></div>}
+                </div> : <div className='emptyPets'> <p className='textEmptyPets'> Aun no haz cargado ninguna mascota. En la barra de navegacion inferior podras encontrar la seccion para cargar el perfil de tus mascotas.</p></div>}
             </div> : <p> </p>
 
     );
