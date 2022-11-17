@@ -61,7 +61,10 @@ export default function ReactFinalFormDemo() {
             formdata: formData
         },
             {
-                /*    headers: formData */
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': "*"
+                }
             }
         ).then((response) => {
 
@@ -119,6 +122,7 @@ export default function ReactFinalFormDemo() {
     };
 
     const onSubmit = (data, form) => {
+        console.log('submit')
 
         let newData = {
             ...data,
@@ -129,7 +133,7 @@ export default function ReactFinalFormDemo() {
 
         setDataReady(true)
 
-        form.restart();
+        /* form.restart(); */
     };
 
 
@@ -211,7 +215,7 @@ export default function ReactFinalFormDemo() {
                             <p className='newPetText'>  Agrega una foto de tu mascota</p>
                             <Field name="fotoMascota" render={({ input }) => (
                                 <div className="field">
-                                    <input onChange={(e) => {
+                                    <input required onChange={(e) => {
                                         handleFile(e)
                                     }} type='file' id="fotoMascota" name='file'></input>
                                     <label className='circle' htmlFor="fotoMascota" name='file' >

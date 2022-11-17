@@ -1,11 +1,13 @@
 html {
   margin: 0px !important;
   height: 100vh !important;
+  margin-bottom: 61vh !important;
+
 
 }
 
 body {
-  margin: 0 !important
+  margin: 0 !important;
 }
 
 .App {

@@ -8,7 +8,6 @@ import React, { useState } from 'react';
 import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
 import axios from 'axios';
-import AddAPhoto from '@mui/icons-material/AddAPhoto';
 
 export default function MascotaPerdida({ idMascotaPerdida, state, update }) {
     const [displayBasic, setDisplayBasic] = useState(false);
