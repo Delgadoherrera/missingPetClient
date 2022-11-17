@@ -520,26 +520,15 @@ img.flag {
     width: 300px !important;
 }
 
-@media screen and (min-width: 1024px) {
-    .detalleMascota {
-        background-color: rgba(18, 3, 3, 0.198);
-        padding: 50px !important;
-        width: 800px !important;
-    }
 
-    .imgMisMascotas {
-        height: 530px !important;
-        width: 530px !important;
-    }
-
-}
 
 .cardsPet {
     object-fit: contain;
     margin-bottom: 60px !important;
 }
-.buttonLost{
-    top: 15px ;
+
+.buttonLost {
+    top: 15px;
 }
 
 @media screen and (min-width: 1400px) {
@@ -562,6 +551,7 @@ img.flag {
         padding: 20px !important;
         color: white !important;
         border-radius: 10px !important;
+        top: 26px !important;
     }
 
     .textEmptyPets {

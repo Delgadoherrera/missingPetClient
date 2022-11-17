@@ -23,7 +23,7 @@
     /*     width: 10% !important; */
     font-size: 0.8rem !important;
     margin: auto !important;
-    
+
 
 }
 
@@ -59,13 +59,13 @@
 @media screen and (min-width: 1200px) {
 
     .buttonLost {
-    /*     background-color: red !important; */
-        padding: 30px ;
+        /*     background-color: red !important; */
         margin-right: 100px !important;
-       top: 0px;
+        top: 15px;
     }
 }
-#pr_id_16_content{
-   height: 50px !important;
-  
+
+#pr_id_16_content {
+    height: 50px !important;
+
 }
