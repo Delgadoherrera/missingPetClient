@@ -24,7 +24,7 @@ export default function ReactFinalFormDemo() {
         longitude: 0,
         latitude: 0,
     });
-    const [base64, setBase64]= useState({ base64Data: null })
+    const [base64, setBase64] = useState({ base64Data: null })
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(
@@ -103,7 +103,7 @@ export default function ReactFinalFormDemo() {
 
             setDataReady(true)
 
-          /*   form.restart(); */
+            form.restart();
         }
         else {
             let newData = {
@@ -118,17 +118,17 @@ export default function ReactFinalFormDemo() {
 
             setDataReady(true)
 
-/*             form.restart(); */
+            form.restart();
         }
 
 
     };
     const handleReaderLoaded = e => {
-      
+
         let binaryString = e.target.result;
-     
+
         setBase64({
-            base64Data:  btoa(binaryString)
+            base64Data: btoa(binaryString)
         });
         /*     console.log('binary', binaryString)
             console.log('bota', btoa(binaryString)) */
@@ -139,10 +139,10 @@ export default function ReactFinalFormDemo() {
         let file = e.target.files[0];
 
         if (file.size > 7000000) {
-          alert(`El archivo no puede pesar mas de 7MB`);
-          return null;
+            alert(`El archivo no puede pesar mas de 7MB`);
+            return null;
         }
-    
+
         if (file.size < 7000000) {
             const reader = new FileReader();
             reader.onload = handleReaderLoaded.bind(this);
@@ -197,7 +197,7 @@ export default function ReactFinalFormDemo() {
         }).then((response) => {
 
             if (response.status === 200) {
-     
+
                 setUploaded(true)
                 return <BottomNavigation status={uploaded} />
             }
@@ -223,9 +223,9 @@ export default function ReactFinalFormDemo() {
         <div className="form-demo formPetFound">
             <div className="flex justify-content-center bodyPetFound">
                 <div className="card formPetRegister">
-               
-                <Map newLocation={locationUpdate} />
-                <p className='tittleMap'> Indica donde encontraste la mascota</p>
+
+                    <Map newLocation={locationUpdate} />
+                    <p className='tittleMap'> Indica donde encontraste la mascota</p>
                     <Form onSubmit={onSubmit} initialValues={{ nombre: '', colorPrimario: '', colorSecundario: '', pesoAproximado: '', descripcionMascota: '', tipoMascota: null, }} validate={validate} render={({ handleSubmit }) => (
                         <form onSubmit={handleSubmit} className="p-fluid formPetFound">
                             <Field name="tipoMascota" render={({ input }) => (
@@ -264,7 +264,7 @@ export default function ReactFinalFormDemo() {
                             <Field name="descripcionMascota" className='descripcionMascota' render={({ input }) => (
                                 <div className="field">
                                     <span className="p-float-label">
-                                        <InputTextarea  className='descripcionMascota' id="descripcionMascota" maxLength={200} {...input} placeholder={'Descripcion precisa'}/>
+                                        <InputTextarea className='descripcionMascota' id="descripcionMascota" maxLength={200} {...input} placeholder={'Descripcion precisa'} />
                                         <label className='descripcionMascota' htmlFor="descripcionMascota">Descripcion de la mascota encontrada</label>
                                     </span>
                                 </div>
@@ -282,14 +282,14 @@ export default function ReactFinalFormDemo() {
                                     <label className='circle' htmlFor="fotoMascota" name='file' >
                                         <AddAPhoto className='iconPhotoUpload petFoundPhotoIcon' />
                                     </label>
-                               
+
                                 </div>
                             )} />
 
-                       
 
 
-                      
+
+
 
 
                             <Button type="submit" label="Cargar mascota encontrada" className="mt-2 submitFoundPet" />
