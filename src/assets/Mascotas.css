@@ -566,6 +566,7 @@ img.flag {
         border-radius: 10px !important;
 
     }
+
     .textEmptyPets {
         background-color: rgba(0, 0, 0, 0.101);
         font-size: 25px;
@@ -574,6 +575,7 @@ img.flag {
         box-shadow: rgba(50, 50, 93, 0.25) 0px 5px 17px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
         width: 400px;
         margin: auto;
+        padding: 20px;
     }
 }
 
@@ -590,5 +592,5 @@ img.flag {
     text-align: center;
     border-radius: 10px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 5px 17px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    
+
 }
