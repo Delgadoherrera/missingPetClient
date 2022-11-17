@@ -375,7 +375,7 @@ img.flag {
     object-fit: cover !important;
     padding: 1% !important;
     border-radius: 60px !important;
-    margin-top: 0 !important;
+    margin-top: 10px !important;
     margin: auto !important;
 }
 
@@ -523,6 +523,7 @@ img.flag {
 
 
 .cardsPet {
+    margin-bottom: 40px !important;
 }
 
 .buttonLost {
