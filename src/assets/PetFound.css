@@ -20,13 +20,9 @@
 }
 
 .formPetFound {
-    /*     background-color: red !important;
- */
-    height: 100vh !important;
-    /*     background-color: red !important; */
-    width: 100% !important;
-    margin: auto;
 
+
+    margin: auto;
 }
 
 .mapaMascotaEncontrada {
@@ -114,4 +110,36 @@
 
 .data-badge {
     color: black !important;
+}
+
+.petFoundPhotoIcon {
+    position: static !important;
+    font-size: 120px !important;
+    margin-left: 120px !important;
+
+}
+
+@media screen and (min-width: 1600px) {
+    .formPetFound {
+        margin-top: 40px;
+        width: 65% !important;
+        height: 1200px !important;
+    }
+
+    .tittleMap {
+        margin-top: 110px !important;
+    }
+
+    .petFoundPhotoIcon {
+        margin-left: 220px !important;
+    }
+
+    .submitFoundPet {
+
+        width: 700px !important;
+        padding: 40px !important;
+
+    }
+
+
 }

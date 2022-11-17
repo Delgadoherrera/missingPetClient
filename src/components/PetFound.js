@@ -280,7 +280,7 @@ export default function ReactFinalFormDemo() {
                                         handleFile(e)
                                     }} type='file' id="fotoMascota" name='file'></input>
                                     <label className='circle' htmlFor="fotoMascota" name='file' >
-                                        <AddAPhoto className='iconPhotoUpload' />
+                                        <AddAPhoto className='iconPhotoUpload petFoundPhotoIcon' />
                                     </label>
                                
                                 </div>
