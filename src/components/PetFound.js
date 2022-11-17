@@ -276,7 +276,7 @@ export default function ReactFinalFormDemo() {
 
                             <Field name="fotoMascota" render={({ input }) => (
                                 <div className="field">
-                                    <input onChange={(e) => {
+                                    <input required onChange={(e) => {
                                         handleFile(e)
                                     }} type='file' id="fotoMascota" name='file'></input>
                                     <label className='circle' htmlFor="fotoMascota" name='file' >
