@@ -103,8 +103,8 @@ export default function ReactFinalFormDemo() {
 
             setDataReady(true)
 
-            form.restart();
-        }
+/*             form.restart();
+ */        }
         else {
             let newData = {
                 ...data,
@@ -118,8 +118,8 @@ export default function ReactFinalFormDemo() {
 
             setDataReady(true)
 
-            form.restart();
-        }
+/*             form.restart();
+ */        }
 
 
     };
@@ -194,6 +194,10 @@ export default function ReactFinalFormDemo() {
             formDatas: newData
 
         }, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': "*"
+            }
         }).then((response) => {
 
             if (response.status === 200) {
