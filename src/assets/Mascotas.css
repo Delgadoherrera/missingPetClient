@@ -231,7 +231,7 @@ img.flag {
 }
 
 .dataview-demo .product-name {
-    font-size: 1.3rem;
+    font-size: 2.1rem !important;
     font-weight: 700;
 
 }
@@ -256,7 +256,7 @@ img.flag {
 .dataview-demo .product-list-item {
     display: flex;
     align-items: center;
-    padding: 1rem;
+
     width: 100%;
 
 }
@@ -320,6 +320,9 @@ img.flag {
     font-weight: 600;
 }
 
+.dataview-demo {
+    background-color: black !important;
+}
 
 
 .product-list-action {
@@ -355,6 +358,8 @@ img.flag {
     margin-bottom: 1% !important;
     border-radius: 20px;
     text-align: center !important;
+    margin-top: 5px !important;
+    margin-bottom: 0px !important;
 
 }
 
@@ -372,7 +377,6 @@ img.flag {
     border-radius: 60px !important;
     margin-top: 0 !important;
     margin: auto !important;
-    margin-bottom: 10px !important;
 }
 
 .product-list-detail {
@@ -431,7 +435,7 @@ img.flag {
         margin-top: 10% !important;
         border-radius: 20px !important;
         width: 300px !important;
-        height: 300 px !important;
+        height: 300px !important;
         margin: auto !important;
     }
 
@@ -469,7 +473,6 @@ img.flag {
     .cardDataMyPets {
 
         width: 100% !important;
-        height: 500px !important;
         margin-bottom: auto !important;
     }
 
@@ -493,7 +496,6 @@ img.flag {
     .product-description {
         font-size: 1.4rem !important;
         text-align: center !important;
-        margin-bottom: 25px !important;
     }
 }
 
@@ -509,20 +511,12 @@ img.flag {
 
 }
 
-.cardDataMyPets {
-    margin-bottom: 50px !important;
-    /*     width: fit-content !important; */
-    height: fit-content !important;
-    /*     margin-top: 20px !important; */
-}
-
 .tituloMisMascotas {
     margin-bottom: -14px !important;
 }
 
 .detalleMascota {
-    background-color: rgba(18, 3, 3, 0.198);
-    padding: 50px !important;
+    padding: 0px !important;
     width: 300px !important;
 }
 
@@ -541,7 +535,11 @@ img.flag {
 }
 
 .cardsPet {
-    height: fit-content !important;
+    object-fit: contain;
+    margin-bottom: 60px !important;
+}
+.buttonLost{
+    top: 15px ;
 }
 
 @media screen and (min-width: 1400px) {
@@ -564,7 +562,6 @@ img.flag {
         padding: 20px !important;
         color: white !important;
         border-radius: 10px !important;
-
     }
 
     .textEmptyPets {
@@ -593,4 +590,9 @@ img.flag {
     border-radius: 10px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 5px 17px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 
+}
+
+.p-dataview.p-dataview-list .p-dataview-content>.p-grid>div {
+    border: solid #0000003d;
+    border-width: 0 0 1px 0
 }
