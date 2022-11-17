@@ -114,8 +114,8 @@
 
 .petFoundPhotoIcon {
     position: static !important;
-    font-size: 120px !important;
-    margin-left: 120px !important;
+    font-size: 90px !important;
+    margin-left: 94px !important;
 
 }
 
@@ -136,9 +136,9 @@
 
     .submitFoundPet {
 
-        width: 700px !important;
-        padding: 40px !important;
-
+        width: 690px !important;
+        padding: 20px !important;
+        opacity: 100%;
     }
 
 

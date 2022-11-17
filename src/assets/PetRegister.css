@@ -116,14 +116,24 @@
     margin-bottom: 40px !important;
 
 }
-
+.photoIconNewPet{
+    margin-top: 10px;
+    font-size: 70px !important;
+    margin-left: 95px !important;
+}
 @media screen and (min-width: 1600px) {
     .newPetButton {
-        bottom: 180px !important;
-        left: 40px !important;
-        width: 1200px !important;
-        padding: 50px !important;
+        bottom: 90px !important;
+        width: 600px !important;
+        padding: 20px !important;
+      
     }
 
- 
+    .addNewPetForm {
+        width: 50% !important;
+    }
+    .photoIconNewPet{
+        margin-left: 300px !important;
+        font-size: 90px !important;
+    }
 }
