@@ -8,6 +8,7 @@ import React, { useState } from 'react';
 import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
 import axios from 'axios';
+import AddAPhoto from '@mui/icons-material/AddAPhoto';
 
 export default function MascotaPerdida({ idMascotaPerdida, state, update }) {
     const [displayBasic, setDisplayBasic] = useState(false);
@@ -53,7 +54,7 @@ export default function MascotaPerdida({ idMascotaPerdida, state, update }) {
     const renderFooter = (name) => {
         return (
             <div className='encontradasDialogFooter'>
-        
+
                 <Button label="Cancelar" /* icon="pi pi-times" */ onClick={() => onHide(name)} className="p-button-text" />
                 <Button value={idMascotaPerdida.idMascota} label="Mascota encontrada" /* icon="pi pi-check" */ onClick={(e) => enviarCoordenadas(name, e)} autoFocus />
             </div>
@@ -81,7 +82,8 @@ export default function MascotaPerdida({ idMascotaPerdida, state, update }) {
                 } visible={displayPosition} position={position} modal style={{ width: '90vw' }} footer={renderFooter('displayPosition')} onHide={() => onHide('displayPosition')}
                     draggable={false} resizable={false}>
                     {/*      <Index state={state} /> */}
-                    <img className='imgEncontradaDialog' src={idMascotaPerdida.fotoMascota} />
+                   
+                    <img alt="picturePets" className='imgEncontradaDialog' src={`data:image/jpeg;base64,${idMascotaPerdida.fotoMascota}`} />
 
                 </Dialog>
             </div>

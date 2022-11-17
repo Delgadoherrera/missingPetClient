@@ -1,19 +1,25 @@
 .imgEncontradaDialog {
   margin-top: 8% !important;
-  width: 260px !important;
-  height: 209px !important;
-  object-fit:contain !important;
-  margin: auto;
-  border-radius: 10% !important;
-  padding: 0;
-
-  
+  width: 170px !important;
+  height: 229px !important;
+  object-fit: contain !important;
+  margin: auto !important;
+  padding: 0 !important;
+  border-radius: 30px !important;
 }
-.p-dialog-content{
+
+.p-dialog-content {
   height: 100% !important;
+  border-radius: 60px !important;
 }
 
-.encontradasDialogFooter{
-  margin-top: 15px ;
+.encontradasDialogFooter {
+  margin-top: 15px;
   margin-bottom: 0px !;
+}
+
+.petFoundedPhoto {
+  color: white !important;
+  font-size: 60px !important;
+  margin: auto !important;
 }

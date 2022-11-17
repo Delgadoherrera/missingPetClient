@@ -47,17 +47,17 @@
 }
 
 .mascotaNombrePerdida {
-    margin-bottom: 3% !important;
     font-size: 1.5rem !important;
-    margin-left: 25px;
-    color: rgba(19, 18, 18, 0.886);
+    color: rgba(255, 255, 255, 0.975);
+    text-align: center;
+    margin-top: 25px;
 }
 
 .p-dialog-visible {
     /*     background-color: red !important;
  */
     margin-bottom: 30% !important;
- /*    height: 91.8vh; */
+    /*    height: 91.8vh; */
 }
 
 
@@ -81,36 +81,57 @@
 }
 
 .dialogMascotasPerdidas {
-    background-color: white !important;
+    background-color: black !important;
     opacity: 100%;
     z-index: 545;
+    height: 640px !important;
+    border-radius: 40px;
+
 }
 
 .formContainer {
- /*    background-color: red !important; */
+
+    display: block;
+    margin-top: 5% !important;
     margin: auto;
     width: 100% !important;
     margin-top: 0;
-/*     background-color: red; */
-   
+    position: relative;
+    bottom: 30px;
+}
 
-}
-.p-dialog-content{
-    background-color: red !important;
-}
 
 .sendMsg {
     background-color: white !important;
     color: rgba(0, 0, 0, 0.733) !important;
-    width: 40% !important;
-    height: 50px !important;
-    margin: auto !important; 
-  /*   top: 130px !important; */
-    border-color: rgba(0, 0, 0, 0.514) !important;
+    width: 100%;
+}
+
+.dialogButtons {
+    margin-top: 80px !important;
 }
 
 .textArea {
-    margin-top:40px !important;
+    margin-top: 40px !important;
     width: 100% !important;
-    height: 150px !important;
+    height: 120px !important;
+}
+
+.photoAttachPetFound {
+    margin-top: 30px;
+    font-size: 18px;
+    text-align: center;
+    color: #9ea0a1;
+    margin-bottom: 1px;
+}
+
+.divicon {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 1400px) {}
+
+.p-dialog-content {
+    height: 50px !important;
 }

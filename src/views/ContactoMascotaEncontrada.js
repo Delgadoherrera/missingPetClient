@@ -8,12 +8,14 @@ import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { Form, Field } from 'react-final-form';
+import AddAPhoto from '@mui/icons-material/AddAPhoto';
+
 import axios from 'axios'
 
 
 
 
-export default function MascotaPerdida({state, idMascotaPerdida, setDialog }) {
+export default function MascotaPerdida({ state, idMascotaPerdida, setDialog }) {
 
     const [displayPosition, setDisplayPosition] = useState(true);
     const [displayResponsive, setDisplayResponsive] = useState(false);
@@ -40,7 +42,7 @@ export default function MascotaPerdida({state, idMascotaPerdida, setDialog }) {
 
         axios.post("https://backend.missingpets.art/mensajes/nuevoMensaje", msgData, {
         }).then((response) => {
-        /*     console.log(response) */
+            /*     console.log(response) */
         })
         setDialog(false)
     }
@@ -75,16 +77,17 @@ export default function MascotaPerdida({state, idMascotaPerdida, setDialog }) {
         <div className="dialog-demo">
             <Dialog className='dialogMascotasPerdidas' header={
                 <div>
-                    <p className='textoBusqueda'> Haz encontrado a tu mascota! </p>
-                    <div className='mascotaNombrePerdida'>
-                        Escribele para ponerte en contacto
-                    </div>
+                    <p className='textoBusqueda'> Haz encontrado una mascota! </p>
+                  
 
                 </div>
             } visible={displayPosition} /* footer={renderFooter('displayPosition')} */ position={position} onHide={() => onHide('displayBasic')} style={{ width: '90vw' }}
                 draggable={false} resizable={false}>
                 <Form onSubmit={sendMessage} initialValues={{ msg: '' }} render={({ handleSubmit }) => (
-                    <form onSubmit={handleSubmit} className="p-fluid formContainer">
+                    <form onSubmit={handleSubmit} className="formContainer">
+                          <div className='mascotaNombrePerdida'>
+                        Escribele para ponerte en contacto
+                    </div>
                         <Field name="msg" render={({ input }) => (
                             <div className="field">
                                 <span className="p-float-label">
@@ -96,9 +99,18 @@ export default function MascotaPerdida({state, idMascotaPerdida, setDialog }) {
                         )} />
                         {/*                        <img src={petDetail.fotoMascota} className="fotoMascota" />
                         <img src={idMascotaPerdida.fotoMascota} className="fotoMascota" /> */}
+                        <div className='divicon'>
+                            <div className='photoAttachPetFound'>
+                                Puedes adjuntar una foto para que te confirmen si es su mascota.
+                            </div>
 
-                        <Button type="submit" label="Enviar mensaje" className="sendMsg" /* onClick={onSubmit} */ />
-                        <Button label="Cancelar" onClick={e => setDialog(false)} className="sendMsg" />
+                            <AddAPhoto className='iconPhotoUpload petFoundedPhoto' />
+                        </div>
+                        <div className='dialogButtons'>
+                            <Button type="submit" label="Enviar mensaje" className="sendMsg" /* onClick={onSubmit} */ />
+                            <Button label="Cancelar" onClick={e => setDialog(false)} className="sendMsg" />
+                        </div>
+
                     </form>
                 )} />
             </Dialog>
