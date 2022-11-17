@@ -526,8 +526,9 @@ img.flag {
 
 .product-name{
     padding: 20px !important;
-    background-color: #e0e4e8c7;
-    border-radius: 40px;
+    background-color: #f4fcfb9b;
+    border-radius: 1rem;
+    margin-bottom: 10px;
 }
 
 .cardsPet {
