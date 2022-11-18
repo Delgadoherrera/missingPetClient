@@ -175,15 +175,11 @@ export default function ReactFinalFormDemo() {
     finalData.append("formDatas", JSON.stringify(newData));
 
     await axios
-      .post(
-        "https://backend.missingpets.art/mascotas/nuevaMascotaPerdida",
-        {},
-        {
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-          },
-        }
-      )
+      .post("https://backend.missingpets.art/mascotas/nuevaMascotaPerdida", {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+      })
       .then((response) => {
         if (response.status === 200) {
           setUploaded(true);
