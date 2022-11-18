@@ -183,7 +183,7 @@ export default function ReactFinalFormDemo() {
         mode: "no-cors",
         headers: {
           "Access-Control-Allow-Origin": "*",
-          Accept: "application/json",
+          'Accept': "application/json",
           "Content-Type": "application/json",
         },
      /*    withCredentials: true,
