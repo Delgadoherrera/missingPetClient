@@ -186,8 +186,6 @@ export default function ReactFinalFormDemo() {
         {
           headers: {
             "Access-Control-Allow-Origin": "*",
-            Accept: "application/json",
-            "Content-Type": "application/json",
           },
         }
       )
