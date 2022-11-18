@@ -177,7 +177,10 @@ export default function ReactFinalFormDemo() {
     await axios
       .post(
         "https://backend.missingpets.art/mascotas/nuevaMascotaPerdida",
-        {},
+        {
+          file: base64,
+          formDatas: newData,
+        },
         {
           headers: {
             "Access-Control-Allow-Origin": "*",
