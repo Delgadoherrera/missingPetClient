@@ -98,8 +98,8 @@ export default function ReactFinalFormDemo() {
 
       setDataReady(true);
 
-      form.restart();
-    } else {
+/*       form.restart();
+ */    } else {
       let newData = {
         ...data,
         id: localStorage.id,
@@ -111,8 +111,8 @@ export default function ReactFinalFormDemo() {
 
       setDataReady(true);
 
-      form.restart();
-    }
+/*       form.restart();
+ */    }
   };
   const handleReaderLoaded = (e) => {
     let binaryString = e.target.result;
@@ -175,11 +175,15 @@ export default function ReactFinalFormDemo() {
     finalData.append("formDatas", JSON.stringify(newData));
 
     await axios
-      .post("https://backend.missingpets.art/mascotas/nuevaMascotaPerdida", {
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
-      })
+      .post(
+        "https://backend.missingpets.art/mascotas/nuevaMascotaPerdida",
+        {},
+        {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
+      )
       .then((response) => {
         if (response.status === 200) {
           setUploaded(true);
