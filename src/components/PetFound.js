@@ -98,8 +98,9 @@ export default function ReactFinalFormDemo() {
 
       setDataReady(true);
 
-/*       form.restart();
- */    } else {
+      /*       form.restart();
+       */
+    } else {
       let newData = {
         ...data,
         id: localStorage.id,
@@ -111,8 +112,9 @@ export default function ReactFinalFormDemo() {
 
       setDataReady(true);
 
-/*       form.restart();
- */    }
+      /*       form.restart();
+       */
+    }
   };
   const handleReaderLoaded = (e) => {
     let binaryString = e.target.result;
@@ -177,10 +179,14 @@ export default function ReactFinalFormDemo() {
     await axios
       .post(
         "https://backend.missingpets.art/mascotas/nuevaMascotaPerdida",
-        {},
+        { file: base64, formDatas: newData },
         {
           headers: {
             "Access-Control-Allow-Origin": "*",
+            origin: "x-requested-with",
+            "Access-Control-Allow-Headers":
+              "POST, GET, PUT, DELETE, OPTIONS, HEAD, Authorization, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Allow-Origin",
+            "Content-Type": "application/json",
           },
         }
       )
