@@ -47,9 +47,11 @@ export default function MascotasPerdidas() {
         axios
           .get("https://backend.missingpets.art/mascotas/mascotasPerdidas", {
             headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
               "Access-Control-Allow-Origin": "*",
-              latitude: position.coords.latitude,
               longitude: position.coords.longitude,
+              latitude: position.coords.latitude,
             },
           })
           .then((res) => {

@@ -185,7 +185,8 @@ export default function ReactFinalFormDemo() {
           headers: {
             "Access-Control-Allow-Origin": "*",
           },
-        }
+        },
+    
       )
       .then((response) => {
         if (response.status === 200) {

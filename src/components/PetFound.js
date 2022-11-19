@@ -169,27 +169,33 @@ export default function ReactFinalFormDemo() {
     const newData = {
       ...formData,
       id: localStorage.id,
-      /*     newLatitude: sendLocation[sendLocation.length - 1].latitude,
-                newLongitude: sendLocation[sendLocation.length - 1].longitude, */
+      file: base64,
     };
     const finalData = new FormData();
     finalData.append("file", JSON.stringify(base64));
     finalData.append("formDatas", JSON.stringify(newData));
-
-    await axios({
-      method: "post",
-      mode: "no-cors",
-      headers: { "Access-Control-Allow-Origin": "*" },
-      url: "https://backend.missingpets.art/mascotas/nuevaMascotaPerdida",
-      data: finalData,
-    }).then((response) => {
-      if (response.status === 200) {
-        setUploaded(true);
-        return <BottomNavigation status={uploaded} />;
-      } else if (response.status !== 200) {
-        console.log("error");
-      }
-    });
+    await axios
+      .post(
+        "https://backend.missingpets.art/mascotas/nuevaMascotaPerdida",
+        {
+          file: base64,
+          formDatas: newData,
+        },
+        {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((response) => {
+        if (response.status === 200) {
+          setUploaded(true);
+          return <BottomNavigation status={uploaded} />;
+        } else if (response.status !== 200) {
+          console.log("error");
+        }
+      });
   };
 
   const isFormFieldValid = (meta) => !!(meta.touched && meta.error);
