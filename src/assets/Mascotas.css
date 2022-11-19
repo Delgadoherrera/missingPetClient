@@ -439,9 +439,9 @@ img.flag {
   }
 }
 @media screen and (min-width: 300px) and (max-width: 720px) {
-    .imgMisMascotas{
-        margin-bottom: -40px !important;
-    }
+  .imgMisMascotas {
+    margin-bottom: -40px !important;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -513,6 +513,7 @@ img.flag {
     margin-top: 0 !important;
     text-align: center !important;
     padding: 50px !important;
+    margin-right: 200px !important;
   }
 
   .imgMisMascotas {

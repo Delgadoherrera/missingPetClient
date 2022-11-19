@@ -1,18 +1,46 @@
 #fotoMascota {
-    opacity: 0%;
-    width: 10%;
-    margin-bottom: 1% !important;
+  opacity: 0%;
+  width: 10%;
+  margin-bottom: 1% !important;
+}
+.photoUploadUserRegister {
+  font-size: 100px !important;
+  margin-left: 140px !important;
+  color: rgba(0, 0, 0, 0.588) !important;
+}
+.buttonRegister {
+  width: 500px !important;
+  margin: auto !important;
+}
+.acceptTerms {
+  margin-left: 0px !important;
+}
+.newUserAvatarLabel {
+  padding: 10px;
+  background-color: white;
+  border-radius: 15px;
+  width: fit-content;
+  margin: auto;
+}
 
+@media screen and (min-width: 370px) and (max-width: 570px) {
+  .formRegister {
+    width: 100% !important;
+  }
+  .buttonRegister {
+    width: 70% !important;
+    margin-bottom: 40px !important;
 }
-.photoUploadUserRegister{
+  .photoUploadUserRegister {
     font-size: 100px !important;
-    margin-left:  140px !important;
+    margin-left: 90px !important;
     color: rgba(0, 0, 0, 0.588) !important;
-}
-.buttonRegister{
-    width: 500px !important;
-    margin: auto !important;
-}
-.acceptTerms{
-    margin-left: 120px!important;
+  }
+  .acceptTerms {
+    margin-left: 40px !important;
+    padding: 0 !important;
+    margin-top: 0;
+    margin-bottom: 0;
+
+  }
 }
