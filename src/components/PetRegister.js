@@ -155,7 +155,7 @@ export default function ReactFinalFormDemo() {
 
 
     return (
-        <div className="form-demo">
+        <div className="form-demo divAddNewPet">
             <div className="flex justify-content-center">
                 <div className="card">
                     {/*                 <h5 className="text-center">Registrar mascota</h5> */}

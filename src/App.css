@@ -33,9 +33,15 @@
   background-color: black !important;
   top: 0px;
   z-index: 4;
-  
 }
 
-body{
+body {
   margin: auto !important;
+}
+.newPetButton {
+  width: 300px !important;
+}
+.submitFoundPet {
+  margin: auto;
+  width: 220px !important;
 }
