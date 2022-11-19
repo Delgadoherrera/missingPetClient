@@ -107,8 +107,6 @@ export default function DataViewLazyDemo(props) {
                 />
               )}
             </div>
-          
-      
           </div>
         </div>
         <div className="configOptionsMyPets">
@@ -118,6 +116,7 @@ export default function DataViewLazyDemo(props) {
             onClick={(e) => deletePet(e)}
           >
             Eliminar mascota
+            
           </Button>
         </div>
       </div>
