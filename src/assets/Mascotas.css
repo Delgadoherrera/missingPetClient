@@ -507,6 +507,7 @@ img.flag {
 }
 
 @media screen and (min-width: 1400px) {
+ 
   .detalleMascota {
     height: 200px !important;
     margin-bottom: 0 !important;
@@ -566,4 +567,12 @@ img.flag {
 .p-dataview.p-dataview-list .p-dataview-content > .p-grid > div {
   border: solid #0000003d;
   border-width: 0 0 1px 0;
+}
+.quitarMascota {
+  margin-top: 0px;
+  background-color: transparent !important;
+  color: #495057;
+  border: none !important;
+  width: fit-content !important;
+  height: fit-content !important;
 }

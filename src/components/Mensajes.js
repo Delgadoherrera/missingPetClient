@@ -1,104 +1,95 @@
-import { MensajesService } from '../services/MensajesService'
-import { useEffect, useState } from 'react'
-import { Button } from 'primereact/button';
-import MensajesArea from '../views/MensajesArea'
-import '../assets/Mensajes.css'
-const getAllMsg = new MensajesService()
-
+import { MensajesService } from "../services/MensajesService";
+import { useEffect, useState } from "react";
+import { Button } from "primereact/button";
+import MensajesArea from "../views/MensajesArea";
+import "../assets/Mensajes.css";
+const getAllMsg = new MensajesService();
 
 export default function Mensajes() {
-    const [allMsg, setAllMsg] = useState([])
-    const [filteredMessages, setFilteredMessages] = useState([])
-    const [displayMessage, setDisplayMessage] = useState(false)
-    const [emisario, setEmisario] = useState(0)
-    const [inbox, setInbox] = useState({})
-    const [nombreEmisario, setNombreEmisario] = useState('')
+  const [allMsg, setAllMsg] = useState([]);
+  const [filteredMessages, setFilteredMessages] = useState([]);
+  const [displayMessage, setDisplayMessage] = useState(false);
+  const [emisario, setEmisario] = useState(0);
+  const [inbox, setInbox] = useState({});
+  const [nombreEmisario, setNombreEmisario] = useState("");
 
+  const getAllMsg = new MensajesService();
 
-
-    const getAllMsg = new MensajesService()
-
-
- 
-    useEffect(() => {
-        getAllMsg.getAllMyMsg(localStorage.id).then(data => {
-        
-            setAllMsg(data[0]);
-        });
-    }, []);
-
-    useEffect(() => {
-        setFilteredMessages(letrasUnicas)
-    }, [allMsg]);
-
-
-
-    let letrasUnicas = [];
-    let idUnicos = []
-
-    allMsg.forEach((elemento) => {
-        if (!letrasUnicas.includes(elemento.nombre)) {
-            letrasUnicas.push(elemento.nombre);
-        }
+  useEffect(() => {
+    getAllMsg.getAllMyMsg(localStorage.id).then((data) => {
+      setAllMsg(data[0]);
     });
+  }, []);
 
-    allMsg.forEach((elemento) => {
+  useEffect(() => {
+    setFilteredMessages(letrasUnicas);
+  }, [allMsg]);
 
-        if (!idUnicos.includes(elemento.idHumano)) {
-            idUnicos.push(elemento.idHumano);
-        }
-    });
+  let letrasUnicas = [];
+  let idUnicos = [];
 
-
-
-
-    let hash = {};
-    let filteredMsg = allMsg.filter(function (current) {
-        let exists = !hash[current.nombre];
-        hash[current.nombre] = false;
-        return exists;
-    });
-
-    const clicOnMessages = (e) => {
-
-        setDisplayMessage(!displayMessage)
-        setEmisario(e.currentTarget.value)
-        setNombreEmisario(e.currentTarget.ariaLabel)
+  allMsg.forEach((elemento) => {
+    if (!letrasUnicas.includes(elemento.nombre)) {
+      letrasUnicas.push(elemento.nombre);
     }
-    const updateComponent = () => {
-        setDisplayMessage(!displayMessage)
+  });
 
+  allMsg.forEach((elemento) => {
+    if (!idUnicos.includes(elemento.idHumano)) {
+      idUnicos.push(elemento.idHumano);
     }
+  });
 
+  let hash = {};
+  let filteredMsg = allMsg.filter(function (current) {
+    let exists = !hash[current.nombre];
+    hash[current.nombre] = false;
+    return exists;
+  });
 
-    return (
-        <div className='divMsg'>
+  const clicOnMessages = (e) => {
+    setDisplayMessage(!displayMessage);
+    setEmisario(e.currentTarget.value);
+    setNombreEmisario(e.currentTarget.ariaLabel);
+  };
+  const updateComponent = () => {
+    setDisplayMessage(!displayMessage);
+  };
 
-            {
-                displayMessage === true ?
-                    <MensajesArea updateComponent={updateComponent} idReceptor={emisario} nombreEmisario={nombreEmisario} />
-                    : <p></p>
-            }
-            {filteredMessages.map((one, index) => {
+  return (
+    <div className="divMsg">
+      <p className="contactoMensajesInfo">
+        Si encuentran a tu mascota perdida, aqui te llegarán los mensajes cuando
+        intenten contactarte.
+      </p>
 
-
-                return (
-
-                    <Button type="button" label={` Mensaje de: ${one}`}
-                        icon="pi pi-users"
-                        className="p-button-warning mensajesButton" /* badge="1" */
-                        badgeClassName="p-badge-danger"
-                        aria-label={one}
-                        value={idUnicos[index]}
-                        onClick={(e) => { clicOnMessages(e) }} />)
-
-            })}
-
-
-
-
-
-
-        </div>
-    )
+      {displayMessage === true ? (
+        <MensajesArea
+          updateComponent={updateComponent}
+          idReceptor={emisario}
+          nombreEmisario={nombreEmisario}
+        />
+      ) : (
+        <p></p>
+      )}
+      {filteredMessages.map((one, index) => {
+        return (
+          <div>
+            <Button
+              type="button"
+              label={` Mensaje de: ${one}`}
+              icon="pi pi-users"
+              className="p-button-warning mensajesButton" /* badge="1" */
+              badgeClassName="p-badge-danger"
+              aria-label={one}
+              value={idUnicos[index]}
+              onClick={(e) => {
+                clicOnMessages(e);
+              }}
+            />
+          </div>
+        );
+      })}
+    </div>
+  );
 }
