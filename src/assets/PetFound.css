@@ -1,145 +1,24 @@
-.adTextPetFound {
-    font-size: 1rem !important;
-    text-align: center;
-}
-
-.tittleMap {
-    margin-bottom: 0px !important;
-    font-size: 1.2rem;
-    color: black !important;
-    text-align: center;
-    position: relative !important;
-    /*     bottom: 40px !important; */
-    top: 50px !important;
-}
-
-
-
-.submitFoundPet {
-    bottom: 6rem !important;
-}
-
 .formPetFound {
-
-
-    margin: auto;
+  width: 100%;
+  margin: auto;
 }
-
-.mapaMascotaEncontrada {
-    padding: 10px !important;
-    height: 210px;
-    border-radius: 10px;
-
-}
-
-
-
-.formPetRegister {
-
-    margin-bottom: 40px !important;
-}
-
-
-
-
-
-
-
-
-.field {
-    width: 90%;
-    margin: auto;
-}
-
-.submitFoundPet {
-    padding: 2%;
-    width: 270px !important;
-    margin: auto;
-
-
-}
-
-
-
-.fatherDivPetRegister {
-    /*     background-color: red !important; */
-    margin-top: 65px !important;
-}
-
-#descripcionMascota {
-    height: 120px;
-}
-
-.descripcionMascota {
-    text-align: left !important;
-}
-
-@media screen and (min-width: 1024px) {
-
-
-    #root>div>div>div>div>div>div.form-demo.formPetFound>div>div>div {
-        height: 4290px !important;
-        margin-bottom: 20px !important;
-        /*       background-color: red !important; */
-    }
-
-    .submitFoundPet {
-        width: fit-content !important;
-        padding: 20px;
-    }
-
-    .tittleMap {
-        margin-top: 50px !important;
-        top: 20px !important
-    }
-
-
-}
-
-@media screen and (max-width: 1024px) {
-    .tittleMap {
-        margin-bottom: 0px !important;
-        font-size: 1.2rem;
-        color: black !important;
-        text-align: center;
-        position: relative !important;
-        top: 60px !important;
-    }
-
-}
-
-.data-badge {
-    color: black !important;
-}
-
 .petFoundPhotoIcon {
-    position: static !important;
-    font-size: 90px !important;
-    margin-left: 94px !important;
-
+  font-size: 70px !important;
+  position: relative !important;
+  margin-left: 100px;
 }
 
-@media screen and (min-width: 1600px) {
-    .formPetFound {
-        margin-top: 40px;
-        width: 65% !important;
-        height: 1200px !important;
-    }
-
-    .tittleMap {
-        margin-top: 110px !important;
-    }
-
-    .petFoundPhotoIcon {
-        margin-left: 220px !important;
-    }
-
-    .submitFoundPet {
-
-        width: 690px !important;
-        padding: 20px !important;
-        opacity: 100%;
-    }
-
-
+@media screen and (min-width: 1200px) {
+  .formPetFound {
+    width: 60%;
+    margin: auto;
+  }
+  .petFoundPhotoIcon {
+    font-size: 70px !important;
+    position: relative !important;
+    margin-left: 180px;
+  }
+}
+.tittleMap {
+  text-align: center;
 }

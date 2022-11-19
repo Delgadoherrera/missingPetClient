@@ -1,597 +1,596 @@
 html {
     font-size: 14px;
-}
-
-body {
+  }
+  
+  body {
     background-color: #ffffff;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica,
+      Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
     font-weight: normal;
     color: #495057;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     /*  padding: .5em; */
     margin-bottom: 50px;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin: 1.5rem 0 1rem 0;
     font-family: inherit;
     font-weight: 600;
     line-height: 1.2;
     color: inherit;
-}
-
-h1 {
+  }
+  
+  h1 {
     font-size: 2.5rem;
-}
-
-h2 {
+  }
+  
+  h2 {
     font-size: 2rem;
-}
-
-h3 {
+  }
+  
+  h3 {
     font-size: 1.75rem;
-}
-
-h4 {
+  }
+  
+  h4 {
     font-size: 1.5rem;
-}
-
-h5 {
+  }
+  
+  h5 {
     font-size: 1.25rem;
-}
-
-h6 {
+  }
+  
+  h6 {
     font-size: 1rem;
-}
-
-p {
+  }
+  
+  p {
     line-height: 1.5;
     margin: 0 0 1rem 0;
-}
-
-.card {
+  }
+  
+  .card {
     margin-bottom: 2rem;
-}
-
-input[type="number"] {
+  }
+  
+  input[type="number"] {
     -moz-appearance: textfield;
-}
-
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
+  }
+  
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
-}
-
-@keyframes pulse {
+  }
+  
+  @keyframes pulse {
     0% {
-        background-color: rgba(165, 165, 165, 0.1)
+      background-color: rgba(165, 165, 165, 0.1);
     }
-
+  
     50% {
-        background-color: rgba(165, 165, 165, 0.3)
+      background-color: rgba(165, 165, 165, 0.3);
     }
-
+  
     100% {
-        background-color: rgba(165, 165, 165, 0.1)
+      background-color: rgba(165, 165, 165, 0.1);
     }
-}
-
-.customer-badge {
+  }
+  
+  .customer-badge {
     border-radius: 2px;
-    padding: .25em .5rem;
+    padding: 0.25em 0.5rem;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 12px;
-    letter-spacing: .3px;
-}
-
-.customer-badge.status-qualified {
-    background-color: #C8E6C9;
+    letter-spacing: 0.3px;
+  }
+  
+  .customer-badge.status-qualified {
+    background-color: #c8e6c9;
     color: #256029;
-}
-
-.customer-badge.status-unqualified {
-    background-color: #FFCDD2;
-    color: #C63737;
-}
-
-.customer-badge.status-negotiation {
-    background-color: #FEEDAF;
-    color: #8A5340;
-}
-
-.customer-badge.status-new {
-    background-color: #B3E5FC;
-    color: #23547B;
-}
-
-.customer-badge.status-renewal {
-    background-color: #ECCFFF;
+  }
+  
+  .customer-badge.status-unqualified {
+    background-color: #ffcdd2;
+    color: #c63737;
+  }
+  
+  .customer-badge.status-negotiation {
+    background-color: #feedaf;
+    color: #8a5340;
+  }
+  
+  .customer-badge.status-new {
+    background-color: #b3e5fc;
+    color: #23547b;
+  }
+  
+  .customer-badge.status-renewal {
+    background-color: #eccfff;
     color: #694382;
-}
-
-.customer-badge.status-proposal {
-    background-color: #FFD8B2;
-    color: #805B36;
-}
-
-.product-badge {
+  }
+  
+  .customer-badge.status-proposal {
+    background-color: #ffd8b2;
+    color: #805b36;
+  }
+  
+  .product-badge {
     border-radius: 2px;
-    padding: .25em .5rem;
+    padding: 0.25em 0.5rem;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 12px;
-    letter-spacing: .3px;
-}
-
-.product-badge.status-instock {
-    background: #C8E6C9;
+    letter-spacing: 0.3px;
+  }
+  
+  .product-badge.status-instock {
+    background: #c8e6c9;
     color: #256029;
-}
-
-.product-badge.status-outofstock {
-    background: #FFCDD2;
-    color: #C63737;
-}
-
-.product-badge.status-lowstock {
-    background: #FEEDAF;
-    color: #8A5340;
-}
-
-.order-badge {
+  }
+  
+  .product-badge.status-outofstock {
+    background: #ffcdd2;
+    color: #c63737;
+  }
+  
+  .product-badge.status-lowstock {
+    background: #feedaf;
+    color: #8a5340;
+  }
+  
+  .order-badge {
     border-radius: 2px;
-    padding: .25em .5rem;
+    padding: 0.25em 0.5rem;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 12px;
-    letter-spacing: .3px;
-}
-
-.order-badge.order-delivered {
-    background: #C8E6C9;
+    letter-spacing: 0.3px;
+  }
+  
+  .order-badge.order-delivered {
+    background: #c8e6c9;
     color: #256029;
-}
-
-.order-badge.order-cancelled {
-    background: #FFCDD2;
-    color: #C63737;
-}
-
-.order-badge.order-pending {
-    background: #FEEDAF;
-    color: #8A5340;
-}
-
-.order-badge.order-returned {
-    background: #ECCFFF;
+  }
+  
+  .order-badge.order-cancelled {
+    background: #ffcdd2;
+    color: #c63737;
+  }
+  
+  .order-badge.order-pending {
+    background: #feedaf;
+    color: #8a5340;
+  }
+  
+  .order-badge.order-returned {
+    background: #eccfff;
     color: #694382;
-}
-
-.image-text {
+  }
+  
+  .image-text {
     vertical-align: middle;
-    margin-left: .5rem;
-}
-
-.p-multiselect-representative-option {
+    margin-left: 0.5rem;
+  }
+  
+  .p-multiselect-representative-option {
     display: inline-block;
     vertical-align: middle;
-}
-
-.p-multiselect-representative-option img {
+  }
+  
+  .p-multiselect-representative-option img {
     vertical-align: middle;
     width: 24px;
-}
-
-.p-multiselect-representative-option span {
-    margin-top: .125rem;
-}
-
-.p-column-filter {
+  }
+  
+  .p-multiselect-representative-option span {
+    margin-top: 0.125rem;
+  }
+  
+  .p-column-filter {
     width: 100%;
-}
-
-.country-item {
+  }
+  
+  .country-item {
     display: flex;
     align-items: center;
-}
-
-.country-item img.flag {
+  }
+  
+  .country-item img.flag {
     width: 18px;
-    margin-right: .5rem;
-}
-
-.flag {
+    margin-right: 0.5rem;
+  }
+  
+  .flag {
     vertical-align: middle;
-}
-
-span.flag {
+  }
+  
+  span.flag {
     width: 44px;
     height: 30px;
     display: inline-block;
-}
-
-img.flag {
-    width: 30px
-}
-
-
-
-.dataview-demo .p-dropdown {
+  }
+  
+  img.flag {
+    width: 30px;
+  }
+  
+  .dataview-demo .p-dropdown {
     width: 14rem;
     font-weight: normal;
-
-}
-
-.dataview-demo .product-name {
-    font-size: 1.3rem;
+  }
+  
+  .dataview-demo .product-name {
+    font-size: 2.1rem !important;
     font-weight: 700;
-
-}
-
-.dataview-demo .product-description {
+  }
+  
+  .dataview-demo .product-description {
     margin: 0 0 1rem 0;
     font-size: 1.2rem;
-
-}
-
-.dataview-demo .product-category-icon {
+  }
+  
+  .dataview-demo .product-category-icon {
     vertical-align: middle;
-    margin-right: .5rem;
-}
-
-.dataview-demo .product-category {
+    margin-right: 0.5rem;
+  }
+  
+  .dataview-demo .product-category {
     font-weight: 600;
     vertical-align: middle;
-
-}
-
-.dataview-demo .product-list-item {
+  }
+  
+  .dataview-demo .product-list-item {
     display: flex;
     align-items: center;
-    padding: 1rem;
+  
     width: 100%;
-
-}
-
-.dataview-demo .product-list-item img {
+  }
+  
+  .dataview-demo .product-list-item img {
     width: 150px;
     /*    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); */
     margin-right: 2rem;
-}
-
-.dataview-demo .product-list-item .product-list-detail {
+  }
+  
+  .dataview-demo .product-list-item .product-list-detail {
     flex: 1 1 0;
-
-}
-
-.dataview-demo .product-list-item .p-rating {
-    margin: 0 0 .5rem 0;
-}
-
-.dataview-demo .product-list-item .product-price {
+  }
+  
+  .dataview-demo .product-list-item .p-rating {
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .dataview-demo .product-list-item .product-price {
     font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
     align-self: flex-end;
-}
-
-.dataview-demo .product-list-item .product-list-action {
+  }
+  
+  .dataview-demo .product-list-item .product-list-action {
     display: flex;
     flex-direction: column;
-}
-
-.dataview-demo .product-list-item .p-button {
-    margin-bottom: .5rem;
-}
-
-.dataview-demo .product-grid-item {
-    margin: .5em;
+  }
+  
+  .dataview-demo .product-list-item .p-button {
+    margin-bottom: 0.5rem;
+  }
+  
+  .dataview-demo .product-grid-item {
+    margin: 0.5em;
     /*     border: 1px solid #dee2e6; */
     padding: 2rem;
-}
-
-.dataview-demo .product-grid-item .product-grid-item-top,
-.dataview-demo .product-grid-item .product-grid-item-bottom {
+  }
+  
+  .dataview-demo .product-grid-item .product-grid-item-top,
+  .dataview-demo .product-grid-item .product-grid-item-bottom {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.dataview-demo .product-grid-item img {
+  }
+  
+  .dataview-demo .product-grid-item img {
     width: 75%;
-
+  
     margin: 2rem 0;
-}
-
-.dataview-demo .product-grid-item .product-grid-item-content {
+  }
+  
+  .dataview-demo .product-grid-item .product-grid-item-content {
     text-align: center;
-}
-
-.dataview-demo .product-grid-item .product-price {
+  }
+  
+  .dataview-demo .product-grid-item .product-price {
     font-size: 1.5rem;
     font-weight: 600;
-}
-
-
-
-.product-list-action {
+  }
+  
+  .dataview-demo {
+    background-color: black !important;
+  }
+  
+  .product-list-action {
     display: flex;
     flex-direction: column !important;
     margin-top: 1% !important;
-
-}
-
-.product-list-item {
+  }
+  
+  .product-list-item {
     box-shadow: none !important;
     /*    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px !important; */
     margin-top: -4% !important;
-
-
-}
-
-
-
-.card {
-
+  }
+  
+  .card {
     box-shadow: none !important;
-}
-
-.product-category {
+  }
+  
+  .product-category {
     font-size: 0.9rem !important;
-}
-
-.detalleMascota {
+  }
+  
+  .detalleMascota {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     margin-bottom: 1% !important;
-
-}
-
-.product-name {
-    /*     text-align: center !important;
- */
-}
-
-.col-12 {
+    border-radius: 20px;
+    text-align: center !important;
+    margin-top: 5px !important;
+    margin-bottom: 0px !important;
+  }
+  
+  .col-12 {
     /*  background-color: red!important; */
-
+  
     margin-top: 0% !important;
-}
-
-.imgMisMascotas {
+  }
+  
+  .imgMisMascotas {
     width: 200px !important;
     height: 200px !important;
     object-fit: cover !important;
-    padding: 1% !important;
+    padding: 2% !important;
     border-radius: 60px !important;
-    margin-top: 0 !important;
+    margin-top: 10px !important;
     margin: auto !important;
-
-
-
-}
-
-.product-list-detail {
+    background-color: rgba(232, 225, 225, 0.908);
+    border-width: 1px !important;
+    border-collapse: separate !important;
+  }
+  
+  .product-list-detail {
     display: flex;
     flex-direction: row !important;
     justify-content: space-around !important;
-
-}
-
-.product-list-item {
+  }
+  
+  .product-list-item {
     margin-top: 1% !important;
     margin-bottom: 10px !important;
     /* background-color: blue!important; */
-}
-
-@media screen and (min-width: 1056)
-
-/*  and (min-width: 500px) */
-    {
+  }
+  
+  @media screen and (min-width: 1056) /* and (min-width: 500px) */ {
     .dataview-demo .product-list-item {
-        flex-direction: column !important;
-
+      flex-direction: column !important;
     }
-
+  
     .dataview-demo .product-list-item img {
-        width: 75%;
-        margin: 2rem 0;
+      width: 75%;
+      margin: 2rem 0;
     }
-
+  
     .dataview-demo .product-list-item .product-list-detail {
-        text-align: center;
-
-
+      text-align: center;
     }
-
-
+  
     .dataview-demo .product-list-item .product-price {
-        align-self: center;
+      align-self: center;
     }
-
+  
     .dataview-demo .product-list-item .product-list-action {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around !important;
     }
-
+  
     .dataview-demo .product-list-item .product-list-action {
-
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
     }
-
+  
     .imgMisMascotas {
-        margin-top: 10% !important;
-        border-radius: 20px !important;
-        width: 300px !important;
-        height: 300 px !important;
-        margin: auto !important;
+      margin-top: 10% !important;
+      border-radius: 20px !important;
+      width: 300px !important;
+      height: 300px !important;
+      margin: auto !important;
     }
-
+  
     .p-button-warning {
-        right: 14px !important;
-
+      right: 14px !important;
     }
-
+  
     .product-name {
-        font-size: 2.5rem !important;
-
+      font-size: 2.5rem !important;
     }
-
+  
     .product-category {
-        font-size: 1.2rem !important;
+      font-size: 1.2rem !important;
     }
-
+  
     .product-description {
-        font-size: 1.2rem !important;
-
+      font-size: 1.2rem !important;
     }
-
+  
     .product-list-item {
-        flex-direction: row !important;
-
+      flex-direction: row !important;
     }
-
-}
-
-@media screen and (min-width: 1600px) {
+  }
+  @media screen and (min-width: 300px) and (max-width: 720px) {
     .imgMisMascotas {
-        box-shadow: rgba(8, 0, 0, 0.548) 0px 2px 8px;
-        background-color: transparent !important;
-        border-radius: 60px !important;
-        width: 350px !important;
-        height: 250px !important;
-        object-fit: cover !important;
-        border-width: 0px !important;
-        /*    margin-top: 70px !important; */
-        padding: 3px !important;
-
-
     }
-
-    .product-name {
-        font-size: 2.5rem !important;
+    .quitarMascota {
+      margin-left: 230px;
     }
-
-    .product-category {
-        font-size: 1.2rem !important;
+    .cardsPet {
+      height: fit-content !important;
     }
-
-    .product-description {
-        font-size: 1.7rem !important;
-    }
-
-    .product-list-item {
-        flex-direction: row !important;
-    }
-
-
-
-}
-
-@media screen and (max-width: 800px) {
-    /*     .imgMisMascotas {
-        border-radius: 60px !important;
-        width: 200px !important;
-        height: 200px !important;
-        object-fit: cover !important;
-        bottom: 400px !important;
-        background-color: rgba(200, 193, 193, 0.116) !important;
-        margin-top: 40px !important;
-
-    } */
-
+  }
+  
+  @media screen and (max-width: 800px) {
     .cardDataMyPets {
-
-        width: 100% !important;
-        height: 500px !important;
-        margin-bottom: auto !important;
+      width: 100% !important;
+      margin-bottom: auto !important;
     }
-
+  
     .product-list-item {
-        flex-direction: column !important;
-
+      flex-direction: column !important;
     }
-
+  
     .product-name {
-        font-size: 2.5rem !important;
-        text-align: center !important;
-
+      font-size: 2.5rem !important;
+      text-align: center !important;
     }
-
+  
     .product-category {
-        font-size: 1.0rem !important;
-        text-align: center !important;
-        margin-bottom: 5px !important;
+      font-size: 1rem !important;
+      text-align: center !important;
+      margin-bottom: 5px !important;
     }
-
+  
     .product-description {
-        font-size: 1.4rem !important;
-        text-align: center !important;
-        margin-bottom: 25px !important;
+      font-size: 1.4rem !important;
+      text-align: center !important;
     }
-}
-
-.buttonLost {
-    margin-top: 0 !important;
-    margin-left: 30px !important;
-
-}
-
-@media screen and (min-width: 300px) and (max-width: 760px) {
-    .p-button-warning {
-        width: 100% !important;
-    }
-
-}
-
-/* @media screen and (min-width: 760px) {
-    .p-button-warning {
-        width: 220px !important;
-        right: 3.5% !important;
-        bottom: 15px !important;
-    }
-} */
-
-.p-fluid {
-
+  }
+  
+  .p-button-warning {
+    width: 100% !important;
+  }
+  
+  .p-fluid {
     height: 100% !important;
-
-
-}
-
-.cardDataMyPets {
-    margin-bottom: 50px !important;
-    /*     width: fit-content !important; */
-    height: fit-content !important;
-    /*     margin-top: 20px !important; */
-}
-
-
-
-.MuiBottomNavigation {
-    margin-bottom: 40px !important;
-    /*     background-color: yellow !important; */
-}
-
-
-.tituloMisMascotas {
+  }
+  
+  .tituloMisMascotas {
     margin-bottom: -14px !important;
-}
-
-* {
-  border-radius: 40px !important;
-
-}
+  }
+  
+  .detalleMascota {
+    padding: 30px !important;
+    width: 300px !important;
+    background-color: rgba(145, 138, 138, 0.229) !important;
+  }
+  
+  .product-name {
+    padding: 0px !important;
+    border-radius: 1rem;
+    margin-bottom: 0px;
+    margin-top: 0 !important;
+  }
+  
+  .cardsPet {
+    margin-bottom: 40px !important;
+    margin-top: 6px !important;
+  }
+  
+  .buttonLost {
+    top: 15px;
+  }
+  
+  @media screen and (min-width: 1400px) {
+    .detalleMascota {
+      height: 320px !important;
+      margin-bottom: 0 !important;
+      margin-top: 30px !important;
+      text-align: center !important;
+      padding: 50px !important;
+      margin-right: 100px !important;
+    }
+    .product-description {
+      margin-top: 10px !important;
+    }
+  
+    .imgMisMascotas {
+      width: 250px !important;
+      height: 290px !important;
+      margin-top: 70px !important;
+      margin-bottom: 40px !important;
+      margin-left: 30px !important;
+    }
+  
+    .buttonLost {
+      padding: 15px !important;
+      color: white !important;
+      border-radius: 10px !important;
+      margin-top: 20px !important;
+    }
+  
+    .textEmptyPets {
+      background-color: rgba(0, 0, 0, 0.101);
+      font-size: 25px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 5px 17px -5px,
+        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+      width: 400px;
+      margin: auto;
+      padding: 20px;
+    }
+  
+  }
+  
+  .emptyPets {
+    height: 260px !important;
+    padding: 50px;
+  }
+  
+  .textEmptyPets {
+    background-color: rgba(0, 0, 0, 0.101);
+    font-size: 25px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 5px 17px -5px,
+      rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  }
+  
+  .p-dataview.p-dataview-list .p-dataview-content > .p-grid > div {
+    border: solid #0000003d;
+    border-width: 0 0 1px 0;
+  }
+  .quitarMascota {
+    margin-top: 40px;
+    background-color: transparent !important;
+    color: #495057;
+    border: none !important;
+    width: fit-content !important;
+    height: fit-content !important;
+  }
+  
+  .configPetsIcon {
+    font-size: 20px;
+    position: relative;
+    left: 95%;
+    top: 20px;
+  }
+  
+  @media screen and (max-width: 650px) {
+    .configPetsIcon {
+      box-sizing: content-box;
+      position: relative;
+      left: 90%;
+    }
+  }
+  

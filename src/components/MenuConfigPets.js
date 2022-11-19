@@ -1,0 +1,72 @@
+import 'primeicons/primeicons.css';
+import 'primereact/resources/themes/lara-light-indigo/theme.css';
+import 'primereact/resources/primereact.css';
+import 'primeflex/primeflex.css';
+import '../../index.css';
+import ReactDOM from 'react-dom';
+
+import React, { useRef } from 'react';
+import { Menu } from 'primereact/menu';
+import { Button } from 'primereact/button';
+import { Toast } from 'primereact/toast';
+
+const MenuDemo = () => {
+    const menu = useRef(null);
+    const toast = useRef(null);
+    const items = [
+        {
+            label: 'Options',
+            items: [
+                {
+                    label: 'Update',
+                    icon: 'pi pi-refresh',
+                    command: () => {
+                        toast.current.show({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
+                    }
+                },
+                {
+                    label: 'Delete',
+                    icon: 'pi pi-times',
+                    command: () => {
+                        toast.current.show({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
+                    }
+                }
+            ]
+        },
+        {
+            label: 'Navigate',
+            items: [
+                {
+                    label: 'React Website',
+                    icon: 'pi pi-external-link',
+                    url: 'https://reactjs.org/'
+                },
+                {
+                    label: 'Router',
+                    icon: 'pi pi-upload',
+                    command:(e) => {
+                        window.location.hash = "/fileupload"
+                    }
+                }
+            ]
+        }
+    ];
+
+    return (
+        <div>
+            <Toast ref={toast}></Toast>
+
+            <div className="card">
+                <h5>Inline</h5>
+                <Menu model={items} />
+
+                <h5>Overlay</h5>
+                <Menu model={items} popup ref={menu} id="popup_menu" />
+                <Button label="Show" icon="pi pi-bars" onClick={(event) => menu.current.toggle(event)} aria-controls="popup_menu" aria-haspopup />
+            </div>
+        </div>
+    );
+}
+                
+const rootElement = document.getElementById("root");
+ReactDOM.render(<MenuDemo />, rootElement);

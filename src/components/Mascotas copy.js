@@ -69,34 +69,44 @@ export default function DataViewLazyDemo(props) {
   };
   const deletePet = (e) => {
     console.log("eliminando la mascota de ID:", e.target.ariaLabel);
-    setPetMenu(!petMenu);
+    setPetMenu(!petMenu)
   };
   const renderListItem = (data) => {
     return (
       <div className="col-12 cardDataMyPets">
+        <div className="configPetMenu">
+          {petMenu === true ? <p> icono</p> : <p> menu</p>}
+          <i
+            aria-label={data.idMascota}
+            onClick={(e) => {
+              deletePet(e);
+            }}
+            className="pi pi-cog configPetsIcon"
+          ></i>
+        </div>
+
         <div className="product-list-item cardsPet">
-          <img
-            className="imgMascotas"
-            src={`data:image/jpeg;base64,${data.fotoMascota}`}
-          />
+          <div className="divFotoMascota">
+            <img
+              className="imgMisMascotas"
+              src={`data:image/jpeg;base64,${data.fotoMascota}`}
+            />
+          </div>
           <div className="product-list-detail">
             <div className="detalleMascota">
               <div className="product-name">{data.nombre}</div>
-              <div className="product-description petDescription">{data.descripcion}</div>
+              <div className="product-description">{data.descripcion}</div>
               <span className="product-category">
                 Color principal: {data.colorPrimario}
-              </span><br></br>
+              </span>
               <span className="product-category">
                 Color principal: {data.colorSecundario}
-              </span><br></br>
+              </span>
               <span className="product-category">
                 Peso aproximado: {data.pesoAproximado}
               </span>
 
-            
-            </div>
-          </div>
-          {data.status === 1 ? (
+              {data.status === 1 ? (
                 <MascotaEncontrada
                   idMascotaPerdida={data}
                   update={updateComponent}
@@ -108,6 +118,8 @@ export default function DataViewLazyDemo(props) {
                   state={state}
                 />
               )}
+            </div>
+          </div>
         </div>
       </div>
     );
