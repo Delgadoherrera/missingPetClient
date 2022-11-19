@@ -30,7 +30,8 @@
 }
 
 .dataview-demo .product-list-item img {
-  width: 150px;
+  /*   width: 150px;
+ */
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   margin-right: 2rem;
 }
@@ -89,11 +90,6 @@
     align-items: center;
   }
 
-  .dataview-demo .product-list-item img {
-    width: 75%;
-    margin: 2rem 0;
-  }
-
   .dataview-demo .product-list-item .product-list-detail {
     text-align: center;
   }
@@ -117,14 +113,14 @@
 }
 
 .tituloMisMascotas {
-  margin-top: 70px;
+  margin-top: 50px;
   padding: 20px;
   text-align: center;
   font-size: 24px;
   background-color: rgba(216, 211, 204, 0.47);
 }
 .imgMascotas {
-  object-fit: cover;
+  object-fit: cover !important;
   height: 200px !important;
   width: 200px !important;
   box-shadow: none !important;
@@ -133,12 +129,18 @@
   border: transparent 1px white;
   padding: 5px;
   background-color: white;
+  margin: auto !important;
 }
 .cardsPet {
   margin-bottom: 0px !;
 }
 .detalleMascota {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+  background-color: rgba(216, 211, 204, 0.218);
+  border-radius: 40px;
+  padding: 10px;
+  text-align: center;
+  width: 300px !important;
 }
 .product-category {
   font-size: 12px;
@@ -149,11 +151,23 @@
     width: 40%;
   }
   .imgMascotas {
-    margin-left: 100px;
-    width: 150px !important;
-    height: 150px !important;
+    margin-left: 70px !important;
+    width: 200px !important;
+    height: 180px !important;
   }
   .buttonLost {
-    margin-right: 250px !important;
+    margin-right: 50px !important;
   }
+  .detalleMascota {
+    width: 70% !important;
+    margin: auto;
+  }
+}
+
+.product-description {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
 }

@@ -2,7 +2,7 @@
   background-color: rgb(0, 0, 0) !important;
   border-radius: 10px !important;
   border-color: black !important;
-  width: 150px !important;
+  width: 250px !important;
   height: 50px !important;
   box-shadow: none !important;
   margin-right: 0px;
@@ -44,4 +44,12 @@ body {
 .submitFoundPet {
   margin: auto;
   width: 220px !important;
+}
+
+.bottomNavigation {
+  padding: 35px;
+}
+html {
+  margin-bottom: 0px !important;
+  margin-top: 10px !important;
 }
