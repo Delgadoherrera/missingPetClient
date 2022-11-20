@@ -7,8 +7,10 @@ import React, { useState, useEffect, useRef } from "react";
 import { DataView } from "primereact/dataview";
 import { MascotasService } from "../services/MascotasService";
 import MascotaPerdida from "../views/MascotaPerdidaDialog";
+import { Button } from "primereact/button";
 import MascotaEncontrada from "../views/MascotaEcontradaDialog";
 import UploadBase64 from "../views/UploadBase64";
+import DeletePetDialog from "./DeletePetDialog";
 
 export default function DataViewLazyDemo(props) {
   const [products, setProducts] = useState(null);
@@ -19,7 +21,8 @@ export default function DataViewLazyDemo(props) {
     latitude: 0,
   });
   const [update, setupdate] = useState(false);
-  const [petMenu, setPetMenu] = useState(false);
+  const [petMenu, setPetMenu] = useState(0);
+  const [dialog, setDialog] = useState(false);
   const rows = useRef(6);
   const datasource = useRef(null);
   const isMounted = useRef(false);
@@ -52,6 +55,10 @@ export default function DataViewLazyDemo(props) {
     });
   }, [update]);
 
+  useEffect(() => {
+    setPetMenu(petMenu);
+  }, [products]);
+
   const onPage = (event) => {
     const startIndex = event.first;
     const endIndex = Math.min(event.first + rows.current);
@@ -68,9 +75,9 @@ export default function DataViewLazyDemo(props) {
     setupdate(!update);
   };
   const deletePet = (e) => {
-    console.log("eliminando la mascota de ID:", e.target.ariaLabel);
-    setPetMenu(!petMenu);
+    setDialog(!dialog);
   };
+  console.log('pet menu',petMenu)
   const renderListItem = (data) => {
     return (
       <div className="col-12 cardDataMyPets">
@@ -82,32 +89,60 @@ export default function DataViewLazyDemo(props) {
           <div className="product-list-detail">
             <div className="detalleMascota">
               <div className="product-name">{data.nombre}</div>
-              <div className="product-description petDescription">{data.descripcion}</div>
+              <div className="product-description petDescription">
+                {data.descripcion}
+              </div>
               <span className="product-category">
                 Color principal: {data.colorPrimario}
-              </span><br></br>
+              </span>
+              <br></br>
               <span className="product-category">
                 Color principal: {data.colorSecundario}
-              </span><br></br>
+              </span>
+              <br></br>
               <span className="product-category">
                 Peso aproximado: {data.pesoAproximado}
               </span>
-
-            
             </div>
           </div>
           {data.status === 1 ? (
-                <MascotaEncontrada
-                  idMascotaPerdida={data}
-                  update={updateComponent}
-                />
-              ) : (
-                <MascotaPerdida
-                  update={updateComponent}
-                  idMascotaPerdida={data}
-                  state={state}
-                />
-              )}
+            <MascotaEncontrada
+              idMascotaPerdida={data}
+              update={updateComponent}
+            />
+          ) : (
+            <MascotaPerdida
+              update={updateComponent}
+              idMascotaPerdida={data}
+              state={state}
+            />
+          )}
+          <div className="divOptionPets buttonEditPet">
+            <button
+              className="deletePetButton"
+              onClick={(e) => deletePet(e)}
+              value={data.idMascota}
+            >
+              Editar mascota
+            </button>
+            <br></br>
+            <button
+              className="deletePetButton buttonDeletePet"
+              onClick={(e) => {
+                deletePet(e);
+                setPetMenu(data.idMascota)
+              }}
+              value={data.idMascota}
+            >
+              Eliminar mascota
+            </button>
+            {dialog === true ? (
+              <DeletePetDialog deletePet={deletePet} idMascota={petMenu} />
+            ) : (
+              <p> </p>
+            )}
+            <br></br>
+          </div>
         </div>
       </div>
     );

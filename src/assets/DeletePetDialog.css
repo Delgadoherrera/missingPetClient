@@ -1,0 +1,14 @@
+.deletePetDialog {
+  width: 300px !important;
+  height: 200px !important;
+  text-align: center;
+}
+.deletePetButtons {
+  margin: auto !important;
+  padding: 10px;
+  margin-bottom: 10px !important;
+}
+
+.deleteContentDialog {
+  display: none;
+}

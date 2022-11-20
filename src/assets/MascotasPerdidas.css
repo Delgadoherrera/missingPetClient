@@ -1,68 +1,64 @@
 .carousel-demo .product-item .product-item-content {
-    border: 1px solid var(--surface-d);
-    border-radius: 3px;
-    margin: .3rem;
-    text-align: center;
-    padding: 2rem 0;
+  border: 1px solid var(--surface-d);
+  border-radius: 3px;
+  margin: 0.3rem;
+  text-align: center;
+  padding: 2rem 0;
 }
 
 .carousel-demo .product-item .product-image {
-    /*    width: 50%; */
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-
+  /*    width: 50%; */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
-
 .data-image {
-    border-radius: 10%;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 10%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .div-carrousel-demo {
-    margin: auto !important;
+  margin: auto !important;
 }
 
 .p-carousel-container {
-    padding: 1% !important;
-    height: 100% !important;
-
+  padding: 0% !important;
+}
+.p-carousel-header {
+  display: none;
 }
 
-
-
 .custom-carousel {
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-    text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  text-align: center;
 }
 
 .buttonMyPet {
-    background-color: transparent !important;
-    color: rgba(0, 0, 0, 0.685) !important;
-    border-color: rgba(0, 0, 0, 0.514) !important;
-    bottom: 10px !important;
-    margin-bottom: 0% !important;
-    margin: auto !important;
-
+  background-color: transparent !important;
+  color: rgba(0, 0, 0, 0.685) !important;
+  border-color: rgba(0, 0, 0, 0.514) !important;
+  bottom: 10px !important;
+  margin-bottom: 0% !important;
+  margin: auto !important;
 }
 
 .tituloMascotasPerdidas {
-    font-size: 1.5rem;
-
+  font-size: 1.5rem;
 }
 
 .data-image {
-    height: 200px;
-    width: 200px;
-    object-fit: cover;
-
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  margin-top: 0 !important;
 }
 
 .data-badge {
-    font-size: 0.8rem !important;
-    margin-bottom: 0 !important;
+  font-size: 0.8rem !important;
+  margin-bottom: 0 !important;
 }
 
-
-.p-button-rounded{
-    border-radius: 8px !important;
+.p-button-rounded {
+  border-radius: 8px !important;
 }

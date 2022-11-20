@@ -5,18 +5,30 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
+div {
+  font-family: "Dosis", sans-serif !important;
+}
+.p-inputtext {
+  font-family: "Dosis", sans-serif !important;
+}
+button {
+  font-family: "Dosis", sans-serif;
+}
+
+.p-c {
+  font-family: "Dosis", sans-serif !important;
+}
+.MuiBottomNavigationAction-label {
   font-family: "Dosis", sans-serif !important;
 }
 
 .MuiTypography-root {
-  font-family: "Dosis", sans-serif;
+  font-family: "Dosis", sans-serif !important;
 }
 
 .css-1uwgr7b-MuiTypography-root {
   font-family: "Dosis", sans-serif;
 }
-
-.p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
-  background-color: black !important;
+.MuiButtonBase-root{
+  font-family: "Dosis", sans-serif !important;
 }

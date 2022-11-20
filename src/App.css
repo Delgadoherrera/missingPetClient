@@ -44,12 +44,12 @@ body {
 .submitFoundPet {
   margin: auto;
   width: 220px !important;
-}
+} 
 
 .bottomNavigation {
   padding: 35px;
 }
-html {
-  margin-bottom: 0px !important;
-  margin-top: 10px !important;
+
+.fatherDivPetRegister{
+  margin-bottom: 120px;
 }

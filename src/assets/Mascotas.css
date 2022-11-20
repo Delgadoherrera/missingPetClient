@@ -117,7 +117,8 @@
   padding: 20px;
   text-align: center;
   font-size: 24px;
-  background-color: rgba(216, 211, 204, 0.47);
+  /*   background-color: rgba(216, 211, 204, 0.47);
+ */
 }
 .imgMascotas {
   object-fit: cover !important;
@@ -125,7 +126,7 @@
   width: 200px !important;
   box-shadow: none !important;
   border-radius: 30px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
+  box-shadow: rgb(100, 100, 111) 0px 7px 29px 0px !important;
   border: transparent 1px white;
   padding: 5px;
   background-color: white;
@@ -133,19 +134,34 @@
 }
 .cardsPet {
   margin-bottom: 0px !;
+  background-color: rgba(255, 255, 255, 0.222);
 }
 .detalleMascota {
   margin-bottom: 30px;
-  background-color: rgba(216, 211, 204, 0.218);
-  border-radius: 40px;
-  padding: 10px;
+/*   background-color: rgba(216, 211, 204, 0.218);
+ */  border-radius: 40px;
+  padding: 50px;
   text-align: center;
   width: 300px !important;
 }
 .product-category {
   font-size: 12px;
 }
-
+.product-description {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+.optionPets {
+  margin-bottom: 0;
+  margin-top: 0;
+  margin: auto !important;
+}
+.buttonLost {
+  margin-bottom: 10px !important;
+}
 @media screen and (min-width: 1200px) {
   .petDescription {
     width: 40%;
@@ -157,17 +173,29 @@
   }
   .buttonLost {
     margin-right: 50px !important;
+    margin-bottom: 0 !important;
   }
   .detalleMascota {
     width: 70% !important;
     margin: auto;
   }
+  .optionPets {
+    margin-bottom: 0;
+    margin-top: 0;
+    position: relative;
+  }
 }
 
-.product-description {
-  text-align: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  margin-top: 20px !important;
-  margin-bottom: 20px !important;
+.buttonOptionPets {
+  background-color: transparent !important;
+}
+.deletePetButton {
+  background-color: transparent;
+  border: none;
+}
+.p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
+  background-color: black !important;
+}
+.fatherDivPetRegister {
+  background-color: white !important;
 }
