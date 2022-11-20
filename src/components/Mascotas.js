@@ -25,6 +25,7 @@ export default function DataViewLazyDemo(props) {
   const [petMenu, setPetMenu] = useState(0);
   const [dialog, setDialog] = useState(false);
   const [editPetDialog, setEditPetDialog] = useState(false);
+  const [petSelected, setPetSelected] = useState({});
   const rows = useRef(6);
   const datasource = useRef(null);
   const isMounted = useRef(false);
@@ -33,7 +34,7 @@ export default function DataViewLazyDemo(props) {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       function (position) {
-        // console.log(position);
+
         setState({
           longitude: position.coords.longitude,
           latitude: position.coords.latitude,
@@ -79,11 +80,25 @@ export default function DataViewLazyDemo(props) {
   const deletePet = (e) => {
     setDialog(!dialog);
   };
+
   const editPet = (e) => {
-    console.log("editar mascota id:", e.target.value);
     setEditPetDialog(!editPetDialog);
+
   };
-  console.log("pet menu", petMenu);
+
+  useEffect(() => {
+ 
+    products !== null && editPetDialog === true ?    products.forEach((one) => {
+      if (one.idMascota === petMenu) {
+        return setPetSelected(one)
+        }
+    }): <p></p>
+ 
+
+  }, [editPetDialog]);
+
+  console.log("pet selected", petSelected);
+
   const renderListItem = (data) => {
     return (
       <div className="col-12 cardDataMyPets">
@@ -126,9 +141,9 @@ export default function DataViewLazyDemo(props) {
           <div className="divOptionPets buttonEditPet">
             <button
               className="deletePetButton"
-              onClick={(e) => {editPet(e);
+              onClick={(e) => {
+                editPet(e);
                 setPetMenu(data.idMascota);
-
               }}
               value={data.idMascota}
             >
@@ -176,11 +191,10 @@ export default function DataViewLazyDemo(props) {
   };
 
   const header = renderHeader();
-  console.log("products", products);
 
   return products ? (
     <div className="mascotasDiv">
-      {editPetDialog === true ? <EditPetDialog idMascota={petMenu} /> : <p></p>}
+      {editPetDialog === true ? <EditPetDialog idMascota={petMenu} petToEdit={petSelected} /> : <p></p>}
       {products.length > 0 ? (
         <div className="dataview-demo">
           <UploadBase64 dataInput={products}></UploadBase64>

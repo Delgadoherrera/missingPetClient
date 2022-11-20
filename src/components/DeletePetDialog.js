@@ -77,7 +77,6 @@ export default function DialogDemo({ deletePet, idMascota, update }) {
       footer={renderFooter("displayBasic")}
       onHide={() => onHide("displayBasic")}
       className="deletePetDialog"
-      contentClassName="deleteContentDialog"
     ></Dialog>
   );
 }

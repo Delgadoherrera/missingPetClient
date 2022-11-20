@@ -12,3 +12,23 @@
 .deleteContentDialog {
   display: none;
 }
+
+.editPetDialog {
+  width: 400px;
+}
+
+.contentEditPetDialog {
+  display: none;
+}
+.headerDialogEditPet {
+}
+
+.editPetFetchButton {
+  background-color: red !important;
+  margin-bottom: 0 !important;
+}
+
+.p-float-label {
+  margin-bottom: 4px;
+  font-size: 15px!important;
+  font-family: "Dosis", sans-serif !important;}

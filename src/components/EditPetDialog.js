@@ -9,7 +9,12 @@ import { Dialog } from "primereact/dialog";
 import { Button } from "primereact/button";
 import PetEdit from "../components/PetEdit";
 
-export default function DialogDemo({ deletePet, idMascota, update }) {
+export default function DialogDemo({
+  deletePet,
+  idMascota,
+  update,
+  petToEdit,
+}) {
   const [displayBasic, setDisplayBasic] = useState(true);
   const [displayBasic2, setDisplayBasic2] = useState(false);
   const [displayModal, setDisplayModal] = useState(false);
@@ -51,7 +56,7 @@ export default function DialogDemo({ deletePet, idMascota, update }) {
   };
 
   const renderHeader = (e) => {
-    return <PetEdit />;
+    return <PetEdit petToEdit={petToEdit} />;
   };
 
   const renderFooter = (name) => {
@@ -77,11 +82,13 @@ export default function DialogDemo({ deletePet, idMascota, update }) {
   return (
     <Dialog
       header={renderHeader}
+      headerClassName="headerDialogEditPet"
+      position="center"
       visible={displayBasic}
       footer={renderFooter("displayBasic")}
       onHide={() => onHide("displayBasic")}
-      className="deletePetDialog"
-      contentClassName="editPetDialog"
+      className="editPetDialog"
+      contentClassName="contentEditPetDialog"
     ></Dialog>
   );
 }
