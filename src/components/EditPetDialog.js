@@ -7,7 +7,7 @@ import "../assets/DeletePetDialog.css";
 import React, { useState } from "react";
 import { Dialog } from "primereact/dialog";
 import { Button } from "primereact/button";
-/* import './DialogDemo.css'; */
+import PetEdit from "../components/PetEdit";
 
 export default function DialogDemo({ deletePet, idMascota, update }) {
   const [displayBasic, setDisplayBasic] = useState(true);
@@ -41,13 +41,17 @@ export default function DialogDemo({ deletePet, idMascota, update }) {
       .catch((error) => console.error("Error:", error))
       .then(() => {
         update();
-        deletePet()
+        deletePet();
       });
   };
 
   const onHide = (name) => {
     dialogFuncMap[`${name}`](false);
     deletePet();
+  };
+
+  const renderHeader = (e) => {
+    return <PetEdit />;
   };
 
   const renderFooter = (name) => {
@@ -72,12 +76,12 @@ export default function DialogDemo({ deletePet, idMascota, update }) {
 
   return (
     <Dialog
-      header="¿Desea eliminar la mascota?"
+      header={renderHeader}
       visible={displayBasic}
       footer={renderFooter("displayBasic")}
       onHide={() => onHide("displayBasic")}
       className="deletePetDialog"
-      contentClassName="deleteContentDialog"
+      contentClassName="editPetDialog"
     ></Dialog>
   );
 }

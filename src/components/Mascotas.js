@@ -11,6 +11,7 @@ import { Button } from "primereact/button";
 import MascotaEncontrada from "../views/MascotaEcontradaDialog";
 import UploadBase64 from "../views/UploadBase64";
 import DeletePetDialog from "./DeletePetDialog";
+import EditPetDialog from "./EditPetDialog";
 
 export default function DataViewLazyDemo(props) {
   const [products, setProducts] = useState(null);
@@ -23,6 +24,7 @@ export default function DataViewLazyDemo(props) {
   const [update, setupdate] = useState(false);
   const [petMenu, setPetMenu] = useState(0);
   const [dialog, setDialog] = useState(false);
+  const [editPetDialog, setEditPetDialog] = useState(false);
   const rows = useRef(6);
   const datasource = useRef(null);
   const isMounted = useRef(false);
@@ -77,7 +79,11 @@ export default function DataViewLazyDemo(props) {
   const deletePet = (e) => {
     setDialog(!dialog);
   };
-  console.log('pet menu',petMenu)
+  const editPet = (e) => {
+    console.log("editar mascota id:", e.target.value);
+    setEditPetDialog(!editPetDialog);
+  };
+  console.log("pet menu", petMenu);
   const renderListItem = (data) => {
     return (
       <div className="col-12 cardDataMyPets">
@@ -120,24 +126,32 @@ export default function DataViewLazyDemo(props) {
           <div className="divOptionPets buttonEditPet">
             <button
               className="deletePetButton"
-              onClick={(e) => deletePet(e)}
+              onClick={(e) => {editPet(e);
+                setPetMenu(data.idMascota);
+
+              }}
               value={data.idMascota}
             >
               Editar mascota
             </button>
+
             <br></br>
             <button
               className="deletePetButton buttonDeletePet"
               onClick={(e) => {
                 deletePet(e);
-                setPetMenu(data.idMascota)
+                setPetMenu(data.idMascota);
               }}
               value={data.idMascota}
             >
               Eliminar mascota
             </button>
             {dialog === true ? (
-              <DeletePetDialog deletePet={deletePet} idMascota={petMenu} />
+              <DeletePetDialog
+                deletePet={deletePet}
+                idMascota={petMenu}
+                update={setupdate}
+              />
             ) : (
               <p> </p>
             )}
@@ -166,6 +180,7 @@ export default function DataViewLazyDemo(props) {
 
   return products ? (
     <div className="mascotasDiv">
+      {editPetDialog === true ? <EditPetDialog idMascota={petMenu} /> : <p></p>}
       {products.length > 0 ? (
         <div className="dataview-demo">
           <UploadBase64 dataInput={products}></UploadBase64>

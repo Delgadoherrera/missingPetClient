@@ -84,7 +84,7 @@ export default function ReactFinalFormDemo() {
     setFormData(data);
     setShowMessage(true);
 
-    /*     form.restart(); */
+    form.restart();
   };
 
   useEffect(
