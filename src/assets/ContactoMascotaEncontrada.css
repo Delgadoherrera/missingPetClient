@@ -72,7 +72,10 @@
 
 .sendMsg {
   position: relative !important;
+  margin-top: 10px;
   margin-left: 20px !important;
+  top: 30px;
+
 }
 .dialogButtons {
   position: relative !important;
