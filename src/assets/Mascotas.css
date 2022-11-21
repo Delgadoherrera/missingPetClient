@@ -113,12 +113,11 @@
 }
 
 .tituloMisMascotas {
-  margin-top: 50px;
+  margin-top: 70px;
   padding: 20px;
   text-align: center;
   font-size: 24px;
-  /*   background-color: rgba(216, 211, 204, 0.47);
- */
+
 }
 .imgMascotas {
   object-fit: cover !important;
@@ -137,11 +136,9 @@
   background-color: rgba(255, 255, 255, 0.222);
 }
 .detalleMascota {
+  margin-top: 10px !important;
   margin-bottom: 30px;
-  /*   background-color: rgba(216, 211, 204, 0.218);
- */
   border-radius: 40px;
-  padding: 50px;
   text-align: center;
   width: 300px !important;
 }
@@ -183,6 +180,7 @@
     margin: auto;
     position: relative;
     right: 120px;
+    padding: 20px;
   }
   .optionPets {
     margin-bottom: 0;
