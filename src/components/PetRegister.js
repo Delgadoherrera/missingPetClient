@@ -122,6 +122,7 @@ export default function ReactFinalFormDemo() {
     };
 
     const onSubmit = (data, form) => {
+
         let newData = {
             ...data,
             id: localStorage.id,
@@ -131,7 +132,7 @@ export default function ReactFinalFormDemo() {
 
         setDataReady(true)
 
-        /* form.restart(); */
+        form.restart(); 
     };
 
 

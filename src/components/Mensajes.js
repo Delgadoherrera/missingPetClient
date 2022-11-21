@@ -80,7 +80,7 @@ export default function Mensajes() {
               type="button"
               label={` Mensaje de: ${one}`}
               icon="pi pi-users"
-              className="p-button-warning mensajesButton" /* badge="1" */
+              className="mensajesButton" /* badge="1" */
               badgeClassName="p-badge-danger"
               aria-label={one}
               value={idUnicos[index]}

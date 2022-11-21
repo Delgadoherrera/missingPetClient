@@ -1,0 +1,6 @@
+.imgEncontradaDialog {
+  width: 100%;
+  height: 100%;
+  margin: auto !important;
+  object-fit: contain;
+}

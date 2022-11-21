@@ -1,98 +1,96 @@
 .divMsg {
-    background-color: rgba(19, 18, 18, 0.993);
-    margin-top: 60px;
-    padding: 30px;
-    height: 91vh !important;
-
-    /*     background-color: red; */
+  background-color: rgba(19, 18, 18, 0.993);
+  margin-top: 60px;
+  padding: 30px;
+  height: 91vh !important;
+  position: relative !important;
+  text-align: center !important;
 }
 
 .formChat {
-    background-color: black;
-    height: auto;
-    width: 100%;
-    color: white;
-    /*     background-color: blue; */
-    position: fixed;
-    bottom: 47px;
-    right: 0px !important;
-    z-index: 10;
-    top: 0%;
-
+  background-color: black;
+  height: auto;
+  width: 100%;
+  color: white;
+  position: fixed;
+  bottom: 47px;
+  right: 0px !important;
+  z-index: 10;
+  top: 0%;
 }
 
-
-
 .writeAMessage {
-    position: relative;
-    top: 98.5% !important;
-    width: 100%;
-    height: 50px;
-    border-radius: 10px;
-    border: 1px;
-    border-top: 14px;
-    border-color: blacks !important;
-    border: solid;
-
+  position: relative;
+  top: 98.5% !important;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px;
+  border-top: 14px;
+  border-color: blacks !important;
+  border: solid;
 }
 
 .bg-sky-70 {
-    background-color: rgba(211, 188, 177, 0.295);
-    border-radius: 10px;
-    padding: 20px;
-    color: white;
-    width: fit-content;
+  background-color: rgba(211, 188, 177, 0.295);
+  border-radius: 10px;
+  padding: 20px;
+  color: white;
+  width: fit-content;
 }
 
 .spanName {
-    margin-right: 5px;
-    font-size: 20px;
-
+  margin-right: 5px;
+  font-size: 20px;
 }
 
 .volverChat {
-    color: white;
-    font-size: 60px;
-    z-index: 50;
+  color: white;
+  font-size: 60px;
+  z-index: 50;
 }
 
 .chatMsgContainer {
-    overflow: auto;
-    margin-right: 20px;
-    display: block;
-    height: 70vh;
-    overflow-y: scroll;
-    scroll-behavior: smooth;
-
+  overflow: auto;
+  margin-right: 20px;
+  display: block;
+  height: 70vh;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 
 .pi-backward {
-    color: white !important;
-    font-size: 20px !important;
-    margin-left: 90% !important;
+  color: white !important;
+  font-size: 20px !important;
+  margin-left: 90% !important;
 }
 
 .spanNameUser {
-    background-color: red;
+  background-color: red;
 }
 
 .chattingWith {
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    color: black;
-    width: fit-content;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  color: black;
+  width: fit-content;
 }
 
 .backToMessages {
-    font-size: 25px;
-    background-color: rgba(255, 255, 255, 0.889);
-    color: black;
-    text-align: center;
-    padding: 5%;
+  font-size: 25px;
+  background-color: rgba(255, 255, 255, 0.889);
+  color: black;
+  text-align: center;
+  padding: 5%;
+  border-radius: 40px;
 }
-.contactoMensajesInfo{
-    text-align: center;
-    color:white;
-    font-size: 25px;
+.contactoMensajesInfo {
+  text-align: center;
+  color: white;
+  font-size: 25px;
+}
+
+.mensajesButton {
+  position: relative !important;
 }
