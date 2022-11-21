@@ -3,15 +3,6 @@
     height: 100%;
     /*   background-color: transparent !important; */
 }
-
-
-
-.p-dialog-header {
-    border-radius: 200% !important;
-
-
-}
-
 .fotoMascota {
     width: 200px;
     object-fit: contain;
@@ -21,18 +12,6 @@
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23) !important;
 }
 
-/* .p-dialog-content {
-    visibility: hidden;
-    display: none;
-}
- */
-
-
-
-
-.p-dialog-header {
-    border-radius: 1% !important;
-}
 
 .p-dialog-visible {
     background-color: rgba(0, 0, 0, 0.274) !important;

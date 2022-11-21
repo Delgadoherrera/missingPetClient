@@ -32,7 +32,6 @@ export default function GoogleMapComponent(props) {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       function (position) {
-        // console.log(position);
         setState({
           longitude: position.coords.longitude,
           latitude: position.coords.latitude,
@@ -58,7 +57,6 @@ export default function GoogleMapComponent(props) {
 
     markers[index] = { lat, lng };
     setMarkers(markers);
-    console.log(markers)
     let finalPosition = {
       lat: lat,
       lng: lng
@@ -76,7 +74,6 @@ export default function GoogleMapComponent(props) {
       lat: state.latitude,
       lng: state.longitude
     }}
-      onClick={(e) => console.log("Clicked")}
       draggable={true}
       onDragend={(t, map, coord) => onMarkerDragEnd(coord, key, markers)}
     />

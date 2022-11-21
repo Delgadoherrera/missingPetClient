@@ -28,7 +28,6 @@ export default function ReactFinalFormDemo() {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       function (position) {
-        // console.log(position);
         setState({
           longitude: position.coords.longitude,
           latitude: position.coords.latitude,
@@ -85,7 +84,6 @@ export default function ReactFinalFormDemo() {
   };
 
   const onSubmit = (data, form) => {
-    console.log("data from petRegister", data);
     if (sendLocation.length > 0) {
       let newData = {
         ...data,
@@ -120,8 +118,7 @@ export default function ReactFinalFormDemo() {
     setBase64({
       base64Data: btoa(binaryString),
     });
-    /*     console.log('binary', binaryString)
-            console.log('bota', btoa(binaryString)) */
+
   };
 
   const handleFile = (e) => {
@@ -155,8 +152,7 @@ export default function ReactFinalFormDemo() {
   const sendLocation = [];
 
   const locationUpdate = (g) => {
-    /*         console.log('petFound', e)
-     */ let data = {
+ let data = {
       latitude: g.lat,
       longitude: g.lng,
     };
@@ -191,7 +187,6 @@ export default function ReactFinalFormDemo() {
           setUploaded(true);
           return <BottomNavigation status={uploaded} />;
         } else if (response.status !== 200) {
-          console.log("error");
         }
       });
   };

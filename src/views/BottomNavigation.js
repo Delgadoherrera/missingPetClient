@@ -19,8 +19,6 @@ export default function LabelBottomNavigation({ status, datos }) {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    /*  console.log('evento de entrada:', event) */
-
   };
 
 

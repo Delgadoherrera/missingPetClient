@@ -71,7 +71,7 @@ export default function ReactFinalFormDemo() {
                 },
                 body: JSON.stringify({ user: formData })
             }).then((res) => {
-                console.log(res)
+
                 if (res.data === 'invalid password' || res.data === 'No se encuentra el email') {
 
                     return setLogError(!logError)

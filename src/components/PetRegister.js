@@ -122,8 +122,6 @@ export default function ReactFinalFormDemo() {
     };
 
     const onSubmit = (data, form) => {
-        console.log('submit')
-
         let newData = {
             ...data,
             id: localStorage.id,

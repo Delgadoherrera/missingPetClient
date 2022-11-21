@@ -138,8 +138,9 @@
 }
 .detalleMascota {
   margin-bottom: 30px;
-/*   background-color: rgba(216, 211, 204, 0.218);
- */  border-radius: 40px;
+  /*   background-color: rgba(216, 211, 204, 0.218);
+ */
+  border-radius: 40px;
   padding: 50px;
   text-align: center;
   width: 300px !important;
@@ -172,17 +173,26 @@
     height: 180px !important;
   }
   .buttonLost {
-    margin-right: 50px !important;
+    margin-right: 250px !important;
+    position: relative;
+    right: 150px;
     margin-bottom: 0 !important;
   }
   .detalleMascota {
     width: 70% !important;
     margin: auto;
+    position: relative;
+    right: 120px;
   }
   .optionPets {
     margin-bottom: 0;
     margin-top: 0;
     position: relative;
+  }
+  .deletePetButton {
+    font-size: 18px;
+    position: relative;
+    right: 40px;
   }
 }
 

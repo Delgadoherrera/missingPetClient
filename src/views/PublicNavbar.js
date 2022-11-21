@@ -23,7 +23,6 @@ function ResponsiveAppBar() {
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const [selected, setSelected] = React.useState(null);
 
-    console.log(selected)
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);

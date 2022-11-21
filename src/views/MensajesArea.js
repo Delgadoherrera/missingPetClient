@@ -13,12 +13,10 @@ export default function App({ idReceptor, updateComponent, nombreEmisario }) {
   useEffect(() => {
     getAllMsg.getMessages(localStorage.id, idReceptor).then(data => {
       setAllMsg(data);
-      console.log('chatData:', data)
     });
 
   }, [messages]);
 
-  console.log(allMsg, 'All message for chat view')
 
   useEffect(() => {
     const receiveMessage = (message) => {
@@ -46,7 +44,6 @@ export default function App({ idReceptor, updateComponent, nombreEmisario }) {
   const backToMessages = () => {
     updateComponent()
   }
-  console.log('message', message)
 
   return (
     <div className="divAllMesages">

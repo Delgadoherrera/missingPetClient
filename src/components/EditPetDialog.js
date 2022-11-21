@@ -3,6 +3,7 @@ import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.css";
 import "primeflex/primeflex.css";
 import "../assets/DeletePetDialog.css";
+import "../assets/EditPetDialog.css";
 
 import React, { useState } from "react";
 import { Dialog } from "primereact/dialog";
@@ -14,6 +15,7 @@ export default function DialogDemo({
   idMascota,
   update,
   petToEdit,
+  killDialog,
 }) {
   const [displayBasic, setDisplayBasic] = useState(true);
   const [displayBasic2, setDisplayBasic2] = useState(false);
@@ -52,11 +54,12 @@ export default function DialogDemo({
 
   const onHide = (name) => {
     dialogFuncMap[`${name}`](false);
-    deletePet();
   };
 
   const renderHeader = (e) => {
-    return <PetEdit petToEdit={petToEdit} />;
+    return (
+      <PetEdit petToEdit={petToEdit} update={update} killDialog={killDialog} />
+    );
   };
 
   const renderFooter = (name) => {
@@ -81,11 +84,11 @@ export default function DialogDemo({
 
   return (
     <Dialog
+      closable={false}
       header={renderHeader}
       headerClassName="headerDialogEditPet"
-      position="center"
+      position="top"
       visible={displayBasic}
-      footer={renderFooter("displayBasic")}
       onHide={() => onHide("displayBasic")}
       className="editPetDialog"
       contentClassName="contentEditPetDialog"

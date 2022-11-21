@@ -35,10 +35,8 @@ function ResponsiveAppBar() {
   };
 
   const handleCloseNavMenu = (event) => {
-    /*  console.log(event.currentTarget.ariaLabel) */
     setOptSelected(event.currentTarget.ariaLabel);
     setAnchorElNav(null);
-    /*         console.log('clic') */
   };
 
   const handleCloseUserMenu = (e) => {

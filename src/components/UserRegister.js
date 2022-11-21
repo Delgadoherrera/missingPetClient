@@ -25,18 +25,14 @@ export default function ReactFinalFormDemo() {
   const [state, setState] = useState({ base64Data: null });
 
   const handleReaderLoaded = (e) => {
-    console.log("file uploaded 2: ", e);
     let binaryString = e.target.result;
     setState({
       base64Data: btoa(binaryString),
     });
-    /*     console.log('binary', binaryString)
-        console.log('bota', btoa(binaryString)) */
+
   };
 
   const handleFile = (e) => {
-    /*     console.log(e.target.files[0]) */
-    console.log("file uploaded: ", e.target.files[0]);
     let file = e.target.files[0];
 
     if (file) {
@@ -47,7 +43,6 @@ export default function ReactFinalFormDemo() {
 
     setFile(state);
   };
-  console.log("state", state);
 
   const validate = (data) => {
     let errors = {};
@@ -98,7 +93,6 @@ export default function ReactFinalFormDemo() {
   function firstLogin() {
     const sendData = async () => {
       if (formData === undefined) {
-        console.log("es undefined");
       } else if (formData !== "") {
         await axios
           .post("https://backend.missingpets.art/user/register", {
@@ -107,7 +101,6 @@ export default function ReactFinalFormDemo() {
             file: state,
           })
           .then((response) => {
-            console.log(response);
             if (response.data === "success") {
               axios
                 .post("https://backend.missingpets.art/user/login", formData, {
@@ -117,7 +110,6 @@ export default function ReactFinalFormDemo() {
                   body: JSON.stringify({ user: formData }),
                 })
                 .then((res) => {
-                  console.log(res);
                   if (res.data.token) {
                     login();
                     document.cookie = `token=${
@@ -143,9 +135,7 @@ export default function ReactFinalFormDemo() {
                   }
                 });
 
-              console.log("usuario creado");
             } else if (response.status !== 200) {
-              console.log("la cuenta no pudo creare ");
             }
           });
       }

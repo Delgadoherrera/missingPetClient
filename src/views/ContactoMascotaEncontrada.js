@@ -42,7 +42,6 @@ export default function MascotaPerdida({ state, idMascotaPerdida, setDialog }) {
 
         axios.post("https://backend.missingpets.art/mensajes/nuevoMensaje", msgData, {
         }).then((response) => {
-            /*     console.log(response) */
         })
         setDialog(false)
     }

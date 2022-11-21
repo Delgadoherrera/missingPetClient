@@ -10,10 +10,9 @@ import { Button } from "primereact/button";
 import { Dropdown } from "primereact/dropdown";
 import { classNames } from "primereact/utils";
 import { InputTextarea } from "primereact/inputtextarea";
-import AddAPhoto from "@mui/icons-material/AddAPhoto";
 import { BottomNavigation } from "@mui/material";
 
-export default function ReactFinalFormDemo({ petToEdit }) {
+export default function ReactFinalFormDemo({ petToEdit, update, killDialog }) {
   const [uploaded, setUploaded] = useState(false);
   const [formData, setFormData] = useState(null);
   const [file, setFile] = useState(null);
@@ -50,7 +49,7 @@ export default function ReactFinalFormDemo({ petToEdit }) {
   ];
   const sendData = async () => {
     await axios
-      .put(
+      .post(
         `https://backend.missingpets.art/mascotas/editarMascota/${petToEdit.idMascota}`,
         {
           file: state,
@@ -66,6 +65,8 @@ export default function ReactFinalFormDemo({ petToEdit }) {
       .then((response) => {
         if (response.status === 200) {
           setUploaded(true);
+          update();
+          killDialog();
           return <BottomNavigation status={uploaded} />;
         } else if (response.status !== 200) {
           console.log("error");
@@ -131,6 +132,13 @@ export default function ReactFinalFormDemo({ petToEdit }) {
     [formData]
   );
 
+  const cancel = () => {
+    <Button
+      label="Cancelar"
+      className="editPetFetchButton"
+      onClick={killDialog()}
+    />;
+  };
   const isFormFieldValid = (meta) => !!(meta.touched && meta.error);
   const getFormErrorMessage = (meta) => {
     return (
@@ -272,8 +280,13 @@ export default function ReactFinalFormDemo({ petToEdit }) {
                 />
                 <Button
                   type="submit"
-                  label="Agregar a mi mascota"
+                  label="Editar datos de mi mascota"
                   className="editPetFetchButton" /* onClick={onSubmit} */
+                />
+                <Button
+                  label="Cancelar"
+                  className="editPetFetchButton"
+                  onClick={(e) => cancel()}
                 />
               </form>
             )}

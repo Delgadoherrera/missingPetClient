@@ -34,7 +34,6 @@ export default function DataViewLazyDemo(props) {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       function (position) {
-
         setState({
           longitude: position.coords.longitude,
           latitude: position.coords.latitude,
@@ -83,21 +82,20 @@ export default function DataViewLazyDemo(props) {
 
   const editPet = (e) => {
     setEditPetDialog(!editPetDialog);
-
   };
 
   useEffect(() => {
- 
-    products !== null && editPetDialog === true ?    products.forEach((one) => {
-      if (one.idMascota === petMenu) {
-        return setPetSelected(one)
+    products !== null && editPetDialog === true ? (
+      products.forEach((one) => {
+        if (one.idMascota === petMenu) {
+          return setPetSelected(one);
         }
-    }): <p></p>
- 
-
+      })
+    ) : (
+      <p></p>
+    );
   }, [editPetDialog]);
 
-  console.log("pet selected", petSelected);
 
   const renderListItem = (data) => {
     return (
@@ -194,7 +192,16 @@ export default function DataViewLazyDemo(props) {
 
   return products ? (
     <div className="mascotasDiv">
-      {editPetDialog === true ? <EditPetDialog idMascota={petMenu} petToEdit={petSelected} /> : <p></p>}
+      {editPetDialog === true ? (
+        <EditPetDialog
+          idMascota={petMenu}
+          petToEdit={petSelected}
+          update={updateComponent}
+          killDialog={editPet}
+        />
+      ) : (
+        <p></p>
+      )}
       {products.length > 0 ? (
         <div className="dataview-demo">
           <UploadBase64 dataInput={products}></UploadBase64>
