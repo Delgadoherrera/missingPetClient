@@ -66,7 +66,7 @@ export default function App({ idReceptor, updateComponent, nombreEmisario }) {
         <ul className="chatMsgContainer">
           {allMsg.map((message, index) => (
             <li
-              key={index}
+              key={message.id}
               className={`my-2 p-2 table text-sm rounded-md ${message.idEmisor === parseInt(localStorage.id) ? "bg-sky-70 ml-auto" : "bg-black"
                 }`}
             >
