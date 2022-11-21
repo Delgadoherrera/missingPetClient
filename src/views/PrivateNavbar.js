@@ -107,8 +107,8 @@ function ResponsiveAppBar() {
               </Menu>
             </Box>
 
-{/*             <p className="tituloNavBar"> Missing pet </p>
- */}
+            {/*             <p className="tituloNavBar"> Missing pet </p>
+             */}
             <Typography
               variant="h5"
               noWrap
@@ -180,8 +180,6 @@ function ResponsiveAppBar() {
       {optSelected === "Mascotas" ? <BottomNavigation /> : <p> </p>}
       {optSelected === "Mensajes" ? <Mensajes /> : <p> </p>}
       {optSelected === "MENSAJES" ? <Mensajes /> : <p> </p>}
-      {optSelected === "Demo" ? <UploadBase64 /> : <p> </p>}
-      {optSelected === "DEMO" ? <UploadBase64 /> : <p> </p>}
       {optSelected === null ? <BottomNavigation /> : <p> </p>}
     </div>
   );
