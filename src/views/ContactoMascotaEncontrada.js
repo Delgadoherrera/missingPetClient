@@ -76,7 +76,7 @@ export default function MascotaPerdida({ state, idMascotaPerdida, setDialog }) {
         <div className="dialog-demo">
             <Dialog className='dialogMascotasPerdidas' header={
                 <div>
-                    <p className='textoBusqueda'> Haz encontrado una mascota! </p>
+                    <p className='textoBusqueda'> Has encontrado una mascota! </p>
                   
 
                 </div>
