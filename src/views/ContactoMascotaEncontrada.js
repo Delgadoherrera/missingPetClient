@@ -80,7 +80,9 @@ export default function MascotaPerdida({ state, idMascotaPerdida, setDialog }) {
                   
 
                 </div>
-            } visible={displayPosition} /* footer={renderFooter('displayPosition')} */ position={position} onHide={() => onHide('displayBasic')} style={{ width: '90vw' }}
+            }   
+            contentClassName="contactoMascotaDialog"
+             visible={displayPosition} /* footer={renderFooter('displayPosition')} */ position={position} onHide={() => onHide('displayBasic')} style={{ width: '90vw' }}
                 draggable={false} resizable={false}>
                 <Form onSubmit={sendMessage} initialValues={{ msg: '' }} render={({ handleSubmit }) => (
                     <form onSubmit={handleSubmit} className="formContainer">

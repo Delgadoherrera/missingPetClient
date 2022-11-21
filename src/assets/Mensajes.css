@@ -82,7 +82,7 @@
   background-color: rgba(255, 255, 255, 0.889);
   color: black;
   text-align: center !important;
-  padding: 5%;
+  padding: 1.5%;
   border-radius: 40px;
 }
 .contactoMensajesInfo {
@@ -91,6 +91,11 @@
   font-size: 25px;
 }
 
-.mensajesButton {
-  position: relative !important;
+.mensajesDiv {
+  width: 100% !important;
+  background-color: white;
+}
+.mensajesButton{
+  width: 300px!important;
+  padding: 40px !important;
 }

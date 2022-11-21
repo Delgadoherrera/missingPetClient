@@ -74,14 +74,14 @@ export default function Mensajes() {
       )}
       {filteredMessages.map((one, index) => {
         return (
-          <div>
+          <div className="mensajesDiv">
             <Button
               key={one.id}
               type="button"
               label={` Mensaje de: ${one}`}
               icon="pi pi-users"
               className="mensajesButton" /* badge="1" */
-              badgeClassName="p-badge-danger"
+              badgeClassName="mensajesButton"
               aria-label={one}
               value={idUnicos[index]}
               onClick={(e) => {

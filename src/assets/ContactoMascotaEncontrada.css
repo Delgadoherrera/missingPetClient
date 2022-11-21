@@ -75,7 +75,6 @@
   margin-top: 10px;
   margin-left: 20px !important;
   top: 30px;
-
 }
 .dialogButtons {
   position: relative !important;
@@ -101,9 +100,26 @@
   flex-direction: column;
 }
 
-@media screen and (min-width: 1400px) {
-}
-
 .p-dialog-content {
   height: 50px !important;
+}
+
+@media screen and (min-width: 620px) {
+  .contactoMascotaDialog {
+    width: 100%;
+  }
+  .dialogMascotasPerdidas {
+    width: 50% !important;
+    height: 570px !important;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .contactoMascotaDialog {
+    width: 100%;
+  }
+  .dialogMascotasPerdidas {
+    width: 30% !important;
+    height: 570px !important;
+  }
 }
