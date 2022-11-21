@@ -7,9 +7,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { DataView } from "primereact/dataview";
 import { MascotasService } from "../services/MascotasService";
 import MascotaPerdida from "../views/MascotaPerdidaDialog";
-import { Button } from "primereact/button";
 import MascotaEncontrada from "../views/MascotaEcontradaDialog";
-import UploadBase64 from "../views/UploadBase64";
 import DeletePetDialog from "./DeletePetDialog";
 import EditPetDialog from "./EditPetDialog";
 
@@ -204,7 +202,6 @@ export default function DataViewLazyDemo(props) {
       )}
       {products.length > 0 ? (
         <div className="dataview-demo">
-          <UploadBase64 dataInput={products}></UploadBase64>
           <div className="card viewCardMyPets">
             <DataView
               value={products}

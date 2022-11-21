@@ -14,8 +14,6 @@ import MenuItem from "@mui/material/MenuItem";
 import BottomNavigation from "../views/BottomNavigation";
 import { useAuthContext } from "../contexts/authContext";
 import Mensajes from "../components/Mensajes";
-import UploadBase64 from "../views/UploadBase64";
-
 const pages = ["Mascotas", "Mensajes", "Demo"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
