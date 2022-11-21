@@ -219,7 +219,7 @@ export default function DataViewLazyDemo(props) {
           {" "}
           <p className="textEmptyPets">
             {" "}
-            Aun no haz cargado ninguna mascota. En la barra de navegacion
+            Aun no has cargado ninguna mascota. En la barra de navegacion
             inferior podras encontrar la seccion para cargar el perfil de tus
             mascotas.
           </p>
