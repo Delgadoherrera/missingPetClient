@@ -76,6 +76,7 @@ export default function Mensajes() {
         return (
           <div>
             <Button
+              key={one.id}
               type="button"
               label={` Mensaje de: ${one}`}
               icon="pi pi-users"
