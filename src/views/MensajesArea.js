@@ -1,22 +1,20 @@
 import { useEffect, useState } from "react";
 import io from "socket.io-client";
-import { MensajesService } from '../services/MensajesService'
+import { MensajesService } from "../services/MensajesService";
 
-const socket = io('/')
+const socket = io("/", { transports: ["websocket"] });
 
 export default function App({ idReceptor, updateComponent, nombreEmisario }) {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
-  const [allMsg, setAllMsg] = useState([])
+  const [allMsg, setAllMsg] = useState([]);
 
-  const getAllMsg = new MensajesService()
+  const getAllMsg = new MensajesService();
   useEffect(() => {
-    getAllMsg.getMessages(localStorage.id, idReceptor).then(data => {
+    getAllMsg.getMessages(localStorage.id, idReceptor).then((data) => {
       setAllMsg(data);
     });
-
   }, [messages]);
-
 
   useEffect(() => {
     const receiveMessage = (message) => {
@@ -38,13 +36,13 @@ export default function App({ idReceptor, updateComponent, nombreEmisario }) {
     };
     setMessages([newMessage, ...messages]);
     setMessage("");
-    console.log(newMessage)
+    console.log(newMessage);
     socket.emit("message", newMessage.body, localStorage.id, idReceptor);
   };
 
   const backToMessages = () => {
-    updateComponent()
-  }
+    updateComponent();
+  };
 
   return (
     <div className="divAllMesages">
@@ -60,20 +58,38 @@ export default function App({ idReceptor, updateComponent, nombreEmisario }) {
           autoFocus
         />
 
-        <p className="backToMessages" onClick={(e) => updateComponent()}> Volver a mensajes  </p>
-
+        <p className="backToMessages" onClick={(e) => updateComponent()}>
+          {" "}
+          Volver a mensajes{" "}
+        </p>
 
         <ul className="chatMsgContainer">
           {allMsg.map((message, index) => (
             <li
               key={message.id}
-              className={`my-2 p-2 table text-sm rounded-md ${message.idEmisor === parseInt(localStorage.id) ? "bg-sky-70 ml-auto" : "bg-black"
-                }`}
+              className={`my-2 p-2 table text-sm rounded-md ${
+                message.idEmisor === parseInt(localStorage.id)
+                  ? "bg-sky-70 ml-auto"
+                  : "bg-black"
+              }`}
             >
-
-              {message.idEmisor === parseInt(localStorage.id) ? <p> <span className="spanName"> {localStorage.name}:</span> {message.mensaje}</p> : <p> </p>}
-              {message.idEmisor !== parseInt(localStorage.id) ? <p className="chattingWith"><span className="spanName"> {nombreEmisario}: </span> {message.mensaje} </p> : <p> </p>}
-
+              {message.idEmisor === parseInt(localStorage.id) ? (
+                <p>
+                  {" "}
+                  <span className="spanName"> {localStorage.name}:</span>{" "}
+                  {message.mensaje}
+                </p>
+              ) : (
+                <p> </p>
+              )}
+              {message.idEmisor !== parseInt(localStorage.id) ? (
+                <p className="chattingWith">
+                  <span className="spanName"> {nombreEmisario}: </span>{" "}
+                  {message.mensaje}{" "}
+                </p>
+              ) : (
+                <p> </p>
+              )}
             </li>
           ))}
         </ul>
