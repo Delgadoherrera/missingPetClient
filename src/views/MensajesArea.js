@@ -69,8 +69,8 @@ export default function App({ idReceptor, updateComponent, nombreEmisario }) {
               key={message.id}
               className={`my-2 p-2 table text-sm rounded-md ${
                 message.idEmisor === parseInt(localStorage.id)
-                  ? "bg-sky-70 ml-auto"
-                  : "bg-black"
+                  ? "bg-sky-70 ml-auto conversationSpan"
+                  : "bg-black conversationNotMe"
               }`}
             >
               {message.idEmisor === parseInt(localStorage.id) ? (

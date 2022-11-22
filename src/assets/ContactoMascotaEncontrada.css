@@ -82,13 +82,12 @@
 }
 
 .textArea {
-  margin-top: 40px !important;
+  margin-top: 5px !important;
   width: 100% !important;
   height: 120px !important;
 }
 
 .photoAttachPetFound {
-  margin-top: 30px;
   font-size: 18px;
   text-align: center;
   color: #9ea0a1;
@@ -102,6 +101,11 @@
 
 .p-dialog-content {
   height: 50px !important;
+}
+.petFoundedPhoto {
+  margin: auto !important;
+  font-size: 50px !important;
+ margin-top: 10px !important;
 }
 
 @media screen and (min-width: 620px) {

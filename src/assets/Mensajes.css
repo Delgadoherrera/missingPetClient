@@ -10,7 +10,7 @@
 .formChat {
   background-color: black;
   height: auto;
-  width: 100%;
+  width:100%;
   color: white;
   position: fixed;
   bottom: 47px;
@@ -52,11 +52,13 @@
 
 .chatMsgContainer {
   overflow: auto;
-  margin-right: 20px;
+  margin-right: 10px;
   display: block;
-  height: 70vh;
+  height: 100vh;
   overflow-y: scroll;
   scroll-behavior: smooth;
+  width: 100%;
+  margin: auto !important;
 }
 
 .pi-backward {
@@ -84,6 +86,9 @@
   text-align: center !important;
   padding: 1.5%;
   border-radius: 40px;
+  margin-top: 0 !important;
+  position: relative;
+  bottom: 40px !important;
 }
 .contactoMensajesInfo {
   text-align: center;
@@ -93,9 +98,24 @@
 
 .mensajesDiv {
   width: 100% !important;
-  background-color: white;
 }
-.mensajesButton{
-  width: 300px!important;
-  padding: 40px !important;
+.mensajesButton {
+  width: 100% !important;
+}
+
+@media screen and (min-width: 1200px) {
+  .mensajesButton {
+    width: 70% !important;
+    margin-bottom: 5px;
+  }
+  .formChat{
+    width: 30%;
+  }
+}
+.conversationSpan {
+  margin-right: 20px !important;
+}
+.conversationNotMe {
+  position: relative!;
+  
 }
