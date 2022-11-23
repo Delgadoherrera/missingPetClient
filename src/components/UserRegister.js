@@ -29,7 +29,6 @@ export default function ReactFinalFormDemo() {
     setState({
       base64Data: btoa(binaryString),
     });
-
   };
 
   const handleFile = (e) => {
@@ -67,6 +66,9 @@ export default function ReactFinalFormDemo() {
 
     if (!data.password) {
       errors.password = "Password is required.";
+    }
+    if (data.password !== data.confirmPassword){
+      errors.password = 'Ambas contraseñas deben ser iguales.'
     }
 
     if (!data.accept) {
@@ -134,7 +136,6 @@ export default function ReactFinalFormDemo() {
                     );
                   }
                 });
-
             } else if (response.status !== 200) {
             }
           });
@@ -350,6 +351,35 @@ export default function ReactFinalFormDemo() {
                           })}
                         >
                           Contraseña*
+                        </label>
+                      </span>
+                      {getFormErrorMessage(meta)}
+                    </div>
+                  )}
+                />
+                <Field
+                  name="confirmPassword"
+                  render={({ input, meta }) => (
+                    <div className="field">
+                      <span className="p-float-label">
+                        <Password
+                          autoComplete="on"
+                          id="confirmPassword"
+                          {...input}
+                          toggleMask
+                          className={classNames({
+                            "p-invalid": isFormFieldValid(meta),
+                          })}
+                          header={passwordHeader}
+                          footer={passwordFooter}
+                        />
+                        <label
+                          htmlFor="confirmPassword"
+                          className={classNames({
+                            "p-error": isFormFieldValid(meta),
+                          })}
+                        >
+                          Ingrese nuevamente su contraseña*
                         </label>
                       </span>
                       {getFormErrorMessage(meta)}
