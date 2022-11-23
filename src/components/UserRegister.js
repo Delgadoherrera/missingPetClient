@@ -47,32 +47,32 @@ export default function ReactFinalFormDemo() {
     let errors = {};
 
     if (!data.name) {
-      errors.name = "Name is required.";
+      errors.name = "Nombre es requerido.";
     }
 
     if (!data.telefono) {
-      errors.name = "Phone is required.";
+      errors.telefono = "Número de telefono es requerido.";
     }
 
     if (!data.apellido) {
-      errors.name = "Lastname is required.";
+      errors.apellido = "Apellido es requerido.";
     }
 
     if (!data.email) {
-      errors.email = "Email is required.";
+      errors.email = "Email es requerido.";
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(data.email)) {
-      errors.email = "Invalid email address. E.g. example@email.com";
+      errors.email = "Email invalido, Ej:  ejemplo@email.com";
     }
 
     if (!data.password) {
-      errors.password = "Password is required.";
+      errors.password = "La contraseña es requerida.";
     }
     if (data.password !== data.confirmPassword){
       errors.password = 'Ambas contraseñas deben ser iguales.'
     }
 
     if (!data.accept) {
-      errors.accept = "You need to agree to the terms and conditions.";
+      errors.accept = "Debes aceptar los términos y condiciones.";
     }
 
     return errors;
