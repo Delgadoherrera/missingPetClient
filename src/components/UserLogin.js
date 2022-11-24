@@ -79,6 +79,7 @@ export default function ReactFinalFormDemo() {
                 if (res.data.token) {
                     login()
                     document.cookie = `token=${res.data.token}; max-age=${3600}; path=/; samesite-strict `
+                    windows.localStorage.setItem('authKey', res.data.token)
                     window.localStorage.setItem('id', res.data.dataUser.id);
                     window.localStorage.setItem('name', res.data.dataUser.nombre);
                     window.localStorage.setItem('lastName', res.data.dataUser.apellido);
