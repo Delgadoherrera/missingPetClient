@@ -6,7 +6,7 @@ export class MascotasService {
             method: "GET",
             withCredentials: true,
             headers: {
-                "X-Auth-Token": localStorage.authKey,
+                "x-access-token": localStorage.authKey,
                 "Content-Type": "application/json"
               }
         }).then(res => res.json()).then(d => d.data);
