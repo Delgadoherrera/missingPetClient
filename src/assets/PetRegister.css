@@ -5,9 +5,26 @@
 .newPetButton {
   margin: auto !important;
   width: 100px !important;
+  position: relative;
+  bottom: 60px !important;
 }
 .photoIconNewPet {
   position: relative !important;
-  font-size: 60px !important;
-  left: 90px !important;
+  font-size: 35px !important;
+  left: 110px !important;
+  bottom: 37px;
+}
+@media screen and (min-width: 1200px) {
+  .addNewPetForm {
+    margin-top: 40px;
+  }
+  .newPetButton {
+    bottom: 40px !important;
+  }
+}
+
+.newPetText {
+  position: relative;
+  bottom: 25px;
+  text-align: center;
 }

@@ -94,7 +94,6 @@ export default function DataViewLazyDemo(props) {
     );
   }, [editPetDialog]);
 
-
   const renderListItem = (data) => {
     return (
       <div className="col-12 cardDataMyPets">
@@ -103,7 +102,7 @@ export default function DataViewLazyDemo(props) {
             className="imgMascotas"
             src={`data:image/jpeg;base64,${data.fotoMascota}`}
           />
-          <div className="product-list-detail">
+          <div className="mascotasDetailContainer">
             <div className="detalleMascota">
               <div className="product-name">{data.nombre}</div>
               <div className="product-description petDescription">
@@ -122,19 +121,19 @@ export default function DataViewLazyDemo(props) {
               </span>
             </div>
           </div>
-          {data.status === 1 ? (
-            <MascotaEncontrada
-              idMascotaPerdida={data}
-              update={updateComponent}
-            />
-          ) : (
-            <MascotaPerdida
-              update={updateComponent}
-              idMascotaPerdida={data}
-              state={state}
-            />
-          )}
-          <div className="divOptionPets buttonEditPet">
+          <div className="optionButtonMyPets">
+            {data.status === 1 ? (
+              <MascotaEncontrada
+                idMascotaPerdida={data}
+                update={updateComponent}
+              />
+            ) : (
+              <MascotaPerdida
+                update={updateComponent}
+                idMascotaPerdida={data}
+                state={state}
+              />
+            )}
             <button
               className="deletePetButton"
               onClick={(e) => {
@@ -157,6 +156,9 @@ export default function DataViewLazyDemo(props) {
             >
               Eliminar mascota
             </button>
+          </div>
+
+          <div className="divOptionPets buttonEditPet">
             {dialog === true ? (
               <DeletePetDialog
                 deletePet={deletePet}

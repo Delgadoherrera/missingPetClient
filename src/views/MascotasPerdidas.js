@@ -6,6 +6,7 @@ import { Button } from "primereact/button";
 import "../assets/MascotasPerdidas.css";
 import ContactoMascotaEncontrada from "./ContactoMascotaEncontrada";
 import axios from "axios";
+import photoBack from '../assets/img/allpets.jpg'
 
 export default function MascotasPerdidas() {
   const [mascotas, setMascotas] = useState([]);
@@ -125,6 +126,7 @@ export default function MascotasPerdidas() {
                 Peso aproximado: {data.pesoAproximado}
               </span>
             </div>
+
             <div className="car-buttons mt-5">
               {data.status === 3 ? (
                 <Button
@@ -144,20 +146,24 @@ export default function MascotasPerdidas() {
                   setDialog={contactPetFounded}
                   idMascotaPerdida={petDetail}
                 />
+                
               ) : (
                 <p></p>
               )}
             </div>
           </div>
         </div>
+      
       </div>
+    
     );
+  
   };
 
   return mascotas ? (
     <div>
       {mascotas.length > 0 ? (
-        <div className="carousel-demo">
+        <div className="carousel-demo carouselPets">
           <div className="card">
             <Carousel
               value={mascotas}
@@ -170,6 +176,11 @@ export default function MascotasPerdidas() {
               itemTemplate={dataTemplate}
             />
           </div>
+          <div className="divImageBack">
+          <img className="photoBack" src={photoBack} />
+          </div>
+      
+        
         </div>
       ) : (
         <p>
@@ -180,5 +191,6 @@ export default function MascotasPerdidas() {
     </div>
   ) : (
     <p> </p>
+  
   );
 }

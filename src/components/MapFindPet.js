@@ -28,10 +28,12 @@ const GoogleMapComponent = (props) => {
   ];
   let [markers, setMarkers] = useState(markersList);
   const mapStyles = {
-    width: "80vw",
-    height: "30vh",
+    width: "98vw",
+    height: "20vh",
     margin: "auto",
     position: "relative",
+    marginTop: '1px',
+    borderRadius: '40px'
   };
 
   let onMarkerDragEnd = (coord, index, markers) => {

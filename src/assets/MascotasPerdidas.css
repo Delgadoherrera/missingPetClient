@@ -62,3 +62,21 @@
 .p-button-rounded {
   border-radius: 8px !important;
 }
+.photoBack {
+  display: none;
+}
+
+@media screen and (min-width: 1200px) {
+  .carouselPets {
+    margin-top: 100px;
+    padding: 10px;
+  }
+  .photoBack {
+    display: block;
+    width: 100vw !important;
+    height: 250px;
+    object-fit: cover;
+    opacity: 30%;
+    zoom: 100%;
+  }
+}

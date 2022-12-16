@@ -1,3 +1,18 @@
+/* CSS HEX 
+--tea-green: #c5dca0ff;
+--cotton-candy: #fec9f1ff;
+--blue-jeans: #60afffff;
+--orange-red-crayola: #fe5f55ff;
+--rich-black-fogra-39: #040404ff;
+--*/
+
+/* CSS HEX 
+--pink-lavender: #cdb4dbff;
+--orchid-pink: #ffc8ddff;
+--nadeshiko-pink: #ffafccff;
+--uranian-blue: #bde0feff;
+--baby-blue-eyes: #a2d2ffff; */
+
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Roboto:wght@100&display=swap");
 
 body {
@@ -29,6 +44,10 @@ button {
 .css-1uwgr7b-MuiTypography-root {
   font-family: "Dosis", sans-serif;
 }
-.MuiButtonBase-root{
+.MuiButtonBase-root {
   font-family: "Dosis", sans-serif !important;
+}
+
+html {
+  margin-top: 55px !important;
 }
